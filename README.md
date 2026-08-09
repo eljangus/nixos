@@ -252,6 +252,8 @@ some honorable mentions:
 - [*Stalkingwolf*](https://github.com/Stalkingwolf23-glitch/nixos-dotfiles)
 - [*Aria*](https://codeberg.org/princearia/nixos)
 - [*sam*](https://github.com/samiser/nix-configs)
+- [*Pengo*](https://forge.pengo.uk/pengo/nixos)
+- [*LucasOe*](https://forge.pengo.uk/pengo/nixos)
 
 ---
 
