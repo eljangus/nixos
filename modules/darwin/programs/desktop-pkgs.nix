@@ -5,6 +5,9 @@
     environment.systemPackages = with pkgs; [
       # core
       tack
+
+      # media
+      vesktop
     ];
   };
 }
