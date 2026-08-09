@@ -252,7 +252,7 @@ Big thanks to the people in the **#nixos** channel of the [**Noctalia Discord**]
 - [*Aria*](https://codeberg.org/princearia/nixos)
 - [*sam*](https://github.com/samiser/nix-configs)
 - [*Pengo*](https://forge.pengo.uk/pengo/nixos)
-- [*LucasOe*](https://forge.pengo.uk/pengo/nixos)
+- [*LucasOe*](https://github.com/LucasOe/nixos-config)
 
 ---
 
