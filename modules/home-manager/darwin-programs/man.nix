@@ -3,5 +3,5 @@
   pkgs,
   ...
 }: {
-    programs.man.generateCaches = false;
+  programs.man.generateCaches = false;
 }
