@@ -244,9 +244,8 @@ Before the first switch you'd need to:
 
 ## 💜 Credits
 
-Big thanks to the people in the **#nixos** channel of the
-[**Noctalia Discord**](https://github.com/noctalia-dev/noctalia-shell)
-some honorable mentions:
+Big thanks to the people in the **#nixos** channel of the [**Noctalia Discord**](https://github.com/noctalia-dev/noctalia-shell), some honorable mentions:
+
 - [*onoruu*](https://onoruu.neocities.org/)
 - [*Stella*](https://github.com/iStellanova/stellyrland)
 - [*Stalkingwolf*](https://github.com/Stalkingwolf23-glitch/nixos-dotfiles)
