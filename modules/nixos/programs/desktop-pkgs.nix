@@ -23,6 +23,7 @@
       mangohud
       heroic
       prismlauncher
+      r2modman
 
       # web
       chromium
