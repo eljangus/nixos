@@ -1,14 +1,16 @@
 {
+  osConfig,
   lib,
-  pkgs,
   ...
 }: {
-  programs.nh = {
-    enable = true;
-    clean = {
+  config = lib.mkIf osConfig.myModules.home-manager.programs.nh.enable {
+    programs.nh = {
       enable = true;
-      dates = "weekly";
-      extraArgs = "--keep 5";
+      clean = {
+        enable = true;
+        dates = "weekly";
+        extraArgs = "--keep 5";
+      };
     };
   };
 }

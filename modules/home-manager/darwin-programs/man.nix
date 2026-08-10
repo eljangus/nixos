@@ -1,7 +1,9 @@
 {
+  osConfig,
   lib,
-  pkgs,
   ...
 }: {
-  programs.man.generateCaches = false;
+  config = lib.mkIf osConfig.myModules.home-manager.programs.man.enable {
+    programs.man.generateCaches = false;
+  };
 }

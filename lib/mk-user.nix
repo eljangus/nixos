@@ -7,7 +7,6 @@
     "networkmanager"
     "wheel"
   ],
-  hmModules ? [],
 }: {
   config,
   lib,
@@ -54,7 +53,7 @@ in {
     users.${name} = {
       imports =
         [(self + "/modules/home-manager/common-programs")]
-        ++ hmModules;
+        ++ lib.optional isDarwin (self + "/modules/home-manager/darwin-programs");
 
       home = {
         inherit stateVersion homeDirectory;

@@ -9,10 +9,6 @@
       (import (self + "/lib/mk-user.nix") {
         name = "elias";
         host = "mac";
-        hmModules = [
-          (self + "/modules/home-manager/mac-elias")
-          (self + "/modules/home-manager/darwin-programs")
-        ];
       })
     ]
     ++ importTree ./.;

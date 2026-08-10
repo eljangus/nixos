@@ -9,7 +9,7 @@
     importTree = import ./lib/import-tree.nix {inherit lib;};
     specialArgs = {inherit inputs self importTree;};
     commonModules = [
-      ./modules/common
+      ./modules/system/common
       {home-manager.extraSpecialArgs = {inherit inputs self importTree;};}
     ];
     mkSystem = hostname: system:
@@ -20,7 +20,7 @@
           ++ [
             {nixpkgs.hostPlatform = system;}
             ./hosts/${hostname}
-            ./modules/nixos
+            ./modules/system/nixos
             inputs.home-manager.nixosModules.home-manager
           ];
       };
@@ -32,7 +32,7 @@
           ++ [
             {nixpkgs.hostPlatform = system;}
             ./hosts/${hostname}
-            ./modules/darwin
+            ./modules/system/darwin
             inputs.home-manager.darwinModules.home-manager
           ];
       };
