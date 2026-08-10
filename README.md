@@ -84,18 +84,20 @@ nh darwin switch .#mac # macos
 │   └── mk-user.nix
 ├── modules
 │   ├── home-manager
-│   │   ├── common-programs
+│   │   ├── common
 │   │   │   ├── default.nix
 │   │   │   ├── fish.nix
 │   │   │   ├── git.nix
 │   │   │   ├── nvf.nix
-│   │   │   ├── starship.nix
-│   │   │   └── xdg.nix
-│   │   └── darwin-programs
+│   │   │   └── starship.nix
+│   │   ├── darwin
+│   │   │   ├── default.nix
+│   │   │   ├── man.nix
+│   │   │   ├── nh.nix
+│   │   │   └── tack.nix
+│   │   └── nixos
 │   │       ├── default.nix
-│   │       ├── man.nix
-│   │       ├── nh.nix
-│   │       └── tack.nix
+│   │       └── xdg.nix
 │   └── system
 │       ├── common
 │       │   ├── home-manager
@@ -120,6 +122,8 @@ nh darwin switch .#mac # macos
 │       │   ├── default.nix
 │       │   └── options.nix
 │       └── nixos
+│           ├── home-manager
+│           │   └── options.nix
 │           ├── programs
 │           │   ├── dconf.nix
 │           │   ├── desktop-pkgs.nix
@@ -197,7 +201,8 @@ Modules are toggled through a single option namespace, declared in:
 `modules/common/options.nix` for the shared modules,
 `modules/nixos/options.nix` for the Linux-only ones,
 `modules/darwin/options.nix` for the Darwin-only ones,
-`modules/system/darwin/home-manager` for Darwin-only home-manager modules
+`modules/system/nixos/home-manager` for the Linux-only home-manager modules,
+`modules/system/darwin/home-manager` for Darwin-only home-manager modules,
 `modules/system/common/home-manager` for the shared home-manager modules:
 
 ```nix

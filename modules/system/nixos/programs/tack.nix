@@ -4,6 +4,9 @@
   ...
 }: {
   config = lib.mkIf config.myModules.programs.tack.enable {
-    programs.tack.enable = true;
+    programs.tack = {
+      enable = true;
+      nixConfTokens = true;
+    };
   };
 }

@@ -52,8 +52,9 @@ in {
 
     users.${name} = {
       imports =
-        [(self + "/modules/home-manager/common-programs")]
-        ++ lib.optional isDarwin (self + "/modules/home-manager/darwin-programs");
+        [(self + "/modules/home-manager/common")]
+        ++ lib.optional isDarwin (self + "/modules/home-manager/darwin")
+        ++ lib.optional (!isDarwin) (self + "/modules/home-manager/nixos");
 
       home = {
         inherit stateVersion homeDirectory;

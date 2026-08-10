@@ -7,10 +7,9 @@
     homebrew = {
       enable = true;
       onActivation = {
-        autoUpdate = true;
         cleanup = "zap";
-        extraFlags = ["--force-cleanup"];
-        upgrade = true;
+        autoUpdate = false;
+        upgrade = false;
       };
     };
   };
