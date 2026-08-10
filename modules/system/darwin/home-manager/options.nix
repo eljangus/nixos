@@ -5,13 +5,13 @@ in {
     programs = {
       man.enable = lib.mkEnableOption "manpage configuration";
       nh.enable = lib.mkEnableOption "enable nix helper";
-      tack.enable = lib.mkEanbleOption "enable tack home.sessionVariable";
+      tack.enable = lib.mkEnableOption "enable tack home.sessionVariable";
     };
   };
 
   config.myModules.home-manager = {
     programs = {
-      xdg = enabled;
+      man = enabled;
       nh = enabled;
       tack = enabled;
     };

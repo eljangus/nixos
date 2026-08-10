@@ -1,12 +1,9 @@
 {
   osConfig,
-  inputs,
   lib,
   pkgs,
   ...
 }: {
-  imports = [inputs.nvf.homeManagerModules.default];
-
   config = lib.mkIf osConfig.myModules.home-manager.programs.nvf.enable {
     programs.nvf = {
       enable = true;

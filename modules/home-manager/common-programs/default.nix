@@ -1,3 +1,6 @@
-{importTree, ...}: {
+{
+  importTree,
+  ...
+}: {
   imports = importTree ./.;
 }

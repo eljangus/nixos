@@ -10,7 +10,6 @@ in {
     system = {
       fonts.enable = lib.mkEnableOption "fonts";
       nix.enable = lib.mkEnableOption "nix settings and configuration, such as enabling flakes and allowing unfree packages";
-      time.enable = lib.mkEnableOption "timezone";
     };
   };
 
@@ -23,7 +22,6 @@ in {
     system = {
       fonts = enabled;
       nix = enabled;
-      time = enabled;
     };
   };
 }

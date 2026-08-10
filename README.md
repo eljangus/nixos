@@ -57,10 +57,6 @@ nh darwin switch .#mac # macos
 
 ```
 .
-├── .tack
-│   ├── default.nix
-│   ├── pins.lock.json
-│   └── pins.toml
 ├── assets
 │   └── screenshots
 │       ├── 1.png
@@ -87,75 +83,76 @@ nh darwin switch .#mac # macos
 │   ├── import-tree.nix
 │   └── mk-user.nix
 ├── modules
-│   ├── common
-│   │   ├── programs
-│   │   │   ├── common-pkgs.nix
-│   │   │   └── fish.nix
-│   │   ├── system
-│   │   │   ├── fonts.nix
-│   │   │   └── nix.nix
-│   │   ├── default.nix
-│   │   └── options.nix
-│   ├── darwin
-│   │   ├── programs
-│   │   │   ├── desktop-pkgs.nix
-│   │   │   └── omniwm.nix
-│   │   ├── system
-│   │   │   ├── homebrew.nix
-│   │   │   └── touchid.nix
-│   │   ├── default.nix
-│   │   └── options.nix
 │   ├── home-manager
 │   │   ├── common-programs
 │   │   │   ├── default.nix
 │   │   │   ├── fish.nix
 │   │   │   ├── git.nix
 │   │   │   ├── nvf.nix
-│   │   │   └── starship.nix
-│   │   ├── darwin-programs
-│   │   │   ├── default.nix
-│   │   │   ├── man.nix
-│   │   │   └── nh.nix
-│   │   ├── elias
-│   │   │   ├── default.nix
+│   │   │   ├── starship.nix
 │   │   │   └── xdg.nix
-│   │   └── mac-elias
+│   │   └── darwin-programs
 │   │       ├── default.nix
-│   │       └── home.nix
-│   └── nixos
-│       ├── programs
-│       │   ├── dconf.nix
-│       │   ├── desktop-pkgs.nix
-│       │   ├── firefox.nix
-│       │   ├── gamescope.nix
-│       │   ├── gpu-screen-recorder.nix
-│       │   ├── nh.nix
-│       │   ├── steam.nix
-│       │   └── tack.nix
-│       ├── system
-│       │   ├── desktops
-│       │   │   ├── gnome.nix
-│       │   │   ├── hyprland.nix
-│       │   │   ├── niri.nix
-│       │   │   ├── plasma6.nix
-│       │   │   └── sddm.nix
-│       │   ├── overlays
-│       │   │   ├── glaze.nix
-│       │   │   ├── qt6ct-kde.nix
-│       │   │   ├── sddm-astronaut.nix
-│       │   │   └── swash.nix
-│       │   ├── amdgpu.nix
-│       │   ├── boot.nix
-│       │   ├── environment.nix
-│       │   ├── hardware.nix
-│       │   ├── locale.nix
-│       │   ├── openssh.nix
-│       │   ├── polkit.nix
-│       │   ├── services.nix
-│       │   ├── time.nix
-│       │   └── xkb.nix
-│       ├── default.nix
-│       └── options.nix
+│   │       ├── man.nix
+│   │       ├── nh.nix
+│   │       └── tack.nix
+│   └── system
+│       ├── common
+│       │   ├── home-manager
+│       │   │   └── options.nix
+│       │   ├── programs
+│       │   │   ├── common-pkgs.nix
+│       │   │   └── fish.nix
+│       │   ├── system
+│       │   │   ├── fonts.nix
+│       │   │   └── nix.nix
+│       │   ├── default.nix
+│       │   └── options.nix
+│       ├── darwin
+│       │   ├── home-manager
+│       │   │   └── options.nix
+│       │   ├── programs
+│       │   │   ├── desktop-pkgs.nix
+│       │   │   └── omniwm.nix
+│       │   ├── system
+│       │   │   ├── homebrew.nix
+│       │   │   └── touchid.nix
+│       │   ├── default.nix
+│       │   └── options.nix
+│       └── nixos
+│           ├── programs
+│           │   ├── dconf.nix
+│           │   ├── desktop-pkgs.nix
+│           │   ├── firefox.nix
+│           │   ├── gamescope.nix
+│           │   ├── gpu-screen-recorder.nix
+│           │   ├── nh.nix
+│           │   ├── steam.nix
+│           │   └── tack.nix
+│           ├── system
+│           │   ├── desktops
+│           │   │   ├── gnome.nix
+│           │   │   ├── hyprland.nix
+│           │   │   ├── niri.nix
+│           │   │   ├── plasma6.nix
+│           │   │   └── sddm.nix
+│           │   ├── overlays
+│           │   │   ├── glaze.nix
+│           │   │   ├── qt6ct-kde.nix
+│           │   │   ├── sddm-astronaut.nix
+│           │   │   └── swash.nix
+│           │   ├── amdgpu.nix
+│           │   ├── boot.nix
+│           │   ├── environment.nix
+│           │   ├── hardware.nix
+│           │   ├── locale.nix
+│           │   ├── openssh.nix
+│           │   ├── polkit.nix
+│           │   ├── services.nix
+│           │   ├── time.nix
+│           │   └── xkb.nix
+│           ├── default.nix
+│           └── options.nix
 ├── patches
 │   └── qt6ct-shenanigans.patch
 ├── systems
@@ -167,6 +164,10 @@ nh darwin switch .#mac # macos
 │   └── Mac
 │       ├── default.nix
 │       └── modules.nix
+├── .tack
+│   ├── default.nix
+│   ├── pins.lock.json
+│   └── pins.toml
 └── flake.nix
 ```
 
@@ -188,15 +189,16 @@ nh darwin switch .#mac # macos
 
 ### The platforms are split 
 
-`modules/common` is imported by both `nixosSystem` and `darwinSystem`;
-`modules/nixos` and `modules/darwin` only by their own.
+`modules/system/common` is imported by both `nixosSystem` and `darwinSystem`, `modules/system/nixos` and `modules/system/darwin` only by their own. `modules/home-manager` holds the respective home-manager modules.
 
 ### Options
 
 Modules are toggled through a single option namespace, declared in:
 `modules/common/options.nix` for the shared modules,
-`modules/nixos/options.nix` for the Linux-only ones and
-`modules/darwin/options.nix` for the Darwin-only ones:
+`modules/nixos/options.nix` for the Linux-only ones,
+`modules/darwin/options.nix` for the Darwin-only ones,
+`modules/system/darwin/home-manager` for Darwin-only home-manager modules
+`modules/system/common/home-manager` for the shared home-manager modules:
 
 ```nix
 # example
@@ -204,6 +206,7 @@ myModules = {
   desktop = "niri";
   system.overlays.enable = true;
   programs.gpu-screen-recorder.enable = true;
+  home-manager.programs.git.enable = false;
 };
 ```
 Every modules is a lib.mkIf statement, therefore to use a module importing it is not enough, it would also have to be enabled. for options see the respective options.nix file.

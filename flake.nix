@@ -10,7 +10,10 @@
     specialArgs = {inherit inputs self importTree;};
     commonModules = [
       ./modules/system/common
-      {home-manager.extraSpecialArgs = {inherit inputs self importTree;};}
+      {
+        home-manager.extraSpecialArgs = {inherit importTree;};
+        home-manager.sharedModules = [inputs.nvf.homeManagerModules.default];
+      }
     ];
     mkSystem = hostname: system:
       lib.nixosSystem {

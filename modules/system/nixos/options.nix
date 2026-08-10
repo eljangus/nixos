@@ -35,6 +35,7 @@ in {
       openrgb.enable = lib.mkEnableOption "OpenRGB";
       openssh.enable = lib.mkEnableOption "enable openssh";
       polkit.enable = lib.mkEnableOption "polkit wrapper";
+      time.enable = lib.mkEnableOption "enable time related configurations";
       udev.enable = lib.mkEnableOption "udev rules";
       xkb.enable = lib.mkEnableOption "xkb to de";
 
@@ -61,8 +62,6 @@ in {
     };
   };
 
-  # opt-in, set per host: gamescope, gpu-screen-recorder,
-  # openrgb, polkit, udev, overlays
   config.myModules = {
     programs = {
       dconf = enabled;
@@ -82,6 +81,7 @@ in {
         locale = enabled;
         openssh = enabled;
         xkb = enabled;
+        time = enabled;
       }
       // {
         overlays = lib.genAttrs overlayNames (_: {
