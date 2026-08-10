@@ -9,9 +9,6 @@
       # core
       tack
 
-      # media
-      vesktop
-
       # theming
       pywalfox-native
     ];
