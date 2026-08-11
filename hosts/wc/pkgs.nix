@@ -18,7 +18,6 @@
     osu-lazer-bin
 
     # theming
-    pywalfox-native
     nwg-look
     adw-gtk3
 

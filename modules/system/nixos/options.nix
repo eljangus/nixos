@@ -18,7 +18,6 @@ in {
     programs = {
       dconf.enable = lib.mkEnableOption "dconf";
       desktop-pkgs.enable = lib.mkEnableOption "enable desktop packages";
-      firefox.enable = lib.mkEnableOption "Firefox";
       gamescope.enable = lib.mkEnableOption "Gamescope";
       gpu-screen-recorder.enable = lib.mkEnableOption "GPU Screen Recorder";
       nh.enable = lib.mkEnableOption "nh";
@@ -66,7 +65,6 @@ in {
     programs = {
       dconf = enabled;
       desktop-pkgs = enabled;
-      firefox = enabled;
       nh = enabled;
       steam = enabled;
       tack = enabled;

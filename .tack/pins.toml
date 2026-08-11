@@ -16,3 +16,7 @@ follows = { nixpkgs = "nixpkgs" }
 [inputs.nix-darwin]
 url = "github:nix-darwin/nix-darwin"
 follows = { nixpkgs = "nixpkgs" }
+
+[inputs.zen-browser]
+url = "github:youwen5/zen-browser-flake"
+follows = { nixpkgs = "nixpkgs" }

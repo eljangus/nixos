@@ -11,7 +11,7 @@
         videoViewer = "mpv.desktop";
         audioViewer = "org.gnome.Decibels.desktop";
         fileViewer = "org.gnome.Nautilus.desktop";
-        browser = "firefox.desktop";
+        browser = "zen.desktop";
         textEditor = "codium.desktop";
         chromium = "chromium.desktop";
       in {
