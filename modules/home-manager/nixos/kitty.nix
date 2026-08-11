@@ -38,12 +38,7 @@
     };
 
     xdg.configFile = {
-      "kitty/themes/Dunkel.conf".source = ./_files/kitty/themes/Dunkel.conf;
-      "kitty/themes/Hell.conf".source = ./_files/kitty/themes/Hell.conf;
-      "kitty/themes/Matugen.conf".source = ./_files/kitty/themes/Matugen.conf;
-      "kitty/themes/Rot.conf".source = ./_files/kitty/themes/Rot.conf;
-      "kitty/themes/Wallust.conf".source = ./_files/kitty/themes/Wallust.conf;
-      "kitty/Gruvbox Dark.conf".source = ./_files/kitty/gruvbox-dark.conf;
+      "kitty/themes/placeholder.conf".source = ./_files/kitty/themes/placeholder.conf;
     };
   };
 }
