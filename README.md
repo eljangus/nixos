@@ -221,7 +221,8 @@ nh darwin switch .#mac # macos
 │   ├── default.nix
 │   ├── pins.lock.json
 │   └── pins.toml
-└── flake.nix```
+└── flake.nix
+```
 
 </details>
 
