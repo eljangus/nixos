@@ -228,13 +228,14 @@ nh darwin switch .#mac # macos
 
 **short:**
 
-| Directory        | What lives there                                              |
-| :--------------: | :-----------------------------------------------------------: |
-| `hosts/`         | Per-desktop entry points, which modules, which packages       |
-| `systems/`       | Per-machine hardware, networking, machine-wide toggles        |
-| `modules/`       | The actual configuration, split by platform                   |
-| `lib/`           | `import-tree` and `mk-user`, two helpful libraries            |
-| `.tack/`         | Input pins, the real lockfile replacing flake.lock            | 
+| Directory              | What lives there                                              |
+| :--------------------: | :-----------------------------------------------------------: |
+| `hosts/`               | Per-desktop entry points, which modules, which packages       |
+| `systems/`             | Per-machine hardware, networking, machine-wide toggles        |
+| `modules/`             | The actual configuration, split by platform                   |
+| `modules/home-manager` | The actual home-manager modules, split by platform            |
+| `lib/`                 | `import-tree` and `mk-user`, two helpful libraries            |
+| `.tack/`               | Input pins, the real lockfile replacing flake.lock            | 
 
 ---
 

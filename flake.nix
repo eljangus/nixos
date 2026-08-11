@@ -50,7 +50,7 @@
     };
 
     darwinConfigurations = {
-      mac = mkDarwin "mac" "aarch64-darwin"; # example for once I get around to setting up nix-darwin, soon to come, not used yet
+      mac = mkDarwin "mac" "aarch64-darwin";
     };
   };
 }
