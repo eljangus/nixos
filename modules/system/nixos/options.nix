@@ -23,6 +23,7 @@ in {
       nh.enable = lib.mkEnableOption "nh";
       steam.enable = lib.mkEnableOption "Steam";
       tack.enable = lib.mkEnableOption "tack";
+      zen.enable = lib.mkEnableOption "zen browser";
     };
 
     system = {
@@ -68,6 +69,7 @@ in {
       nh = enabled;
       steam = enabled;
       tack = enabled;
+      zen = enabled;
     };
 
     system =

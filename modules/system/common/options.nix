@@ -5,7 +5,6 @@ in {
     programs = {
       common-pkgs.enable = lib.mkEnableOption "common pkgs";
       fish.enable = lib.mkEnableOption "Fish shell";
-      zen.enable = lib.mkEnableOption "zen browser";
     };
 
     system = {
@@ -18,7 +17,6 @@ in {
     programs = {
       common-pkgs = enabled;
       fish = enabled;
-      zen = enabled;
     };
 
     system = {
