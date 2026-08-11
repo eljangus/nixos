@@ -4,8 +4,6 @@
   pkgs,
   ...
 }: let
-  # Config picker: like the global find_files default (hidden + ignored files),
-  # but skips the assets dir at the repo root.
   configFindFiles = "require('telescope.builtin').find_files({ cwd = '~/nixos', follow = true, find_command = { '${pkgs.fd}/bin/fd', '--type=file', '--hidden', '--no-ignore', '--exclude', '/assets' } })";
 in {
   config = lib.mkIf osConfig.myModules.home-manager.programs.nvf.enable {
@@ -41,7 +39,6 @@ in {
           clipboard = {
             enable = true;
             registers = "unnamedplus";
-            # wl-copy is Wayland-only; macOS uses pbcopy/pbpaste natively
             providers.wl-copy.enable = pkgs.stdenv.hostPlatform.isLinux;
           };
 
@@ -314,14 +311,12 @@ in {
               silent = true;
               desc = "Buffer mit F4 schliessen";
             }
-            # <leader>ff overrides the global default to search WITHOUT hidden/ignored files
             {
               key = "<leader>ff";
               mode = "n";
               action = "<cmd>lua require('telescope.builtin').find_files({ hidden = false, no_ignore = false, find_command = { '${pkgs.fd}/bin/fd', '--type=file' } })<CR>";
               desc = "Datei suchen (ohne versteckte Dateien)";
             }
-            # <leader>fh searches WITH hidden files enabled
             {
               key = "<leader>fh";
               mode = "n";

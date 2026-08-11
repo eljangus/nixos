@@ -3,9 +3,9 @@
     "type": "github",
     "owner": "nix-community",
     "repo": "home-manager",
-    "rev": "7834e82588860aaf780cec1366524456a70898d7",
-    "narHash": "sha256-TIDlLTLI1/pB7IqgjzcKQjpODQsZE2oII4XGG9B6KjI=",
-    "lastModified": 1786031233
+    "rev": "c30c7955cec30d664a9baced6bc0112e263d4647",
+    "narHash": "sha256-ou8fYz5w9yhXC8YbvvExybFIa19MyW5G/8dEPqa90hM=",
+    "lastModified": 1786356609
   },
   "nix-darwin": {
     "type": "github",
@@ -17,17 +17,17 @@
   },
   "nixpkgs": {
     "type": "tarball",
-    "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1049422.f13ff45afd1b/nixexprs.tar.xz",
-    "rev": "f13ff45afd1bb73e640eaa08a7066dbed07e3238",
-    "narHash": "sha256-CgKDSHL6rqAAQkkvg1xaZDQXb77+4XW73iGcUMJ+2w0="
+    "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1051473.2fcb964de67f/nixexprs.tar.xz",
+    "rev": "2fcb964de67fcf60b43471c55d5d99e61a9ccb5a",
+    "narHash": "sha256-OETwiymkMwunF+pfL25DzLMF2/YpMcJUjVd9qZ0YdsM="
   },
   "nvf": {
     "type": "github",
     "owner": "notashelf",
     "repo": "nvf",
-    "rev": "64cbd0ffea1a76dc0248528985e1c8ee711fae99",
-    "narHash": "sha256-E7WXL/pYNph1ChKv4BixI9Pev6osdJL43322uZqLw5w=",
-    "lastModified": 1785857293
+    "rev": "a213644cadd5f90bf18b0c409f08f282b30e55e3",
+    "narHash": "sha256-rbOp2g0UCYt+evTnCGCKBQGqSMfwX4RTXneNbeHqOAk=",
+    "lastModified": 1786433999
   },
   "swash": {
     "type": "github",

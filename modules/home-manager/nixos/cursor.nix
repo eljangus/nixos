@@ -21,7 +21,7 @@ in {
       enable = true;
       gtk.enable = true;
       x11.enable = true;
-      name = "cute-cursor";
+      name = "bunny-cursor";
       size = 24;
       package = bunny-cursor;
     };
