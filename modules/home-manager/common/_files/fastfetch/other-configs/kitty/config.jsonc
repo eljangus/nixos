@@ -1,0 +1,64 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "type": "file",
+        "source": "~/.config/fastfetch/other-configs/kitty/cat.txt"
+    },
+  "display": {
+    "constants": [
+      ". "
+    ],
+    "key": {
+      "width": 11
+    },
+  },
+  "modules": [
+    {
+      "type": "title",
+      "format": "{user-name-colored}{#light_red}@{host-name-colored} {#}{cwd}"
+    },
+    {
+      "type": "colors",
+      "key": "Colors",
+      "symbol": "circle",
+      "keyColor": "cyan",
+    },
+    {
+      "type": "os",
+      "key": "Distro",
+      "keyColor": "red",
+    },
+    {
+      "type": "kernel",
+      "key": "Kernel",
+      "keyColor": "green",
+    },
+    {
+      "type": "uptime",
+      "key": "Uptime",
+      "keyColor": "yellow",
+    },
+    {
+      "type": "disk",
+      "key": "OS Age",
+      "folders": "/",
+      "format": "{create-time:10} [{days} days]",
+      "keyColor": "blue",
+    },
+    {
+      "type": "packages",
+      "key": "Packages",
+      "keyColor": "magenta",
+    },
+    {
+      "type": "shell",
+      "key": "Shell",
+      "keyColor": "cyan",
+    },
+    {
+      "type": "wm",
+      "key": "Desktop",
+      "keyColor": "red",
+    },
+  ],
+}

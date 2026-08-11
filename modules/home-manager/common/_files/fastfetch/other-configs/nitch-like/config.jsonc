@@ -1,0 +1,126 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "auto",
+    "width": 1,
+    "height": 1,
+    "padding": {
+      "top": 0,
+      "left": 1
+    }
+  },
+  "display": {
+    "separator": " "
+  },
+  "modules": [
+    "break",
+    "break",
+    {
+      "key": "╭───────────╮",
+      "keyColor": "1;1",
+      "type": "custom"
+    },
+    {
+      "key": "{#39}│ {#31}  {#39}User   {#39}│",
+      "keyColor": "31;1",
+      "outputColor": "31;1",
+      "type": "title",
+      "format": "{user-name}"
+    },
+    {
+      "key": "{#39}│ {#32}󰇅  {#39}Hname  {#39}│",
+      "keyColor": "32;1",
+      "outputColor": "32;1",
+      "type": "title",
+      "format": "{host-name}"
+    },
+    {
+      "key": "{#39}│ {#33}{icon}  {#39}Distro {#39}│",
+      "keyColor": "33;1",
+      "outputColor": "33;1",
+      "type": "os",
+      "format": "{3}"
+    },
+
+    {
+      "key": "{#39}│ {#34}󰅐  {#39}Uptime {#39}│",
+      "keyColor": "34;1",
+      "outputColor": "34;1",
+      "type": "uptime",
+      "format": "{2}h {3}m"
+    },
+    {
+      "type": "command",
+      "key": "{#39}│ {#35}󰃭  {#39}OS Age {#39}│",
+      "keyColor": "35;1",
+      "outputColor": "35;1",
+      "text": "echo $(( ($(date +%s) - $(stat -c %W /)) / 86400 )) days"
+    },
+    {
+      "key": "{#39}│ {#36}  {#39}Kernel {#39}│",
+      "keyColor": "36;1",
+      "outputColor": "36;1",
+      "type": "kernel",
+      "format": "{1} {2}"
+    },
+    {
+      "key": "{#39}│ {#31}  {#39}Pkgs   {#39}│",
+      "keyColor": "31;1",
+      "outputColor": "31;1",
+      "type": "packages"
+    },
+    {
+      "key": "{#39}│ {#32}󰇄  {#39}DE     {#39}│",
+      "keyColor": "32;1",
+      "outputColor": "32;1",
+      "type": "de",
+      "format": "{2}"
+    },
+    {
+      "key": "{#39}│ {#33}󰖲  {#39}WM     {#39}│",
+      "keyColor": "33;1",
+      "outputColor": "33;1",
+      "type": "wm",
+      "format": "{1} {5}"
+    },
+    {
+      "key": "{#39}│ {#34}  {#39}Term   {#39}│",
+      "keyColor": "34;1",
+      "outputColor": "34;1",
+      "type": "terminal",
+      "format": "{1} {6}"
+    },
+    {
+      "key": "{#39}│ {#35}  {#39}Shell  {#39}│",
+      "keyColor": "35;1",
+      "outputColor": "35;1",
+      "type": "shell",
+      "format": "{1} {4}"
+    },
+    {
+      "key": "{#39}│ {#36}  {#39}Memory {#39}│",
+      "keyColor": "36;1",
+      "outputColor": "36;1",
+      "type": "memory",
+      "format": "{1}  {2}"
+    },
+    {
+      "key": "├───────────┤",
+      "keyColor": "1;1",
+      "type": "custom"
+    },
+    {
+      "key": "{#39}│ {#39}  {#39}colors {#39}│",
+      "keyColor": "1;1",
+      "type": "colors",
+      "symbol": "circle"
+    },
+    {
+      "key": "╰───────────╯",
+      "keyColor": "1;1",
+      "type": "custom"
+    },
+    "break",
+    "break",
+  ]
+}

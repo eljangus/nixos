@@ -5,7 +5,6 @@
     ];
     systemPackages = with pkgs; [
       # core
-      kitty
       kdePackages.oxygen
       kdePackages.kamera
 

@@ -3,8 +3,12 @@
 in {
   options.myModules.home-manager = {
     programs = {
+      btop.enable = lib.mkEnableOption "enable btop configuration";
+      cava.enable = lib.mkEnableOption "enable cava configuration";
+      fastfetch.enable = lib.mkEnableOption "enable fastfetch configuration";
       fish.enable = lib.mkEnableOption "enable fish configuration";
       git.enable = lib.mkEnableOption "enable git configuration";
+      kitty.enable = lib.mkEnableOption "enable kitty configuration";
       nvf.enable = lib.mkEnableOption "enable nvf configuration";
       starship.enable = lib.mkEnableOption "enable starship configuration";
     };
@@ -12,6 +16,9 @@ in {
 
   config.myModules.home-manager = {
     programs = {
+      btop = enabled;
+      cava = enabled;
+      fastfetch = enabled;
       fish = enabled;
       git = enabled;
       nvf = enabled;

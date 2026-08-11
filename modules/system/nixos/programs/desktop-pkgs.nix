@@ -32,8 +32,6 @@
       gimp
 
       # fun
-      cava
-      btop
       asciiquarium-transparent
       cbonsai
       unimatrix

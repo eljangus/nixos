@@ -1,0 +1,143 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "source": "~/.config/fastfetch/other-configs/bunnyfetch/bunnyascii.txt",
+    "width": 1,
+    "height": 1,
+    "color": { "1": "magenta" },
+    "padding": {
+      "top": 0,
+      "left": 1
+    }
+  },
+  "display": {
+    "separator": "    ",
+    "percent": {
+      "type": ["num", "bar", "bar-monochrome"]
+    },
+    "bar": {
+      "char": { "elapsed": "●", "total": "○" },
+      "border": null,
+      "width": 18
+    }
+  },
+  "modules": [
+    {
+      "keyColor": "35;1",
+      "outputColor": "35;1",
+      "type": "title",
+      "format": "✿ {user-name}@{host-name} ✿"
+    },
+    {
+      "keyColor": "34;1",
+      "outputColor": "34;1",
+      "type": "custom",
+      "format": "✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦"
+    },
+    {
+      "key": "{icon} Burrow OS       ",
+      "keyColor": "34;1",
+      "outputColor": "1;1",
+      "type": "os",
+      "format": "{3}"
+    },
+    {
+      "key": "󰅐 Hoptime         ",
+      "keyColor": "34;1",
+      "outputColor": "1;1",
+      "type": "uptime",
+      "format": "{2}h {3}m"
+    },
+    {
+      "key": " Warren kernel   ",
+      "keyColor": "34;1",
+      "outputColor": "1;1",
+      "type": "kernel",
+      "format": "{1} {2}"
+    },
+    {
+      "key": " Carrot stash    ",
+      "keyColor": "34;1",
+      "outputColor": "1;1",
+      "type": "packages"
+    },
+    {
+      "key": "󰇄 Cozy den        ",
+      "keyColor": "34;1",
+      "outputColor": "1;1",
+      "type": "de",
+      "format": "{2}"
+    },
+    {
+      "key": "󰖲 Blank Burrow    ",
+      "keyColor": "34;1",
+      "outputColor": "1;1",
+      "type": "wm",
+      "format": "{1} {5}"
+    },
+    {
+      "key": " Whisker Terminal",
+      "keyColor": "34;1",
+      "outputColor": "1;1",
+      "type": "terminal",
+      "format": "{1} {6}"
+    },
+    {
+      "key": " Burrow shell    ",
+      "keyColor": "34;1",
+      "outputColor": "1;1",
+      "type": "shell",
+      "format": "{1} {4}"
+    },
+    {  
+      "key": " Bunny brains    ",
+      "keyColor": "34;1",
+      "outputColor": "1;1",
+      "type": "cpu",
+      "format": "{1} ({4} paws)"
+    },
+    {
+      "key": " Fluffy Level    ",
+      "keyColor": "34;1",
+      "outputColor": "1;1",
+      "type": "memory",
+      "format": "{4} ({1} / {2})"
+    },
+    {
+      "key": "󰋊 Burrow space    ",
+      "keyColor": "34;1",
+      "outputColor": "1;1",
+      "type": "disk",
+      "folders": "/",
+      "format": "{13} ({1} / {2})"
+    },
+    {
+      "key": " Nibble note     ",
+      "keyColor": "34;1",
+      "outputColor": "1;1",
+      "type": "custom",
+      "format": "✿ thumpthump~, bunny is awake ✿"
+    },
+    {
+      "keyColor": "34;1",
+      "outputColor": "34;1",
+      "type": "custom",
+      "format": "✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦"
+    },
+    "break",
+    {
+      "outputColor": "35;1",
+      "type": "custom",
+      "format": "♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥"
+    },
+    {
+      "type": "colors",
+      "symbol": "circle"
+    },
+    {
+      "outputColor": "35;1",
+      "type": "custom",
+      "format": "✿ thumpthump~ have a fluffy day ✿"
+    }
+  ]
+}

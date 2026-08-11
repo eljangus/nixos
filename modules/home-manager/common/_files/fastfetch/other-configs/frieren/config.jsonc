@@ -1,0 +1,157 @@
+{
+  "display": {
+    "separator": " ➜  "
+  },
+  "logo": {
+    "height": 20,
+    "padding": {
+      "left": 0,
+      "top": 1
+    },
+    "source": "~/.config/fastfetch/other-configs/frieren/frieren.png",
+    "type": "kitty",
+    "width": 26
+  },
+  "modules": [
+    "break",
+    {
+      "key": "OS   ",
+      "keyColor": "cyan",
+      "outputColor": "cyan",
+      "type": "title"
+    },
+    {
+      "key": " ├  ",
+      "keyColor": "cyan",
+      "outputColor": "cyan",
+      "type": "os"
+    },
+    {
+      "key": " ├  ",
+      "keyColor": "cyan",
+      "outputColor": "cyan",
+      "type": "kernel"
+    },
+    {
+      "key": " ├ 󰏖 ",
+      "keyColor": "cyan",
+      "outputColor": "cyan",
+      "type": "packages"
+    },
+    {
+      "key": " ├  ",
+      "keyColor": "cyan",
+      "outputColor": "cyan",
+      "type": "terminal"
+    },
+    {
+      "key": " └  ",
+      "keyColor": "cyan",
+      "outputColor": "cyan",
+      "type": "shell"
+    },
+    "break",
+    {
+      "key": "WM   ",
+      "keyColor": "blue",
+      "outputColor": "blue",
+      "type": "wm"
+    },
+    {
+      "key": " ├  ",
+      "keyColor": "blue",
+      "outputColor": "blue",
+      "text": "polybar -v | head -n 1",
+      "type": "command"
+    },
+    {
+      "key": " ├ 󰏒 ",
+      "keyColor": "blue",
+      "outputColor": "blue",
+      "text": "noctalia --version",
+      "type": "command"
+    },
+    {
+      "key": " ├  ",
+      "keyColor": "blue",
+      "outputColor": "blue",
+      "text": "dms version | cut -d'+' -f1",
+      "type": "command"
+    },
+    {
+      "key": " ├  ",
+      "keyColor": "blue",
+      "outputColor": "blue",
+      "text": "caelestia --version | awk '/caelestia-shell/ {printf \"%s v%s\\n\",$1,$2; exit}'",
+      "type": "command"
+    },
+    {
+      "key": " ├ 󰉼 ",
+      "keyColor": "blue",
+      "outputColor": "blue",
+      "type": "wmtheme"
+    },
+    {
+      "key": " ├ 󰀻 ",
+      "keyColor": "blue",
+      "outputColor": "blue",
+      "type": "icons"
+    },
+    {
+      "key": " ├  ",
+      "keyColor": "blue",
+      "outputColor": "blue",
+      "type": "cursor"
+    },
+    {
+      "key": " └  ",
+      "keyColor": "blue",
+      "outputColor": "blue",
+      "type": "terminalfont"
+    },
+    "break",
+    {
+      "format": "{5} {2}",
+      "key": "HW   ",
+      "keyColor": "dim_blue",
+      "outputColor": "dim_blue",
+      "type": "host"
+    },
+    {
+      "key": " ├  ",
+      "keyColor": "dim_blue",
+      "outputColor": "dim_blue",
+      "type": "cpu"
+    },
+    {
+      "key": " ├ 󰢮 ",
+      "keyColor": "dim_blue",
+      "outputColor": "dim_blue",
+      "type": "gpu"
+    },
+    {
+      "key": " ├  ",
+      "keyColor": "dim_blue",
+      "outputColor": "dim_blue",
+      "type": "memory"
+    },
+    {
+      "key": " ├ 󰋊 ",
+      "keyColor": "dim_blue",
+      "outputColor": "dim_blue",
+      "type": "disk"
+    },
+    {
+      "format": "{width}x{height} @ {refresh-rate} Hz",
+      "key": " └  ",
+      "keyColor": "dim_blue",
+      "outputColor": "dim_blue",
+      "type": "monitor"
+    },
+    "break",
+    {
+      "key": "   Uptime   ",
+      "type": "uptime"
+    }
+  ]
+}

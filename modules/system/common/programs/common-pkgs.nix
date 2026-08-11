@@ -11,7 +11,6 @@
       nix-search-tv
       fzf
       eza
-      fastfetch
       lazygit
       opencode
       opencode-claude-auth

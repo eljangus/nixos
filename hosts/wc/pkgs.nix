@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     # core
-    kitty
     ddcutil
     libsForQt5.qt5ct
     gnome-themes-extra
