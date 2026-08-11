@@ -85,23 +85,73 @@ nh darwin switch .#mac # macos
 ├── modules
 │   ├── home-manager
 │   │   ├── common
+│   │   │   ├── _files
+│   │   │   │   ├── cava
+│   │   │   │   │   ├── shaders
+│   │   │   │   │   │   ├── bar_spectrum.frag
+│   │   │   │   │   │   ├── eye_of_phi.frag
+│   │   │   │   │   │   ├── northern_lights.frag
+│   │   │   │   │   │   ├── pass_through.vert
+│   │   │   │   │   │   ├── spectrogram.frag
+│   │   │   │   │   │   └── winamp_line_style_spectrum.frag
+│   │   │   │   │   └── themes
+│   │   │   │   │       ├── solarized_dark
+│   │   │   │   │       └── tricolor
+│   │   │   │   ├── fastfetch
+│   │   │   │   │   ├── other-configs
+│   │   │   │   │   │   ├── bunnyfetch
+│   │   │   │   │   │   │   ├── bunnyascii.txt
+│   │   │   │   │   │   │   └── config.jsonc
+│   │   │   │   │   │   ├── frieren
+│   │   │   │   │   │   │   ├── config.jsonc
+│   │   │   │   │   │   │   └── frieren.png
+│   │   │   │   │   │   ├── kitty
+│   │   │   │   │   │   │   ├── cat.txt
+│   │   │   │   │   │   │   └── config.jsonc
+│   │   │   │   │   │   ├── nitch-like
+│   │   │   │   │   │   │   └── config.jsonc
+│   │   │   │   │   │   └── Schlosser
+│   │   │   │   │   │       └── config.jsonc
+│   │   │   │   │   └── nitch.txt
+│   │   │   │   └── starship
+│   │   │   │       └── lambda.toml
+│   │   │   ├── btop.nix
+│   │   │   ├── cava.nix
 │   │   │   ├── default.nix
+│   │   │   ├── fastfetch.nix
 │   │   │   ├── fish.nix
 │   │   │   ├── git.nix
 │   │   │   ├── nvf.nix
 │   │   │   └── starship.nix
 │   │   ├── darwin
+│   │   │   ├── _files
+│   │   │   │   └── kitty
+│   │   │   │       └── themes
+│   │   │   │           └── rose-pine.conf
 │   │   │   ├── default.nix
+│   │   │   ├── kitty.nix
 │   │   │   ├── man.nix
 │   │   │   ├── nh.nix
 │   │   │   └── tack.nix
 │   │   └── nixos
+│   │       ├── _files
+│   │       │   ├── hypr
+│   │       │   │   └── hyprland.lua
+│   │       │   ├── kitty
+│   │       │   │   └── themes
+│   │       │   │       └── placeholder.conf
+│   │       │   └── niri
+│   │       │       └── config.kdl
 │   │       ├── default.nix
+│   │       ├── gtk.nix
+│   │       ├── hyprland.nix
+│   │       ├── kitty.nix
+│   │       ├── mangohud.nix
+│   │       ├── niri.nix
+│   │       ├── qt.nix
 │   │       └── xdg.nix
 │   └── system
 │       ├── common
-│       │   ├── home-manager
-│       │   │   └── options.nix
 │       │   ├── programs
 │       │   │   ├── common-pkgs.nix
 │       │   │   └── fish.nix
@@ -109,10 +159,9 @@ nh darwin switch .#mac # macos
 │       │   │   ├── fonts.nix
 │       │   │   └── nix.nix
 │       │   ├── default.nix
+│       │   ├── hm-options.nix
 │       │   └── options.nix
 │       ├── darwin
-│       │   ├── home-manager
-│       │   │   └── options.nix
 │       │   ├── programs
 │       │   │   ├── desktop-pkgs.nix
 │       │   │   └── omniwm.nix
@@ -120,10 +169,9 @@ nh darwin switch .#mac # macos
 │       │   │   ├── homebrew.nix
 │       │   │   └── touchid.nix
 │       │   ├── default.nix
+│       │   ├── hm-options.nix
 │       │   └── options.nix
 │       └── nixos
-│           ├── home-manager
-│           │   └── options.nix
 │           ├── programs
 │           │   ├── dconf.nix
 │           │   ├── desktop-pkgs.nix
@@ -156,6 +204,7 @@ nh darwin switch .#mac # macos
 │           │   ├── time.nix
 │           │   └── xkb.nix
 │           ├── default.nix
+│           ├── hm-options.nix
 │           └── options.nix
 ├── patches
 │   └── qt6ct-shenanigans.patch
@@ -172,8 +221,7 @@ nh darwin switch .#mac # macos
 │   ├── default.nix
 │   ├── pins.lock.json
 │   └── pins.toml
-└── flake.nix
-```
+└── flake.nix```
 
 </details>
 
