@@ -28,12 +28,6 @@ in {
         package = pkgs.papirus-icon-theme;
       };
 
-      cursorTheme = {
-        name = "Bibata-Modern-Ice";
-        package = pkgs.bibata-cursors;
-        size = 24;
-      };
-
       colorScheme = "dark";
 
       gtk3 = {

@@ -16,6 +16,7 @@
       theming = {
         gtk.enable = true;
         qt.enable = true;
+        cursor.enable = true;
       };
     };
   };

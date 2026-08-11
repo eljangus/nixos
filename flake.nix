@@ -11,7 +11,7 @@
     commonModules = [
       ./modules/system/common
       {
-        home-manager.extraSpecialArgs = {inherit importTree;};
+        home-manager.extraSpecialArgs = {inherit self importTree;};
         home-manager.sharedModules = [inputs.nvf.homeManagerModules.default];
       }
     ];

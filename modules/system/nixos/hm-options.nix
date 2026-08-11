@@ -18,6 +18,7 @@ in {
     theming = {
       gtk.enable = lib.mkEnableOption "enable gtk theming";
       qt.enable = lib.mkEnableOption "enable qt5ct/qt6ct configuration";
+      cursor.enable = lib.mkEnableOption "enable kitty cursor";
     };
   };
 

@@ -3,7 +3,11 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  # Config picker: like the global find_files default (hidden + ignored files),
+  # but skips the assets dir at the repo root.
+  configFindFiles = "require('telescope.builtin').find_files({ cwd = '~/nixos', follow = true, find_command = { '${pkgs.fd}/bin/fd', '--type=file', '--hidden', '--no-ignore', '--exclude', '/assets' } })";
+in {
   config = lib.mkIf osConfig.myModules.home-manager.programs.nvf.enable {
     programs.nvf = {
       enable = true;
@@ -173,7 +177,7 @@
                   {
                     type = "button";
                     val = " Config bearbeiten";
-                    on_press = lib.generators.mkLuaInline "function() require('telescope.builtin').find_files({ cwd = '~/nixos', hidden = true, no_ignore = true, follow = true }) end";
+                    on_press = lib.generators.mkLuaInline "function() ${configFindFiles} end";
                     opts = {
                       position = "center";
                       shortcut = "c";
@@ -185,7 +189,7 @@
                       keymap = [
                         "n"
                         "c"
-                        ":lua require('telescope.builtin').find_files({ cwd = '~/nixos', hidden = true, no_ignore = true, follow = true })<CR>"
+                        ":lua ${configFindFiles}<CR>"
                         {
                           noremap = true;
                           silent = true;
