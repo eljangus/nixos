@@ -3,9 +3,9 @@
     "type": "github",
     "owner": "nix-community",
     "repo": "home-manager",
-    "rev": "f404edbfa4117810c96b97048299242fc50e5362",
-    "narHash": "sha256-ad60hrRVhH/bo3Jl1YLzO+QcS3mUNZr9LNJdzhMO2P4=",
-    "lastModified": 1786487128
+    "rev": "e13ba5e5abbd9b912fa8c6979bd119e87ca7fdd9",
+    "narHash": "sha256-PH8B1YKxedcWKNw2xsk6cKPVk/rJoLgdlWd5d+Icies=",
+    "lastModified": 1786538400
   },
   "nix-darwin": {
     "type": "github",
@@ -20,6 +20,14 @@
     "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1051473.2fcb964de67f/nixexprs.tar.xz",
     "rev": "2fcb964de67fcf60b43471c55d5d99e61a9ccb5a",
     "narHash": "sha256-OETwiymkMwunF+pfL25DzLMF2/YpMcJUjVd9qZ0YdsM="
+  },
+  "nixpkgs-unstable": {
+    "type": "github",
+    "owner": "NixOS",
+    "repo": "nixpkgs",
+    "rev": "38a4887411571457d700c51c64a6e49ead2ed5ab",
+    "narHash": "sha256-kh35kIx7el4Jk8Ki3BH9/Pn1eZYSYLJ6LMALos0zOy0=",
+    "lastModified": 1785141334
   },
   "nvf": {
     "type": "github",

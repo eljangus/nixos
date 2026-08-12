@@ -1,22 +1,20 @@
+[all_follow]
+nixpkgs = "nixpkgs"
+
 [inputs.nixpkgs]
 url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"
 
 [inputs.swash]
 url = "github:ItsLemmy/swash"
-follows = { nixpkgs = "nixpkgs" }
 
 [inputs.home-manager]
 url = "github:nix-community/home-manager"
-follows = { nixpkgs = "nixpkgs" }
 
 [inputs.nvf]
 url = "github:notashelf/nvf"
-follows = { nixpkgs = "nixpkgs" }
 
 [inputs.nix-darwin]
 url = "github:nix-darwin/nix-darwin"
-follows = { nixpkgs = "nixpkgs" }
 
 [inputs.zen-browser]
 url = "github:youwen5/zen-browser-flake"
-follows = { nixpkgs = "nixpkgs" }
