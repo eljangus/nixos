@@ -21,6 +21,7 @@
     "toolkit.telemetry.unified" = false;
     "media.ffmpeg.vaapi.enabled" = true;
     "zen.theme.content-element-separation" = 0;
+    "zen.window-sync.enabled" = false;
   };
 
   zen = pkgs.wrapFirefox zenPackages.zen-browser-unwrapped {

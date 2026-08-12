@@ -13,6 +13,8 @@ in {
         vim = {
           viAlias = true;
           vimAlias = true;
+          
+          presence.neocord.enable = true;
 
           theme = {
             enable = true;
