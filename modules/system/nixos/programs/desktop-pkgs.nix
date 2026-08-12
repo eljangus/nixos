@@ -9,7 +9,6 @@
       # core linux
       winetricks
       wine
-      python3
 
       # media
       obs-studio

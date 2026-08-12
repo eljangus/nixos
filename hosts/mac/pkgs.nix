@@ -3,7 +3,6 @@
     # core
     cava
     btop
-    python3
 
     # browser
     firefox
