@@ -311,6 +311,7 @@ Big thanks to the people in the **#nixos** channel of the [**Noctalia Discord**]
 - [*sam*](https://github.com/samiser/nix-configs)
 - [*Pengo*](https://forge.pengo.uk/pengo/nixos)
 - [*LucasOe*](https://github.com/LucasOe/nixos-config)
+- [*Hand7s*](https://github.com/s0me1newithhand7s/reNixos)
 
 ---
 
