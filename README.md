@@ -3,7 +3,8 @@
 **My personal NixOS/Nix-Darwin setup with support for multiple hosts.**
 
 Application dotfiles (niri, noctalia, fastfetch, kitty) are managed
-imperatively and live [**here**](https://github.com/eljangus/dotfiles).
+declaratively using home-manager. Though some files live withing _files
+directories within `modules/...`.
 
 <div align="center">
 
@@ -13,32 +14,32 @@ imperatively and live [**here**](https://github.com/eljangus/dotfiles).
 
 ![ss1](./assets/screenshots/1.png) ![ss2](./assets/screenshots/2.png)
 
-## 🍏 Nix-Darwin 
+## 🍏 Nix-Darwin
 
 **MacOS running OmniWM and Nix-Darwin, my university and productivity setup.**
 
 ![ss3](./assets/screenshots/3.png)
+
 </div>
 
 ---
 
 ## 🖥️ Hosts
 
-3 build the same machine, **`Apollo`**, with a different desktop and
-user bolted on top:
+3 build the same machine, **`Apollo`**, with a different desktop and user bolted
+on top:
 
-| Host    | User      | Desktop     | Purpose                                |
-| :-----: | :-------: | :---------: | :------------------------------------: |
-| `wc`    | `elias`   | Niri        | Daily driver                           |
-| `kde`   | `kdelias` | Plasma 6    | For when I want a customizable desktop |
-| `gnome` | `gelias`  | GNOME       | For when I want a good desktop OOTB    | 
+|  Host   |   User    | Desktop  |                Purpose                 |
+| :-----: | :-------: | :------: | :------------------------------------: |
+|  `wc`   |  `elias`  |   Niri   |              Daily driver              |
+|  `kde`  | `kdelias` | Plasma 6 | For when I want a customizable desktop |
+| `gnome` | `gelias`  |  GNOME   |  For when I want a good desktop OOTB   |
 
 And 1 builds on my MacBook Pro, **`Mac`**, with MacOS running OmniWM:
 
-| Host    | User      | Desktop     | Purpose                                |
-| :-----: | :-------: | :---------: | :------------------------------------: |
-| `mac`   | `elias`   | OmniWM      | Productivity device for University     |
-
+| Host  |  User   | Desktop |              Purpose               |
+| :---: | :-----: | :-----: | :--------------------------------: |
+| `mac` | `elias` | OmniWM  | Productivity device for University |
 
 ```bash
 nh os switch .#wc      # niri
@@ -57,11 +58,6 @@ nh darwin switch .#mac # macos
 
 ```
 .
-├── assets
-│   └── screenshots
-│       ├── 1.png
-│       ├── 2.png
-│       └── 3.png
 ├── hosts
 │   ├── gnome
 │   │   ├── default.nix
@@ -132,6 +128,7 @@ nh darwin switch .#mac # macos
 │   │   │   ├── kitty.nix
 │   │   │   ├── man.nix
 │   │   │   ├── nh.nix
+│   │   │   ├── omniwm.nix
 │   │   │   └── tack.nix
 │   │   └── nixos
 │   │       ├── _files
@@ -142,6 +139,7 @@ nh darwin switch .#mac # macos
 │   │       │   │       └── placeholder.conf
 │   │       │   └── niri
 │   │       │       └── config.kdl
+│   │       ├── cursor.nix
 │   │       ├── default.nix
 │   │       ├── gtk.nix
 │   │       ├── hyprland.nix
@@ -163,8 +161,7 @@ nh darwin switch .#mac # macos
 │       │   └── options.nix
 │       ├── darwin
 │       │   ├── programs
-│       │   │   ├── desktop-pkgs.nix
-│       │   │   └── omniwm.nix
+│       │   │   └── desktop-pkgs.nix
 │       │   ├── system
 │       │   │   ├── homebrew.nix
 │       │   │   └── touchid.nix
@@ -175,12 +172,12 @@ nh darwin switch .#mac # macos
 │           ├── programs
 │           │   ├── dconf.nix
 │           │   ├── desktop-pkgs.nix
-│           │   ├── firefox.nix
 │           │   ├── gamescope.nix
 │           │   ├── gpu-screen-recorder.nix
 │           │   ├── nh.nix
 │           │   ├── steam.nix
-│           │   └── tack.nix
+│           │   ├── tack.nix
+│           │   └── zen.nix
 │           ├── system
 │           │   ├── desktops
 │           │   │   ├── gnome.nix
@@ -189,19 +186,18 @@ nh darwin switch .#mac # macos
 │           │   │   ├── plasma6.nix
 │           │   │   └── sddm.nix
 │           │   ├── overlays
-│           │   │   ├── glaze.nix
 │           │   │   ├── qt6ct-kde.nix
-│           │   │   ├── sddm-astronaut.nix
 │           │   │   └── swash.nix
 │           │   ├── amdgpu.nix
 │           │   ├── boot.nix
 │           │   ├── environment.nix
 │           │   ├── hardware.nix
 │           │   ├── locale.nix
+│           │   ├── openrgb.nix
 │           │   ├── openssh.nix
 │           │   ├── polkit.nix
-│           │   ├── services.nix
 │           │   ├── time.nix
+│           │   ├── udev.nix
 │           │   └── xkb.nix
 │           ├── default.nix
 │           ├── hm-options.nix
@@ -228,29 +224,30 @@ nh darwin switch .#mac # macos
 
 **short:**
 
-| Directory              | What lives there                                              |
-| :--------------------: | :-----------------------------------------------------------: |
-| `hosts/`               | Per-desktop entry points, which modules, which packages       |
-| `systems/`             | Per-machine hardware, networking, machine-wide toggles        |
-| `modules/`             | The actual configuration, split by platform                   |
-| `modules/home-manager` | The actual home-manager modules, split by platform            |
-| `lib/`                 | `import-tree` and `mk-user`, two helpful libraries            |
-| `.tack/`               | Input pins, the real lockfile replacing flake.lock            | 
+|       Directory        |                    What lives there                     |
+| :--------------------: | :-----------------------------------------------------: |
+|        `hosts/`        | Per-desktop entry points, which modules, which packages |
+|       `systems/`       | Per-machine hardware, networking, machine-wide toggles  |
+|       `modules/`       |       The actual configuration, split by platform       |
+| `modules/home-manager` |   The actual home-manager modules, split by platform    |
+|         `lib/`         |   `import-tree` and `mk-user`, two helpful libraries    |
+|        `.tack/`        |   Input pins, the real lockfile replacing flake.lock    |
 
 ---
 
 ## 📐 Conventions
 
-### The platforms are split 
+### The platforms are split
 
-`modules/system/common` is imported by both `nixosSystem` and `darwinSystem`, `modules/system/nixos` and `modules/system/darwin` only by their own. `modules/home-manager` holds the respective home-manager modules.
+`modules/system/common` is imported by both `nixosSystem` and `darwinSystem`,
+`modules/system/nixos` and `modules/system/darwin` only by their own.
+`modules/home-manager` holds the respective home-manager modules.
 
 ### Options
 
 Modules are toggled through a single option namespace, declared in:
-`modules/common/options.nix` for the shared modules,
-`modules/nixos/options.nix` for the Linux-only ones,
-`modules/darwin/options.nix` for the Darwin-only ones,
+`modules/common/options.nix` for the shared modules, `modules/nixos/options.nix`
+for the Linux-only ones, `modules/darwin/options.nix` for the Darwin-only ones,
 `modules/system/nixos/home-manager` for the Linux-only home-manager modules,
 `modules/system/darwin/home-manager` for Darwin-only home-manager modules,
 `modules/system/common/home-manager` for the shared home-manager modules:
@@ -264,24 +261,28 @@ myModules = {
   home-manager.programs.git.enable = false;
 };
 ```
-Every modules is a lib.mkIf statement, therefore to use a module importing it is not enough, it would also have to be enabled. for options see the respective options.nix file.
+
+Every modules is a lib.mkIf statement, therefore to use a module importing it is
+not enough, it would also have to be enabled. for options see the respective
+options.nix file.
 
 ### Adding a module
 
-`lib/import-tree.nix` imports each directory recursively, skipping `default.nix` and any file prefixed with `_`. So a new module is:
+`lib/import-tree.nix` imports each directory recursively, skipping `default.nix`
+and any file prefixed with `_`. So a new module is:
 
 1. a new file, and
 2. its option declaration in the matching `options.nix`.
 
-That's it .
-
 ### Users
 
-`lib/mk-user.nix` produces both the system account and the home-manager config from a name and a host. 
+`lib/mk-user.nix` produces both the system account and the home-manager config
+from a name and a host.
 
 ### Inputs
 
-Pinned with [**tack**](https://github.com/manic-systems/tack), so `.tack/pins.toml` is the source of truth and `nix flake update` does nothing.
+Pinned with [**tack**](https://github.com/manic-systems/tack), so
+`.tack/pins.toml` is the source of truth and `nix flake update` does nothing.
 `tack update` refreshes the lock/inputs.
 
 ---
@@ -302,16 +303,18 @@ Before the first switch you'd need to:
 
 ## 💜 Credits
 
-Big thanks to the people in the **#nixos** channel of the [**Noctalia Discord**](https://github.com/noctalia-dev/noctalia-shell), some honorable mentions:
+Big thanks to the people in the **#nixos** channel of the
+[**Noctalia Discord**](https://github.com/noctalia-dev/noctalia-shell), some
+honorable mentions:
 
-- [*onoruu*](https://onoruu.neocities.org/)
-- [*Stella*](https://github.com/iStellanova/stellyrland)
-- [*Stalkingwolf*](https://github.com/Stalkingwolf23-glitch/nixos-dotfiles)
-- [*Aria*](https://codeberg.org/princearia/nixos)
-- [*sam*](https://github.com/samiser/nix-configs)
-- [*Pengo*](https://forge.pengo.uk/pengo/nixos)
-- [*LucasOe*](https://github.com/LucasOe/nixos-config)
-- [*Hand7s*](https://github.com/s0me1newithhand7s/reNixos)
+- [_onoruu_](https://onoruu.neocities.org/)
+- [_Stella_](https://github.com/iStellanova/stellyrland)
+- [_Stalkingwolf_](https://github.com/Stalkingwolf23-glitch/nixos-dotfiles)
+- [_Aria_](https://codeberg.org/princearia/nixos)
+- [_sam_](https://github.com/samiser/nix-configs)
+- [_Pengo_](https://forge.pengo.uk/pengo/nixos)
+- [_LucasOe_](https://github.com/LucasOe/nixos-config)
+- [_Hand7s_](https://github.com/s0me1newithhand7s/reNixos)
 
 ---
 
