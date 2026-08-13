@@ -9,6 +9,7 @@
     "niri"
     "hyprland"
   ];
+  sddm-astronaut = pkgs.sddm-astronaut.override {embeddedTheme = "purple_leaves";};
 in {
   config = lib.mkIf (lib.elem desktop sddmSessions) {
     services.displayManager.defaultSession = desktop;
@@ -26,6 +27,6 @@ in {
       ];
     };
 
-    environment.systemPackages = [pkgs.sddm-astronaut];
+    environment.systemPackages = [sddm-astronaut];
   };
 }

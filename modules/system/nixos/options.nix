@@ -8,9 +8,7 @@
   enabled = {enable = lib.mkDefault true;};
 
   overlayNames = [
-    "glaze"
     "qt6ct-kde"
-    "sddm-astronaut"
     "swash"
   ];
 in {
@@ -41,9 +39,7 @@ in {
 
       overlays = {
         enable = lib.mkEnableOption "all overlays (master switch)";
-        glaze.enable = lib.mkEnableOption "glaze overlay";
         qt6ct-kde.enable = lib.mkEnableOption "qt6ct-kde overlay";
-        sddm-astronaut.enable = lib.mkEnableOption "sddm-astronaut overlay";
         swash.enable = lib.mkEnableOption "swash overlay";
       };
     };

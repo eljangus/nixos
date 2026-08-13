@@ -6,7 +6,6 @@
     };
     system = {
       overlays.enable = true;
-      overlays.glaze.enable = false;
       polkit.enable = true;
     };
     home-manager = {
