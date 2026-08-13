@@ -1,0 +1,406 @@
+config_version = 8
+
+[accessibility]
+ui_scale = 1.1500000096857548
+
+[audio]
+enable_overdrive = true
+enable_sounds = true
+sound_volume = 0.99999997764825821
+
+[backdrop]
+enabled = true
+
+[bar]
+order = [ "default", "macos" ]
+
+    [bar.default]
+    capsule_padding = 8.0
+    center = [ "text_left", "clock", "text_right" ]
+    enabled = false
+    end = [
+        "text_left",
+        "tray",
+        "text_seperator",
+        "recorder",
+        "text_seperator",
+        "notifications",
+        "text_seperator",
+        "volume",
+        "text_seperator",
+        "session",
+        "text_right"
+    ]
+    font_family = "JetBrainsMono Nerd Font Propo"
+    hover_highlight = false
+    margin_ends = 0
+    padding = 0
+    panel_overlap = 0
+    radius = 0
+    radius_top_left = 0
+    radius_top_right = 0
+    scale = 1.2500000111758709
+    start = [
+        "text_left_custom",
+        "launcher",
+        "custom-text",
+        "wallpaper",
+        "text_seperator",
+        "nix-monitor",
+        "text_seperator",
+        "workspaces",
+        "text_right"
+    ]
+    thickness = 42
+    widget_spacing = 8
+
+    [bar.macos]
+    background_opacity = 0.79999998211860657
+    center = []
+    enabled = true
+    end = [ "tray", "weather", "notifications", "mac-uhr" ]
+    hover_highlight = false
+    margin_ends = 0
+    padding = 16
+    panel_overlap = 0
+    radius = 0
+    radius_bottom_left = 20
+    radius_bottom_right = 19
+    radius_top_left = 0
+    radius_top_right = 0
+    scale = 1.2000000104308128
+    start = [ "launcher", "workspaces", "active_window" ]
+    thickness = 40
+    widget_spacing = 16
+
+[brightness]
+enable_ddcutil = true
+
+[control_center]
+hidden_tabs = [ "power" ]
+sidebar_section = "none"
+width = 800
+
+[dock]
+auto_hide = true
+background_opacity = 0.79999998211860657
+cross_axis_padding = 12
+enabled = true
+inactive_opacity = 0.99999997764825821
+inactive_scale = 1.0
+launcher_icon = "rocket"
+margin_edge = 4
+pinned = [
+    "zen",
+    "org.gnome.Nautilus",
+    "Vesktop",
+    "steam",
+    "codium",
+    "neovim",
+    "prismlauncher",
+    "chromium",
+    "r2modman",
+    "com.heroicgameslauncher.hgl"
+]
+radius = 40
+reserve_space = false
+show_dots = true
+show_instance_count = false
+
+[hot_corners.top_right]
+action = "control_center"
+
+[idle]
+behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+pre_action_fade_seconds = 10
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 600.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = false
+    timeout = 900.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 660.0
+
+[location]
+auto_locate = true
+
+[lockscreen]
+blur_intensity = 0.79999998211860657
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-1", "lockscreen-widget-0000000000000001" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
+    box_height = 229.0
+    box_width = 810.0
+    cx = 1280.0
+    cy = 1321.0
+    output = "DP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 1.0
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 8.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-2"]
+    box_height = 229.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 958.5
+    enabled = false
+    output = "DP-2"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-2".settings]
+        background_color = "surface_variant"
+        background_opacity = 1.0
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_weather = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 288.0
+    box_width = 592.0
+    cx = 1280.0
+    cy = 256.0
+    output = "DP-1"
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background_opacity = 0.0
+
+[notification]
+background_opacity = 0.79999998211860657
+monitors = [ "DP-1" ]
+
+[osd]
+background_opacity = 0.79999998211860657
+monitors = [ "DP-1" ]
+
+    [osd.kinds]
+    media = false
+
+[plugin_settings."avivbintangaringga/nix-monitor"]
+branch = "nixos-unstable"
+clean_command = "nh clean all"
+panel_placement = "attached"
+
+[plugin_settings."noctalia/wallhaven"]
+browser_open_near_click = true
+browser_placement = "attached"
+
+[plugin_settings."oldirtty/color_picker"]
+hyprpicker-lowercase = true
+panel_open_near_click = true
+panel_placement = "attached"
+
+[plugins]
+enabled = [ "noctalia/screen_recorder", "noctalia/wallhaven", "avivbintangaringga/nix-monitor", "oldirtty/color_picker" ]
+
+[shell]
+avatar_path = "/home/elias/nixos/assets/misc/Alisa_Mikhailovna_Kujou_Manga.png"
+button_borders = false
+card_borders = false
+clipboard_image_action_command = "swash"
+corner_radius_scale = 2.0
+font_family = "JetBrainsMono Nerd Font Propo"
+input_borders = false
+niri_overview_type_to_launch_enabled = true
+password_style = "random"
+polkit_agent = true
+popup_borders = false
+screen_time_enabled = true
+
+    [shell.animation]
+    speed = 0.7500000111758709
+
+    [shell.launcher]
+    categories = false
+
+    [shell.panel]
+    borders = false
+    clipboard_placement = "attached"
+    clipboard_position = "auto"
+    floating_offset = 12
+    launcher_placement = "attached"
+    launcher_position = "auto"
+    open_near_click_clipboard = true
+    open_near_click_control_center = true
+    open_near_click_launcher = true
+    open_near_click_session = true
+    open_near_click_wallpaper = true
+    polkit_placement = "attached"
+    polkit_position = "auto"
+
+    [shell.screenshot]
+    directory = "~/Bilder/Bildschirmfotos"
+    show_cursor = true
+
+    [[shell.session.actions]]
+    action = "lock"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "1"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "logout"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "2"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "lock_and_suspend"
+    countdown_seconds = 0.0
+    enabled = false
+    shortcut = "3"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "reboot"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "4"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "shutdown"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "5"
+    variant = "destructive"
+
+[theme]
+builtin = "Rosé Pine"
+community_palette = "Rosey AMOLED"
+custom_palette = "Paradise"
+mode = "dark"
+source = "wallpaper"
+wallpaper_scheme = "m3-content"
+
+    [theme.templates]
+    builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "hyprland", "kcolorscheme", "kitty", "niri", "qt" ]
+    community_ids = [ "zen-browser", "discord", "vscode", "papirus-icons" ]
+
+[wallpaper]
+directory = "/home/elias/wallpapers/Walls"
+transition = [ "disc", "fade", "wipe" ]
+
+    [wallpaper.default]
+    path = "/home/elias/wallpapers/Walls/IOS26-4.png"
+
+    [wallpaper.last]
+    path = "/home/elias/wallpapers/Walls/IOS26-4.png"
+
+    [wallpaper.monitors.DP-1]
+    path = "/home/elias/wallpapers/Walls/IOS26-4.png"
+
+    [wallpaper.monitors.DP-2]
+    path = "/home/elias/wallpapers/Walls/IOS26-4.png"
+
+[widget.active_window]
+display = "text_only"
+font_weight = 700
+
+[widget.clock]
+format = " {:%H:%M Uhr - 󰃮 %a, %d.%m.%y}"
+vertical_format = "\\\\n{:%H\\\\n%M\\\\n-\\\\n󰃮\\\\n%a\\\\n%d\\\\n%m\\\\n%y}"
+
+[widget.custom-text]
+color = "outline"
+text = " |"
+type = "text"
+
+[widget.launcher]
+custom_image = "/home/elias/nixos/assets/misc/nixos-logo.svg"
+custom_image_colorize = true
+font_weight = 700
+
+[widget.mac-uhr]
+color = "primary"
+font_weight = 700
+format = "{: %a, %b %d %H:%M}"
+type = "clock"
+
+[widget.nix-monitor]
+checking_color = "secondary"
+show_text = false
+type = "avivbintangaringga/nix-monitor:nix-monitor"
+up_to_date_color = "primary"
+update_available_color = "tertiary"
+
+[widget.recorder]
+type = "noctalia/screen_recorder:recorder"
+
+[widget.taskbar]
+scale = 1.75
+show_all_outputs = true
+
+[widget.text_left]
+text = "「"
+type = "text"
+
+[widget.text_left_custom]
+text = "「 "
+type = "text"
+
+[widget.text_right]
+text = "」"
+type = "text"
+
+[widget.text_seperator]
+color = "outline"
+text = "|"
+type = "text"
+
+[widget.tray]
+drawer = true
+
+[widget.volume]
+show_label = false
+
+[widget.weather]
+show_condition = false
+
+[widget.workspaces]
+label_source = "name"
+scroll_repeat = "steps"
+style = "focus_hint"
