@@ -6,6 +6,7 @@
     home-manager = {
       programs = {
         kitty.enable = true;
+        omniwm.enable = true;
       };
     };
   };

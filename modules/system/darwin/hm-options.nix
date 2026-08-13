@@ -6,6 +6,7 @@ in {
       man.enable = lib.mkEnableOption "manpage configuration";
       nh.enable = lib.mkEnableOption "enable nix helper";
       tack.enable = lib.mkEnableOption "enable tack home.sessionVariable";
+      omniwm.enable = lib.mkEnableOption "enable omniwm configuration";
     };
   };
 
