@@ -4,6 +4,9 @@
   ...
 }: {
   config = lib.mkIf osConfig.myModules.home-manager.programs.fish.enable {
+    home.shell = {
+      enableFishIntegration = true;
+    };
     programs = {
       fish = {
         enable = true;

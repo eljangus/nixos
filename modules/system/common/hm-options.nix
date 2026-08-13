@@ -11,6 +11,7 @@ in {
       kitty.enable = lib.mkEnableOption "enable kitty configuration";
       nvf.enable = lib.mkEnableOption "enable nvf configuration";
       starship.enable = lib.mkEnableOption "enable starship configuration";
+      direnv.enable = lib.mkEnableOption "enable direnv configuration";
     };
   };
 
@@ -23,6 +24,7 @@ in {
       git = enabled;
       nvf = enabled;
       starship = enabled;
+      direnv = enabled;
     };
   };
 }
