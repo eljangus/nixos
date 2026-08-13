@@ -437,7 +437,5 @@
 in {
   config = lib.mkIf osConfig.myModules.home-manager.programs.omniwm.enable {
     xdg.configFile."omniwm/settings.toml".source = tomlFormat.generate "omniwm-settings.toml" settings;
-    homebrew.taps = ["BarutSRB/tap"];
-    homebrew.casks = ["BarutSRB/tap/omniwm"];
   };
 }
