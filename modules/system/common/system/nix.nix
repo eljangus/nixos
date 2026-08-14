@@ -6,6 +6,7 @@
   config = lib.mkIf config.myModules.system.nix.enable {
     nix = {
       settings = {
+        warn-dirty = false;
         auto-optimise-store = true;
         experimental-features = [
           "nix-command"
