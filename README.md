@@ -315,6 +315,7 @@ honorable mentions:
 - [_Pengo_](https://forge.pengo.uk/pengo/nixos)
 - [_LucasOe_](https://github.com/LucasOe/nixos-config)
 - [_Hand7s_](https://github.com/s0me1newithhand7s/reNixos)
+- [_dish_](https://git.vulpe.systems/vulpe-systems/nix)
 
 ---
 
