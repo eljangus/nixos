@@ -5,6 +5,7 @@
   ...
 }: let
   configFindFiles = "require('telescope.builtin').find_files({ cwd = '~/nixos', follow = true, find_command = { '${pkgs.fd}/bin/fd', '--type=file', '--hidden', '--no-ignore', '--exclude', '/assets' } })";
+  isDarwin = pkgs.stdenv.isDarwin;
 in {
   config = lib.mkIf osConfig.myModules.home-manager.programs.nvf.enable {
     programs.nvf = {
@@ -20,7 +21,7 @@ in {
             enable = true;
             name = "rose-pine";
             style = "main";
-            transparent = false;
+            transparent = !isDarwin;
           };
 
           options = {
