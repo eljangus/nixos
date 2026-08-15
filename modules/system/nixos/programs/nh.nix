@@ -7,7 +7,7 @@
     programs.nh = {
       enable = true;
       clean = {
-        enable = true;
+        enable = false;
         extraArgs = "--keep 5 --keep-since 3d";
         dates = "weekly";
       };
