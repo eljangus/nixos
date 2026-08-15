@@ -7,4 +7,3 @@ plugins
 flake.lock
 nix.conf
 .DS_Store
-.claude

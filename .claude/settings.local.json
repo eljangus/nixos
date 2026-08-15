@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git commit -- CLAUDE.md -m ' *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(git commit *)",
+      "Bash(git -C /home/elias/nixos log --format='%an <%ae>')",
+      "Bash(git -C /home/elias/nixos remote -v)",
+      "Bash(git -C /home/elias/nixos log --format='%H %s' -20)",
+      "Bash(git -C /home/elias/nixos log --format='%H%n%B---END---' -20)",
+      "Bash(git fetch *)",
+      "Bash(git update-ref *)",
+      "Bash(nh os *)"
+    ]
+  }
+}
