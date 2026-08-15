@@ -11,7 +11,6 @@
       wine
 
       # media
-      obs-studio
       mpv
       vesktop
       easyeffects

@@ -3,6 +3,7 @@
     desktop = "niri";
     programs = {
       gpu-screen-recorder.enable = true;
+      obs.enable = true;
     };
     system = {
       overlays.enable = true;

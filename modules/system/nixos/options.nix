@@ -22,6 +22,10 @@ in {
       steam.enable = lib.mkEnableOption "Steam";
       tack.enable = lib.mkEnableOption "tack";
       zen.enable = lib.mkEnableOption "zen browser";
+      obs = {
+        enable = lib.mkEnableOption "OBS Studio";
+        nvidia = lib.mkEnableOption "OBS nvidia/CUDA support";
+      };
     };
 
     system = {
