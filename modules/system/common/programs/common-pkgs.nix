@@ -13,7 +13,7 @@
       eza
       lazygit
       opencode
-      opencode-claude-auth
+      claude-code
       nixfmt
 
       # texteditor
