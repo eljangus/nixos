@@ -9,7 +9,7 @@
       enable = true;
 
       font = {
-        name = "JetBrainsMonoNL Nerd Font";
+        name = "Maple Mono NF";
         size = 14;
       };
 
