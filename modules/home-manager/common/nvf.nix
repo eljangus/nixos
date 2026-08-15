@@ -290,7 +290,7 @@ in {
             };
             python = {
               enable = true;
-              lsp.servers = ["ruff"];
+              lsp.servers = ["pyrefly"];
             };
             markdown.enable = true;
             bash.enable = true;
