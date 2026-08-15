@@ -14,7 +14,7 @@ in {
         vim = {
           viAlias = true;
           vimAlias = true;
-
+          binds.hardtime-nvim.enable = true;
           presence.neocord.enable = true;
 
           theme = {
