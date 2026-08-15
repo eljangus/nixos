@@ -288,7 +288,10 @@ in {
               lsp.servers = ["nixd"];
               format.type = ["alejandra"];
             };
-            python.enable = true;
+            python = {
+              enable = true;
+              lsp.servers = ["ruff"];
+            };
             markdown.enable = true;
             bash.enable = true;
           };
