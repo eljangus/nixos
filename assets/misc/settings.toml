@@ -31,7 +31,7 @@ order = [ "default", "macos" ]
         "session",
         "text_right"
     ]
-    font_family = "JetBrainsMono Nerd Font Propo"
+    font_family = "Maple Mono NF"
     hover_highlight = false
     margin_ends = 0
     padding = 0
@@ -240,7 +240,7 @@ button_borders = false
 card_borders = false
 clipboard_image_action_command = "swash"
 corner_radius_scale = 2.0
-font_family = "JetBrainsMono Nerd Font Propo"
+font_family = "Maple Mono NF"
 input_borders = false
 niri_overview_type_to_launch_enabled = true
 password_style = "random"
@@ -312,7 +312,7 @@ screen_time_enabled = true
 builtin = "Rosé Pine"
 community_palette = "Rosey AMOLED"
 custom_palette = "Paradise"
-mode = "dark"
+mode = "light"
 source = "wallpaper"
 wallpaper_scheme = "m3-content"
 
