@@ -243,12 +243,12 @@ nh darwin switch .#mac # macos
 
 ### Options
 
-Modules are toggled through a single option namespace, declared in:
-`modules/common/options.nix` for the shared modules, `modules/nixos/options.nix`
-for the Linux-only ones, `modules/darwin/options.nix` for the Darwin-only ones,
-`modules/system/nixos/home-manager` for the Linux-only home-manager modules,
-`modules/system/darwin/home-manager` for Darwin-only home-manager modules,
-`modules/system/common/home-manager` for the shared home-manager modules:
+Modules are toggled through a single option namespace, declared in the module's
+.nix file, `modules/common/...` for the shared modules, `modules/nixos/...` for
+the Linux-only ones, `modules/darwin/...` for the Darwin-only ones,
+`modules/home-manager/nixos/...` for the Linux-only home-manager modules,
+`modules/home-manager/darwin/...` for Darwin-only home-manager modules,
+`modules/home-manager/common/...` for the shared home-manager modules:
 
 ```nix
 # example
@@ -256,8 +256,8 @@ myModules = {
   desktop = "niri";
   system.overlays.enable = true;
   programs.gpu-screen-recorder.enable = true;
-  home-manager.programs.git.enable = false;
 };
+home-manager.users.${config.myModules.user}.myModules.home-manager.programs.kitty.enable = true;
 ```
 
 Every modules is a lib.mkIf statement, therefore to use a module importing it is
@@ -270,7 +270,7 @@ options.nix file.
 and any file prefixed with `_`. So a new module is:
 
 1. a new file, and
-2. its option declaration in the matching `options.nix`.
+2. its option declaration inside the file.
 
 ### Users
 
