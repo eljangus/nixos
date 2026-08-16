@@ -50,6 +50,7 @@ in {
       // lib.optionalAttrs (!isDarwin) {
         isNormalUser = true;
         inherit extraGroups;
+        # generate with: mkpasswd -m sha-512 > /etc/nixos/secrets/${name}.txt
         hashedPasswordFile = "/etc/nixos/secrets/${name}.txt";
       };
 

@@ -3,6 +3,7 @@
     # core
     cava
     btop
+    yazi
 
     # browser
     firefox
