@@ -9,7 +9,7 @@
       "top": 1
     },
     "source": "~/.config/fastfetch/other-configs/frieren/frieren.png",
-    "type": "kitty",
+    "type": "kitty-direct",
     "width": 26
   },
   "modules": [
