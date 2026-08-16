@@ -3,8 +3,7 @@
 **My personal NixOS/Nix-Darwin setup with support for multiple hosts.**
 
 Application dotfiles (niri, noctalia, fastfetch, kitty) are managed
-declaratively using home-manager. Though some files live withing _files
-directories within `modules/...`.
+declaratively using home-manager.
 
 <div align="center">
 
