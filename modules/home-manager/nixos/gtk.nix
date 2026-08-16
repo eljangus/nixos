@@ -30,8 +30,6 @@ in {
         package = pkgs.papirus-icon-theme;
       };
 
-      colorScheme = "dark";
-
       gtk3 = {
         extraCss = noctaliaCss "3.0";
 
