@@ -1,27 +1,29 @@
 {
-  osConfig,
+  config,
   lib,
   pkgs,
   ...
 }: let
   configFindFiles = "require('telescope.builtin').find_files({ cwd = '~/nixos', follow = true, find_command = { '${pkgs.fd}/bin/fd', '--type=file', '--hidden', '--no-ignore', '--exclude', '/assets' } })";
-  isDarwin = pkgs.stdenv.isDarwin;
 in {
-  config = lib.mkIf osConfig.myModules.home-manager.programs.nvf.enable {
+  options.myModules.home-manager.programs.nvf.enable =
+    lib.mkEnableOption "nvf configuration" // {default = true;};
+
+  config = lib.mkIf config.myModules.home-manager.programs.nvf.enable {
     programs.nvf = {
       enable = true;
       settings = {
         vim = {
           viAlias = true;
           vimAlias = true;
-          binds.hardtime-nvim.enable = true;
+          binds.hardtime-nvim.enable = false;
           presence.neocord.enable = true;
 
           theme = {
             enable = true;
             name = "rose-pine";
             style = "main";
-            transparent = !isDarwin;
+            transparent = true;
           };
 
           options = {

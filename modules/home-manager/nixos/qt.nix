@@ -1,6 +1,5 @@
 {
   config,
-  osConfig,
   lib,
   ...
 }: let
@@ -28,7 +27,10 @@
     ignored_applications = "@Invalid()";
   };
 in {
-  config = lib.mkIf osConfig.myModules.home-manager.theming.qt.enable {
+  options.myModules.home-manager.theming.qt.enable =
+    lib.mkEnableOption "qt5ct/qt6ct configuration";
+
+  config = lib.mkIf config.myModules.home-manager.theming.qt.enable {
     qt = {
       enable = true;
 

@@ -1,10 +1,12 @@
 {
   config,
-  osConfig,
   lib,
   ...
 }: {
-  config = lib.mkIf osConfig.myModules.home-manager.programs.kitty.enable {
+  options.myModules.home-manager.programs.kitty.enable =
+    lib.mkEnableOption "kitty configuration";
+
+  config = lib.mkIf config.myModules.home-manager.programs.kitty.enable {
     programs.kitty = {
       enable = true;
 
@@ -15,8 +17,8 @@
 
       settings = {
         allow_remote_control = "yes";
-        background_blur = 0;
-        background_opacity = "1";
+        background_blur = 24;
+        background_opacity = "0.8";
         confirm_os_window_close = 0;
         cursor_trail = 5;
         hide_window_decorations = "no";

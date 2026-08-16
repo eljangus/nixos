@@ -4,6 +4,9 @@
   pkgs,
   ...
 }: {
+  options.myModules.system.openrgb.enable =
+    lib.mkEnableOption "OpenRGB";
+
   config = lib.mkIf config.myModules.system.openrgb.enable {
     services.hardware.openrgb = {
       enable = true;

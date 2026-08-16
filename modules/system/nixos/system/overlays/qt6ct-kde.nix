@@ -5,6 +5,11 @@
   self,
   ...
 }: {
+  options.myModules.system.overlays.qt6ct-kde.enable =
+    lib.mkEnableOption "qt6ct-kde overlay" // {
+      default = config.myModules.system.overlays.enable;
+    };
+
   config = lib.mkIf config.myModules.system.overlays.qt6ct-kde.enable {
     nixpkgs.overlays = [
       (final: prev: {

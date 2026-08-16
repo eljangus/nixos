@@ -1,9 +1,12 @@
 {
-  osConfig,
+  config,
   lib,
   ...
 }: {
-  config = lib.mkIf osConfig.myModules.home-manager.programs.mangohud.enable {
+  options.myModules.home-manager.programs.mangohud.enable =
+    lib.mkEnableOption "mangohud configuration" // {default = true;};
+
+  config = lib.mkIf config.myModules.home-manager.programs.mangohud.enable {
     programs.mangohud = {
       enable = true;
 

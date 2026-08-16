@@ -1,9 +1,12 @@
 {
-  osConfig,
+  config,
   lib,
   ...
 }: {
-  config = lib.mkIf osConfig.myModules.home-manager.programs.starship.enable {
+  options.myModules.home-manager.programs.starship.enable =
+    lib.mkEnableOption "starship configuration" // {default = true;};
+
+  config = lib.mkIf config.myModules.home-manager.programs.starship.enable {
     programs = {
       starship = {
         enable = true;

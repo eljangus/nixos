@@ -2,7 +2,7 @@
   self,
   pkgs,
   lib,
-  osConfig,
+  config,
   ...
 }: let
   kitty-cursor = pkgs.runCommandLocal "kitty-cursor" {} ''
@@ -16,7 +16,10 @@
     chmod -R u+w $out/share/icons/bunny-cursor
   '';
 in {
-  config = lib.mkIf osConfig.myModules.home-manager.theming.cursor.enable {
+  options.myModules.home-manager.theming.cursor.enable =
+    lib.mkEnableOption "kitty cursor";
+
+  config = lib.mkIf config.myModules.home-manager.theming.cursor.enable {
     home.pointerCursor = {
       enable = true;
       gtk.enable = true;

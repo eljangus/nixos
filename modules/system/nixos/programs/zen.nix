@@ -50,6 +50,9 @@
     };
   };
 in {
+  options.myModules.programs.zen.enable =
+    lib.mkEnableOption "zen browser" // {default = true;};
+
   config = lib.mkIf config.myModules.programs.zen.enable {
     environment.systemPackages = [zen];
   };

@@ -1,5 +1,5 @@
 {
-  osConfig,
+  config,
   pkgs,
   lib,
   ...
@@ -435,7 +435,10 @@
     ];
   };
 in {
-  config = lib.mkIf osConfig.myModules.home-manager.programs.omniwm.enable {
+  options.myModules.home-manager.programs.omniwm.enable =
+    lib.mkEnableOption "enable omniwm configuration";
+
+  config = lib.mkIf config.myModules.home-manager.programs.omniwm.enable {
     xdg.configFile."omniwm/settings.toml".source = tomlFormat.generate "omniwm-settings.toml" settings;
   };
 }

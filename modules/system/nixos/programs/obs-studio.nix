@@ -4,6 +4,11 @@
   lib,
   ...
 }: {
+  options.myModules.programs.obs = {
+    enable = lib.mkEnableOption "OBS Studio";
+    nvidia = lib.mkEnableOption "OBS nvidia/CUDA support";
+  };
+
   config = lib.mkIf config.myModules.programs.obs.enable {
     nixpkgs.overlays = [
       (final: prev: {

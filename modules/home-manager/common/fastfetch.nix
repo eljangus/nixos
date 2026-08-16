@@ -1,9 +1,12 @@
 {
-  osConfig,
+  config,
   lib,
   ...
 }: {
-  config = lib.mkIf osConfig.myModules.home-manager.programs.fastfetch.enable {
+  options.myModules.home-manager.programs.fastfetch.enable =
+    lib.mkEnableOption "fastfetch configuration" // {default = true;};
+
+  config = lib.mkIf config.myModules.home-manager.programs.fastfetch.enable {
     programs.fastfetch = {
       enable = true;
 

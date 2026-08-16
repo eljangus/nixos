@@ -33,40 +33,49 @@
 
   flakeRef = "~/nixos#${host}";
 in {
-  users.users.${name} =
-    {
-      inherit name description;
-      home = homeDirectory;
-      shell = pkgs.fish;
-    }
-    // lib.optionalAttrs (!isDarwin) {
-      isNormalUser = true;
-      inherit extraGroups;
-      hashedPasswordFile = "/etc/nixos/secrets/${name}.txt";
-    };
+  options.myModules.user = lib.mkOption {
+    type = lib.types.str;
+    description = "Primary user for this host";
+  };
 
-  home-manager = {
-    useUserPackages = true;
-    useGlobalPkgs = true;
-    backupFileExtension = "backup";
+  config = {
+    myModules.user = name;
 
-    users.${name} = {
-      imports =
-        [(self + "/modules/home-manager/common")]
-        ++ lib.optional isDarwin (self + "/modules/home-manager/darwin")
-        ++ lib.optional (!isDarwin) (self + "/modules/home-manager/nixos");
-
-      home = {
-        inherit stateVersion homeDirectory;
-        username = name;
-        sessionVariables = {
-          EDITOR = "nvim";
-        };
+    users.users.${name} =
+      {
+        inherit name description;
+        home = homeDirectory;
+        shell = pkgs.fish;
+      }
+      // lib.optionalAttrs (!isDarwin) {
+        isNormalUser = true;
+        inherit extraGroups;
+        hashedPasswordFile = "/etc/nixos/secrets/${name}.txt";
       };
 
-      programs.fish.shellAliases = {
-        nrs = "nh ${nhPlatform} switch ${flakeRef}";
-        nrb = "nh ${nhPlatform} ${nhStage} ${flakeRef}";
+    home-manager = {
+      useUserPackages = true;
+      useGlobalPkgs = true;
+      backupFileExtension = "backup";
+
+      users.${name} = {
+        imports =
+          [(self + "/modules/home-manager/common")]
+          ++ lib.optional isDarwin (self + "/modules/home-manager/darwin")
+          ++ lib.optional (!isDarwin) (self + "/modules/home-manager/nixos");
+
+        home = {
+          inherit stateVersion homeDirectory;
+          username = name;
+          sessionVariables = {
+            EDITOR = "nvim";
+          };
+        };
+
+        programs.fish.shellAliases = {
+          nrs = "nh ${nhPlatform} switch ${flakeRef}";
+          nrb = "nh ${nhPlatform} ${nhStage} ${flakeRef}";
+        };
       };
     };
   };

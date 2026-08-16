@@ -4,6 +4,9 @@
   pkgs,
   ...
 }: {
+  options.myModules.programs.steam.enable =
+    lib.mkEnableOption "Steam" // {default = true;};
+
   config = lib.mkIf config.myModules.programs.steam.enable {
     programs.steam = {
       enable = true;

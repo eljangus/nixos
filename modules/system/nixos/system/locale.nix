@@ -3,6 +3,9 @@
   lib,
   ...
 }: {
+  options.myModules.system.locale.enable =
+    lib.mkEnableOption "enable locale" // {default = true;};
+
   config = lib.mkIf config.myModules.system.locale.enable {
     i18n = {
       defaultLocale = "de_DE.UTF-8";

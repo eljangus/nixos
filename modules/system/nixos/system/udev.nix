@@ -3,6 +3,9 @@
   lib,
   ...
 }: {
+  options.myModules.system.udev.enable =
+    lib.mkEnableOption "udev rules";
+
   config = lib.mkIf config.myModules.system.udev.enable {
     services.udev.extraRules = ''
       SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3554", ATTRS{idProduct}=="f523", MODE="0666", TAG+="uaccess"

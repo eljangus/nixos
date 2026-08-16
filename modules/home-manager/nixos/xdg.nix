@@ -1,9 +1,12 @@
 {
-  osConfig,
+  config,
   lib,
   ...
 }: {
-  config = lib.mkIf osConfig.myModules.home-manager.programs.xdg.enable {
+  options.myModules.home-manager.programs.xdg.enable =
+    lib.mkEnableOption "xdg mimeApps" // {default = true;};
+
+  config = lib.mkIf config.myModules.home-manager.programs.xdg.enable {
     xdg.mimeApps = {
       enable = true;
       defaultApplications = let

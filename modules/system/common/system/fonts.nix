@@ -4,6 +4,9 @@
   pkgs,
   ...
 }: {
+  options.myModules.system.fonts.enable =
+    lib.mkEnableOption "fonts" // {default = true;};
+
   config = lib.mkIf config.myModules.system.fonts.enable {
     fonts.packages = with pkgs; [
       noto-fonts

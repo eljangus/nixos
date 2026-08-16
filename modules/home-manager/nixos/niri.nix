@@ -4,7 +4,12 @@
   lib,
   ...
 }: {
-  config = lib.mkIf osConfig.myModules.home-manager.programs.niri.enable {
+  options.myModules.home-manager.programs.niri.enable =
+    lib.mkEnableOption "niri configuration" // {
+      default = osConfig.myModules.desktop == "niri";
+    };
+
+  config = lib.mkIf config.myModules.home-manager.programs.niri.enable {
     wayland.windowManager.niri = {
       enable = true;
 

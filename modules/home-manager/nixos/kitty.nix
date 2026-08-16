@@ -1,10 +1,12 @@
 {
   config,
-  osConfig,
   lib,
   ...
 }: {
-  config = lib.mkIf osConfig.myModules.home-manager.programs.kitty.enable {
+  options.myModules.home-manager.programs.kitty.enable =
+    lib.mkEnableOption "kitty configuration";
+
+  config = lib.mkIf config.myModules.home-manager.programs.kitty.enable {
     programs.kitty = {
       enable = true;
 

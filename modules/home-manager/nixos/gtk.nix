@@ -1,6 +1,5 @@
 {
   config,
-  osConfig,
   lib,
   pkgs,
   ...
@@ -9,7 +8,10 @@
     @import url("file://${config.xdg.configHome}/gtk-${version}/noctalia.css");
   '';
 in {
-  config = lib.mkIf osConfig.myModules.home-manager.theming.gtk.enable {
+  options.myModules.home-manager.theming.gtk.enable =
+    lib.mkEnableOption "gtk theming";
+
+  config = lib.mkIf config.myModules.home-manager.theming.gtk.enable {
     gtk = {
       enable = true;
 

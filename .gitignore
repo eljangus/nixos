@@ -7,3 +7,6 @@ plugins
 flake.lock
 nix.conf
 .DS_Store
+CLAUDE.md
+AGENTS.md
+.claude

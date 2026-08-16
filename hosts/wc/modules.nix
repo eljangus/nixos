@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   myModules = {
     desktop = "niri";
     programs = {
@@ -9,15 +9,14 @@
       overlays.enable = true;
       polkit.enable = true;
     };
-    home-manager = {
-      programs = {
-        kitty.enable = true;
-      };
-      theming = {
-        gtk.enable = true;
-        qt.enable = true;
-        cursor.enable = true;
-      };
+  };
+
+  home-manager.users.${config.myModules.user}.myModules.home-manager = {
+    programs.kitty.enable = true;
+    theming = {
+      gtk.enable = true;
+      qt.enable = true;
+      cursor.enable = true;
     };
   };
 }

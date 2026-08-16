@@ -4,6 +4,9 @@
   pkgs,
   ...
 }: {
+  options.myModules.system.hardware.enable =
+    lib.mkEnableOption "common hardware configuration (bluetooth, graphics, microcode)" // {default = true;};
+
   config = lib.mkIf config.myModules.system.hardware.enable {
     security.rtkit.enable = true;
     services.pipewire = {
