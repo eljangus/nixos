@@ -1,4 +1,15 @@
-{config, ...}: {
+{config, ...}: let
+  inherit (config.myModules) user;
+
+  myHome = {
+    programs.kitty.enable = true;
+    theming = {
+      gtk.enable = true;
+      qt.enable = true;
+      cursor.enable = true;
+    };
+  };
+in {
   myModules = {
     desktop = "niri";
     programs = {
@@ -11,12 +22,5 @@
     };
   };
 
-  home-manager.users.${config.myModules.user}.myModules.home-manager = {
-    programs.kitty.enable = true;
-    theming = {
-      gtk.enable = true;
-      qt.enable = true;
-      cursor.enable = true;
-    };
-  };
+  home-manager.users.${user}.myModules.home-manager = myHome;
 }

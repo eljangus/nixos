@@ -1,8 +1,12 @@
-{config, ...}: {
-  myModules.programs.omniwm.enable = true; # installed via homebrew
+{config, ...}: let
+  inherit (config.myModules) user;
 
-  home-manager.users.${config.myModules.user}.myModules.home-manager.programs = {
+  myHome = {
     kitty.enable = true;
     omniwm.enable = true; # nix-managed config
   };
+in {
+  myModules.programs.omniwm.enable = true; # installed via homebrew
+
+  home-manager.users.${user}.myModules.home-manager.programs = myHome;
 }
