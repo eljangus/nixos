@@ -58,6 +58,10 @@ nh darwin switch .#mac # macos
 
 ```
 .
+├── .tack
+│   ├── default.nix
+│   ├── pins.lock.json
+│   └── pins.toml
 ├── hosts
 │   ├── gnome
 │   │   ├── default.nix
@@ -114,6 +118,7 @@ nh darwin switch .#mac # macos
 │   │   │   ├── btop.nix
 │   │   │   ├── cava.nix
 │   │   │   ├── default.nix
+│   │   │   ├── direnv.nix
 │   │   │   ├── fastfetch.nix
 │   │   │   ├── fish.nix
 │   │   │   ├── git.nix
@@ -156,17 +161,15 @@ nh darwin switch .#mac # macos
 │       │   ├── system
 │       │   │   ├── fonts.nix
 │       │   │   └── nix.nix
-│       │   ├── default.nix
-│       │   ├── hm-options.nix
-│       │   └── options.nix
+│       │   └── default.nix
 │       ├── darwin
 │       │   ├── programs
-│       │   │   └── desktop-pkgs.nix
+│       │   │   ├── desktop-pkgs.nix
+│       │   │   └── omniwm.nix
 │       │   ├── system
 │       │   │   ├── homebrew.nix
 │       │   │   └── touchid.nix
 │       │   ├── default.nix
-│       │   ├── hm-options.nix
 │       │   └── options.nix
 │       └── nixos
 │           ├── programs
@@ -175,6 +178,7 @@ nh darwin switch .#mac # macos
 │           │   ├── gamescope.nix
 │           │   ├── gpu-screen-recorder.nix
 │           │   ├── nh.nix
+│           │   ├── obs-studio.nix
 │           │   ├── steam.nix
 │           │   ├── tack.nix
 │           │   └── zen.nix
@@ -200,7 +204,6 @@ nh darwin switch .#mac # macos
 │           │   ├── udev.nix
 │           │   └── xkb.nix
 │           ├── default.nix
-│           ├── hm-options.nix
 │           └── options.nix
 ├── patches
 │   └── qt6ct-shenanigans.patch
@@ -213,10 +216,6 @@ nh darwin switch .#mac # macos
 │   └── Mac
 │       ├── default.nix
 │       └── modules.nix
-├── .tack
-│   ├── default.nix
-│   ├── pins.lock.json
-│   └── pins.toml
 └── flake.nix
 ```
 
