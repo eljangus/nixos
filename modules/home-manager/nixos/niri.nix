@@ -5,7 +5,8 @@
   ...
 }: {
   options.myModules.home-manager.programs.niri.enable =
-    lib.mkEnableOption "niri configuration" // {
+    lib.mkEnableOption "niri configuration"
+    // {
       default = osConfig.myModules.desktop == "niri";
     };
 

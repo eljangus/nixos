@@ -6,7 +6,8 @@
   ...
 }: {
   options.myModules.system.overlays.qt6ct-kde.enable =
-    lib.mkEnableOption "qt6ct-kde overlay" // {
+    lib.mkEnableOption "qt6ct-kde overlay"
+    // {
       default = config.myModules.system.overlays.enable;
     };
 

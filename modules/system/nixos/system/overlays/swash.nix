@@ -6,7 +6,8 @@
   ...
 }: {
   options.myModules.system.overlays.swash.enable =
-    lib.mkEnableOption "swash overlay" // {
+    lib.mkEnableOption "swash overlay"
+    // {
       default = config.myModules.system.overlays.enable;
     };
 

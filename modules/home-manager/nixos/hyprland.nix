@@ -5,7 +5,8 @@
   ...
 }: {
   options.myModules.home-manager.programs.hyprland.enable =
-    lib.mkEnableOption "hyprland configuration" // {
+    lib.mkEnableOption "hyprland configuration"
+    // {
       default = osConfig.myModules.desktop == "hyprland";
     };
 
