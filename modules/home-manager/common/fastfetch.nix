@@ -10,7 +10,7 @@
 
   otherConfigs = {
     nitch-like = {
-      "$schema" = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
+      schema = schema;
       logo = {
         type = "auto";
         width = 1;
@@ -136,7 +136,7 @@
     };
 
     Schlosser = {
-      "$schema" = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
+      schema = schema;
       logo = {
         type = "auto";
         width = 1;
@@ -241,7 +241,7 @@
     };
 
     kitty = {
-      "$schema" = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
+      schema = schema;
       logo = {
         type = "file";
         source = "~/.config/fastfetch/other-configs/kitty/cat.txt";
@@ -464,7 +464,7 @@
     };
 
     bunnyfetch = {
-      "$schema" = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
+      schema = schema;
       logo = {
         source = "~/.config/fastfetch/other-configs/bunnyfetch/bunnyascii.txt";
         width = 1;
@@ -625,7 +625,7 @@ in {
       enable = true;
 
       settings = {
-        "$schema" = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
+        schema = schema;
         logo = {
           source = "~/.config/fastfetch/nitch.txt";
           type = "none";
