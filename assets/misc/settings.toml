@@ -5,7 +5,6 @@ ui_scale = 1.1500000096857548
 
 [audio]
 enable_overdrive = true
-enable_sounds = true
 sound_volume = 0.99999997764825821
 
 [backdrop]
@@ -325,16 +324,16 @@ directory = "/home/elias/wallpapers/Walls"
 transition = [ "disc", "fade", "wipe" ]
 
     [wallpaper.default]
-    path = "/home/elias/wallpapers/Walls/IOS26-4.png"
+    path = "/home/elias/wallpapers/Walls/Sternensystem.png"
 
     [wallpaper.last]
-    path = "/home/elias/wallpapers/Walls/IOS26-4.png"
+    path = "/home/elias/wallpapers/Walls/Sternensystem.png"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/elias/wallpapers/Walls/IOS26-4.png"
+    path = "/home/elias/wallpapers/Walls/Sternensystem.png"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/elias/wallpapers/Walls/IOS26-4.png"
+    path = "/home/elias/wallpapers/Walls/Sternensystem.png"
 
 [widget.active_window]
 display = "text_only"
