@@ -4,6 +4,7 @@
     cava
     btop
     yazi
+    p7zip
 
     # browser
     firefox

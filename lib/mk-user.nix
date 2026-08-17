@@ -68,9 +68,6 @@ in {
         home = {
           inherit stateVersion homeDirectory;
           username = name;
-          sessionVariables = {
-            EDITOR = "nvim";
-          };
         };
 
         programs.fish.shellAliases = {
