@@ -81,17 +81,6 @@ nh darwin switch .#mac # macos
 │   ├── home-manager
 │   │   ├── common
 │   │   │   ├── _files
-│   │   │   │   ├── cava
-│   │   │   │   │   ├── shaders
-│   │   │   │   │   │   ├── bar_spectrum.frag
-│   │   │   │   │   │   ├── eye_of_phi.frag
-│   │   │   │   │   │   ├── northern_lights.frag
-│   │   │   │   │   │   ├── pass_through.vert
-│   │   │   │   │   │   ├── spectrogram.frag
-│   │   │   │   │   │   └── winamp_line_style_spectrum.frag
-│   │   │   │   │   └── themes
-│   │   │   │   │       ├── solarized_dark
-│   │   │   │   │       └── tricolor
 │   │   │   │   ├── fastfetch
 │   │   │   │   │   ├── other-configs
 │   │   │   │   │   │   ├── bunnyfetch
@@ -101,12 +90,10 @@ nh darwin switch .#mac # macos
 │   │   │   │   │   │   └── kitty
 │   │   │   │   │   │       └── cat.txt
 │   │   │   │   │   └── nitch.txt
-│   │   │   │   ├── kitty
-│   │   │   │   │   └── themes
-│   │   │   │   │       ├── placeholder.conf
-│   │   │   │   │       └── rose-pine.conf
-│   │   │   │   └── starship
-│   │   │   │       └── lambda.toml
+│   │   │   │   └── kitty
+│   │   │   │       └── themes
+│   │   │   │           ├── placeholder.conf
+│   │   │   │           └── rose-pine.conf
 │   │   │   ├── btop.nix
 │   │   │   ├── cava.nix
 │   │   │   ├── default.nix
@@ -115,6 +102,7 @@ nh darwin switch .#mac # macos
 │   │   │   ├── fish.nix
 │   │   │   ├── git.nix
 │   │   │   ├── kitty.nix
+│   │   │   ├── nvf.nix
 │   │   │   ├── rmpc.nix
 │   │   │   ├── starship.nix
 │   │   │   ├── vim.nix
