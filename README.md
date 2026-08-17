@@ -42,7 +42,7 @@ And 1 builds on my MacBook Pro, **`Mac`**, with MacOS running OmniWM:
 
 ```bash
 nh os switch .#wc      # niri
-nh os switch .#kde     # plasma 
+nh os switch .#kde     # plasma
 nh os switch .#gnome   # gnome
 :-------------------------------:
 nh darwin switch .#mac # macos
@@ -57,10 +57,6 @@ nh darwin switch .#mac # macos
 
 ```
 .
-├── .tack
-│   ├── default.nix
-│   ├── pins.lock.json
-│   └── pins.toml
 ├── hosts
 │   ├── gnome
 │   │   ├── default.nix
@@ -99,19 +95,16 @@ nh darwin switch .#mac # macos
 │   │   │   │   ├── fastfetch
 │   │   │   │   │   ├── other-configs
 │   │   │   │   │   │   ├── bunnyfetch
-│   │   │   │   │   │   │   ├── bunnyascii.txt
-│   │   │   │   │   │   │   └── config.jsonc
+│   │   │   │   │   │   │   └── bunnyascii.txt
 │   │   │   │   │   │   ├── frieren
-│   │   │   │   │   │   │   ├── config.jsonc
 │   │   │   │   │   │   │   └── frieren.png
-│   │   │   │   │   │   ├── kitty
-│   │   │   │   │   │   │   ├── cat.txt
-│   │   │   │   │   │   │   └── config.jsonc
-│   │   │   │   │   │   ├── nitch-like
-│   │   │   │   │   │   │   └── config.jsonc
-│   │   │   │   │   │   └── Schlosser
-│   │   │   │   │   │       └── config.jsonc
+│   │   │   │   │   │   └── kitty
+│   │   │   │   │   │       └── cat.txt
 │   │   │   │   │   └── nitch.txt
+│   │   │   │   ├── kitty
+│   │   │   │   │   └── themes
+│   │   │   │   │       ├── placeholder.conf
+│   │   │   │   │       └── rose-pine.conf
 │   │   │   │   └── starship
 │   │   │   │       └── lambda.toml
 │   │   │   ├── btop.nix
@@ -121,15 +114,13 @@ nh darwin switch .#mac # macos
 │   │   │   ├── fastfetch.nix
 │   │   │   ├── fish.nix
 │   │   │   ├── git.nix
-│   │   │   ├── nvf.nix
-│   │   │   └── starship.nix
-│   │   ├── darwin
-│   │   │   ├── _files
-│   │   │   │   └── kitty
-│   │   │   │       └── themes
-│   │   │   │           └── rose-pine.conf
-│   │   │   ├── default.nix
 │   │   │   ├── kitty.nix
+│   │   │   ├── rmpc.nix
+│   │   │   ├── starship.nix
+│   │   │   ├── vim.nix
+│   │   │   └── zed.nix
+│   │   ├── darwin
+│   │   │   ├── default.nix
 │   │   │   ├── man.nix
 │   │   │   ├── nh.nix
 │   │   │   ├── omniwm.nix
@@ -138,18 +129,15 @@ nh darwin switch .#mac # macos
 │   │       ├── _files
 │   │       │   ├── hypr
 │   │       │   │   └── hyprland.lua
-│   │       │   ├── kitty
-│   │       │   │   └── themes
-│   │       │   │       └── placeholder.conf
 │   │       │   └── niri
 │   │       │       └── config.kdl
 │   │       ├── cursor.nix
 │   │       ├── default.nix
 │   │       ├── gtk.nix
 │   │       ├── hyprland.nix
-│   │       ├── kitty.nix
 │   │       ├── mangohud.nix
 │   │       ├── niri.nix
+│   │       ├── noctalia.nix
 │   │       ├── qt.nix
 │   │       └── xdg.nix
 │   └── system
@@ -215,6 +203,10 @@ nh darwin switch .#mac # macos
 │   └── Mac
 │       ├── default.nix
 │       └── modules.nix
+├── .tack
+│   ├── default.nix
+│   ├── pins.lock.json
+│   └── pins.toml
 └── flake.nix
 ```
 
