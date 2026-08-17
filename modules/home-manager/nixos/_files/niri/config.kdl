@@ -285,7 +285,7 @@ binds {
     Mod+E repeat=false { spawn-sh "nautilus --new-window"; }
     Mod+R repeat=false { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+T repeat=false { spawn-sh "noctalia msg session lock"; }
-    Ctrl+Shift+P repeat=false { spawn-sh "noctalia msg panel-toggle oldirtty/color_picker:panel"; }
+    Ctrl+Shift+T repeat=false { spawn-sh "noctalia msg panel-toggle oldirtty/color_picker:panel"; }
     Ctrl+Shift+Y repeat=false { spawn-sh "noctalia msg panel-toggle clipboard"; }
     Mod+Ctrl+Space repeat=false { spawn-sh "noctalia msg panel-toggle wallpaper"; }
     Mod+Shift+N repeat=false { spawn-sh "noctalia msg screenshot-region"; }
@@ -399,5 +399,3 @@ binds {
     Ctrl+Alt+Delete { quit; }
     Mod+Shift+T { power-off-monitors; }
 }
-
-

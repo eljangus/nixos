@@ -99,6 +99,11 @@ in {
               "type" = "registry";
             };
           };
+          "theme" = {
+            "mode" = "system";
+            "light" = "Noctalia Light";
+            "dark" = "Noctalia Dark";
+          };
         }
         // lib.optionalAttrs isDarwin {
           "theme" = {

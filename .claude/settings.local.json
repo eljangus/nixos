@@ -11,7 +11,25 @@
       "Bash(git -C /home/elias/nixos log --format='%H%n%B---END---' -20)",
       "Bash(git fetch *)",
       "Bash(git update-ref *)",
-      "Bash(nh os *)"
+      "Bash(nh os *)",
+      "Bash(journalctl --user -u home-manager-elias.service -b --no-pager -n 100)",
+      "Bash(systemctl --user status home-manager-elias.service --no-pager -l)",
+      "Bash(journalctl --no-pager -n 200)",
+      "Bash(journalctl -u home-manager-elias.service --no-pager -n 300)",
+      "Bash(journalctl *)",
+      "Bash(mount)",
+      "Bash(findmnt /home/elias/.config/fastfetch)",
+      "Bash(lsattr -d /home/elias/.config/fastfetch/other-configs/bunnyfetch)",
+      "Read(//nix/store/fakmh66jdjiv3p7sf9vj39pz3agcsxhx-hm_otherconfigs/**)",
+      "Read(//home/elias/.config/fastfetch/**)",
+      "Bash(findmnt -T /home/elias/.config/fastfetch/other-configs)",
+      "Read(//home/elias/.config/**)",
+      "Read(//home/elias/dotfiles/dotfiles/wc-dots/.config/**)",
+      "Read(//home/elias/**)",
+      "Bash(xargs -I{} sh -c 'echo \"{} -> $\\(readlink \"{}\"\\)\"')",
+      "Bash(find / -iname \"*noctalia*\" -path \"*zed*\")",
+      "Bash(find / -iname \"noctalia*\")",
+      "Bash(python3 *)"
     ]
   }
 }
