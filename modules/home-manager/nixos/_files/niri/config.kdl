@@ -282,6 +282,7 @@ binds {
     //XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
     //XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
     Mod+Q repeat=false { spawn "kitty"; }
+    Mod+W repeat=false { spawn "zeditor"; }
     Mod+E repeat=false { spawn-sh "nautilus --new-window"; }
     Mod+R repeat=false { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+T repeat=false { spawn-sh "noctalia msg session lock"; }
