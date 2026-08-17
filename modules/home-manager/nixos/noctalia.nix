@@ -11,7 +11,7 @@
     };
 
   config = lib.mkIf config.myModules.home-manager.programs.noctalia.enable {
-    xdg.configFile."noctalia/settings.toml".source =
+    xdg.stateFile."noctalia/settings.toml".source =
       config.lib.file.mkOutOfStoreSymlink
       "${config.home.homeDirectory}/nixos/assets/misc/settings.toml";
   };
