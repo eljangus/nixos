@@ -104,7 +104,5 @@
         };
       };
     };
-
-    xdg.configFile."starship(lambda).toml".source = ./_files/starship/lambda.toml;
   };
 }
