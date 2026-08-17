@@ -17,6 +17,8 @@ in {
       enable = true;
       musicDirectory = "${config.home.homeDirectory}/Playlist";
       extraConfig = ''
+        auto_update "yes"
+
         audio_output {
           type "${
           if isDarwin
