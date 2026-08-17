@@ -400,4 +400,4 @@ show_condition = false
 [widget.workspaces]
 label_source = "name"
 scroll_repeat = "steps"
-style = "focus_hint"
+style = "minimal"

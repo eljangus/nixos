@@ -18,6 +18,7 @@ in {
           vimAlias = true;
           binds.hardtime-nvim.enable = false;
           presence.neocord.enable = true;
+          filetree.nvimTree.enable = true;
 
           theme = {
             enable = true;
