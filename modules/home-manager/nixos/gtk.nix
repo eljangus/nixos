@@ -16,7 +16,7 @@ in {
       enable = true;
 
       font = {
-        name = "Adwaita Sans";
+        name = "Maple Mono NF";
         size = 11;
       };
 

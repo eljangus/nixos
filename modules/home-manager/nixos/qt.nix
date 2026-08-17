@@ -3,8 +3,8 @@
   lib,
   ...
 }: let
-  qt5Font = ''"Adwaita Sans,11,-1,5,50,0,0,0,0,0,Regular"'';
-  qt6Font = ''"Adwaita Sans,11,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular,0,0"'';
+  qt5Font = ''"Maple Mono NF,11,-1,5,50,0,0,0,0,0,Regular"'';
+  qt6Font = ''"Maple Mono NF,11,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular,0,0"'';
 
   interface = {
     activate_item_on_single_click = 1;
