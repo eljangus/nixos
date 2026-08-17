@@ -16,7 +16,6 @@ order = [ "default", "macos" ]
     [bar.default]
     capsule_padding = 8.0
     center = [ "text_left", "clock", "text_right" ]
-    enabled = false
     end = [
         "text_left",
         "tray",
@@ -54,9 +53,8 @@ order = [ "default", "macos" ]
     widget_spacing = 8
 
     [bar.macos]
-    background_opacity = 0.79999998211860657
     center = []
-    enabled = true
+    enabled = false
     end = [ "tray", "weather", "notifications", "mac-uhr" ]
     hover_highlight = false
     margin_ends = 0
@@ -82,7 +80,7 @@ width = 800
 
 [dock]
 auto_hide = true
-background_opacity = 0.79999998211860657
+background_opacity = 0.99999997764825821
 cross_axis_padding = 12
 enabled = true
 inactive_opacity = 0.99999997764825821
@@ -206,11 +204,11 @@ widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-1", "lock
         background_opacity = 0.0
 
 [notification]
-background_opacity = 0.79999998211860657
+background_opacity = 0.99999997764825821
 monitors = [ "DP-1" ]
 
 [osd]
-background_opacity = 0.79999998211860657
+background_opacity = 0.99999997764825821
 monitors = [ "DP-1" ]
 
     [osd.kinds]
@@ -238,7 +236,7 @@ avatar_path = "/home/elias/nixos/assets/misc/Alisa_Mikhailovna_Kujou_Manga.png"
 button_borders = false
 card_borders = false
 clipboard_image_action_command = "swash"
-corner_radius_scale = 2.0
+corner_radius_scale = 0.0
 font_family = "Maple Mono NF"
 input_borders = false
 niri_overview_type_to_launch_enabled = true
@@ -340,7 +338,7 @@ display = "text_only"
 font_weight = 700
 
 [widget.clock]
-format = " {:%H:%M Uhr - 󰃮 %a, %d.%m.%y}"
+format = "  {:%H:%M Uhr - 󰃮  %a, %d.%m.%y}"
 vertical_format = "\\\\n{:%H\\\\n%M\\\\n-\\\\n󰃮\\\\n%a\\\\n%d\\\\n%m\\\\n%y}"
 
 [widget.custom-text]
