@@ -2,7 +2,10 @@
   inherit (config.myModules) user;
 
   myHome = {
-    programs.kitty.enable = true;
+    programs = {
+      kitty.enable = true;
+      rmpc.enable = true;
+    };
     theming = {
       gtk.enable = true;
       qt.enable = true;

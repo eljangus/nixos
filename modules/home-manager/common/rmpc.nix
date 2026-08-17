@@ -3,17 +3,34 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  isDarwin = pkgs.stdenv.isDarwin;
+in {
   options.myModules.home-manager.programs.rmpc.enable =
-    lib.mkEnableOption "rmpc configuration" // {default = true;};
+    lib.mkEnableOption "rmpc configuration";
 
   config = lib.mkIf config.myModules.home-manager.programs.rmpc.enable {
-    home.pacakges = with pkgs; [
+    home.packages = with pkgs; [
       rmpc
     ];
     services.mpd = {
       enable = true;
       musicDirectory = "${config.home.homeDirectory}/Playlist";
+      extraConfig = ''
+        audio_output {
+          type "${
+          if isDarwin
+          then "osx"
+          else "pipewire"
+        }"
+          name "${
+          if isDarwin
+          then "CoreAudio"
+          else "PipeWire"
+        }"
+          mixer_type "software"
+        }
+      '';
     };
   };
 }
