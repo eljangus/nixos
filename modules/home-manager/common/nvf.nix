@@ -34,9 +34,6 @@ in {
                   buffer = args.buf,
                   once = true,
                   callback = function()
-                    -- defer past the in-flight buffer switch: opening a split
-                    -- from inside BufWinLeave races the pending :edit and can
-                    -- bounce focus back to the (about to be replaced) buffer
                     vim.schedule(function()
                       require("nvim-tree.api").tree.toggle({ focus = false })
                     end)
