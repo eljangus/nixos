@@ -4,7 +4,6 @@
   pkgs,
   ...
 }: let
-  isDarwin = pkgs.stdenv.isDarwin;
 in {
   options.myModules.home-manager.programs.zed.enable =
     lib.mkEnableOption "zed configuration"
