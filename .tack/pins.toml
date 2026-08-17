@@ -10,6 +10,9 @@ url = "github:ItsLemmy/swash"
 [inputs.home-manager]
 url = "github:nix-community/home-manager"
 
+[inputs.nvf]
+url = "github:notashelf/nvf"
+
 [inputs.nix-darwin]
 url = "github:nix-darwin/nix-darwin"
 

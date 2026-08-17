@@ -6,10 +6,7 @@
 }: let
 in {
   options.myModules.home-manager.programs.zed.enable =
-    lib.mkEnableOption "zed configuration"
-    // {
-      default = true;
-    };
+    lib.mkEnableOption "zed configuration";
 
   config = lib.mkIf config.myModules.home-manager.programs.zed.enable {
     home.packages = with pkgs; [
