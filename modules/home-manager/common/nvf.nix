@@ -20,6 +20,32 @@ in {
           presence.neocord.enable = true;
           filetree.nvimTree.enable = true;
 
+          # nvim-tree's own auto-open only fires on VimEnter, checking the
+          # buffer nvim was started with. Opening nvim bare drops you on the
+          # alpha buffer, so that check never sees a real file and nvim-tree
+          # stays closed - even after picking a file from the dashboard
+          # (e.g. via the "Config bearbeiten" button). Open nvim-tree
+          # ourselves once the alpha buffer is left for a real one.
+          luaConfigPost = ''
+            vim.api.nvim_create_autocmd("FileType", {
+              pattern = "alpha",
+              callback = function(args)
+                vim.api.nvim_create_autocmd("BufWinLeave", {
+                  buffer = args.buf,
+                  once = true,
+                  callback = function()
+                    -- defer past the in-flight buffer switch: opening a split
+                    -- from inside BufWinLeave races the pending :edit and can
+                    -- bounce focus back to the (about to be replaced) buffer
+                    vim.schedule(function()
+                      require("nvim-tree.api").tree.toggle({ focus = false })
+                    end)
+                  end,
+                })
+              end,
+            })
+          '';
+
           theme = {
             enable = true;
             name = "rose-pine";
