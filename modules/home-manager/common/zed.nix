@@ -15,6 +15,7 @@ in {
     home.packages = with pkgs; [
       nixd
       pyrefly
+      ruff
       alejandra
       mcp-nixos
     ];
@@ -25,7 +26,7 @@ in {
       mutableUserSettings = false;
       mutableUserKeymaps = false;
       mutableUserTasks = false;
-      extensions = ["nix" "toml" "rose-pine-theme"];
+      extensions = ["nix" "toml" "rose-pine-theme" "pyrefly"];
       userSettings = {
         "edit_predictions" = {
           "provider" = "none";
@@ -71,6 +72,15 @@ in {
               "external" = {
                 "command" = "alejandra";
                 "arguments" = [];
+              };
+            };
+          };
+          "Python" = {
+            "language_servers" = ["pyrefly"];
+            "formatter" = {
+              "external" = {
+                "command" = "ruff";
+                "arguments" = ["format" "-"];
               };
             };
           };
