@@ -1,35 +1,16 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git commit -- CLAUDE.md -m ' *)",
-      "Bash(git commit -m ' *)",
-      "Bash(git push *)",
-      "Bash(git commit *)",
-      "Bash(git -C /home/elias/nixos log --format='%an <%ae>')",
-      "Bash(git -C /home/elias/nixos remote -v)",
-      "Bash(git -C /home/elias/nixos log --format='%H %s' -20)",
-      "Bash(git -C /home/elias/nixos log --format='%H%n%B---END---' -20)",
-      "Bash(git fetch *)",
-      "Bash(git update-ref *)",
-      "Bash(nh os *)",
-      "Bash(journalctl --user -u home-manager-elias.service -b --no-pager -n 100)",
-      "Bash(systemctl --user status home-manager-elias.service --no-pager -l)",
-      "Bash(journalctl --no-pager -n 200)",
-      "Bash(journalctl -u home-manager-elias.service --no-pager -n 300)",
-      "Bash(journalctl *)",
-      "Bash(mount)",
-      "Bash(findmnt /home/elias/.config/fastfetch)",
-      "Bash(lsattr -d /home/elias/.config/fastfetch/other-configs/bunnyfetch)",
-      "Read(//nix/store/fakmh66jdjiv3p7sf9vj39pz3agcsxhx-hm_otherconfigs/**)",
-      "Read(//home/elias/.config/fastfetch/**)",
-      "Bash(findmnt -T /home/elias/.config/fastfetch/other-configs)",
-      "Read(//home/elias/.config/**)",
-      "Read(//home/elias/dotfiles/dotfiles/wc-dots/.config/**)",
+      "Bash(fc-list)",
+      "Bash(hostnamectl)",
+      "Bash(find / -xdev -iname \"settings.json\" -path \"*zed*\")",
       "Read(//home/elias/**)",
-      "Bash(xargs -I{} sh -c 'echo \"{} -> $\\(readlink \"{}\"\\)\"')",
-      "Bash(find / -iname \"*noctalia*\" -path \"*zed*\")",
-      "Bash(find / -iname \"noctalia*\")",
-      "Bash(python3 *)"
+      "Bash(grep -a -o -E \"[a-zA-Z_]*font[a-zA-Z_]*[^\\\\\"]{0,40}\" ~/.local/share/zed/db/0-stable/db.sqlite)",
+      "Bash(sqlite3 ~/.local/share/zed/db/0-stable/db.sqlite \".tables\")",
+      "Bash(python3 *)",
+      "Bash(nix shell *)",
+      "Bash(grep -a -o '\"buffer_font_size\"[^,}]\\\\{0,60\\\\}' /nix/store/p9bawv25j0cc5h5jxzsk4ryiy19g0xw3-zed-editor-1.14.2/libexec/.zed-editor-wrapped)",
+      "Bash(nh os *)"
     ]
   }
 }

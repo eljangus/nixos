@@ -26,18 +26,18 @@ in {
       mutableUserSettings = false;
       mutableUserKeymaps = false;
       mutableUserTasks = false;
-      extensions = ["nix" "rose-pine-theme"];
+      extensions = ["nix" "toml" "rose-pine-theme"];
       userSettings = {
         "edit_predictions" = {
           "provider" = "none";
         };
         "format_on_save" = "off";
-        "font_family" = "JetBrainsMono Nerd Font Mono";
+        "buffer_font_family" = "Maple Mono NF";
         "vim_mode" = true;
         "session" = {
           "trust_all_worktrees" = true;
         };
-        "font_weight" = 300.0;
+        "buffer_font_weight" = 300.0;
         "ui_font_weight" = 300.0;
         "ui_font_family" = "Maple Mono NF";
         "line_height" = "comfortable";
@@ -60,8 +60,8 @@ in {
           "diagnostics" = false;
           "metrics" = false;
         };
-        "ui_font_size" = 19.0;
-        "font_size" = 18.0;
+        "ui_font_size" = 20.0;
+        "buffer_font_size" = 18.0;
         "languages" = {
           "YAML" = {
             "format_on_save" = "off";
