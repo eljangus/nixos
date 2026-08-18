@@ -15,7 +15,7 @@
         audioViewer = "org.gnome.Decibels.desktop";
         fileViewer = "org.gnome.Nautilus.desktop";
         browser = "zen.desktop";
-        textEditor = "codium.desktop";
+        textEditor = "zeditor.desktop";
         chromium = "chromium.desktop";
       in {
         "image/jpeg" = imageViewer;

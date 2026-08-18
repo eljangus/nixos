@@ -5,7 +5,6 @@
     programs = {
       kitty.enable = true;
       rmpc.enable = true;
-      zed.enable = true;
     };
     theming = {
       gtk.enable = true;

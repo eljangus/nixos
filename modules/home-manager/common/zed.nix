@@ -7,7 +7,7 @@
   isDarwin = pkgs.stdenv.isDarwin;
 in {
   options.myModules.home-manager.programs.zed.enable =
-    lib.mkEnableOption "zed configuration";
+    lib.mkEnableOption "zed configuration" // {default = true;};
 
   config = lib.mkIf config.myModules.home-manager.programs.zed.enable {
     home.packages = with pkgs; [
@@ -18,15 +18,28 @@ in {
       mcp-nixos
     ];
 
-    programs.zed-editor =
-      {
-        enable = true;
-        package = pkgs.zed-editor;
-        mutableUserSettings = false;
-        mutableUserKeymaps = false;
-        mutableUserTasks = false;
-        extensions = ["nix" "toml" "rose-pine-theme" "pyrefly"];
-        userSettings = {
+    programs.zed-editor = {
+      enable = true;
+      package = pkgs.zed-editor;
+      mutableUserSettings = false;
+      mutableUserKeymaps = false;
+      mutableUserTasks = false;
+      extensions =
+        [
+          "nix"
+          "toml"
+          "pyrefly"
+          "catppuccin"
+          "catppuccin-blur"
+          "catppuccin-icons"
+        ]
+        ++ lib.optionals isDarwin [
+          "rose-pine-theme"
+          "rose-pine-icons"
+          "rose-pine-theme-blur"
+        ];
+      userSettings =
+        {
           "edit_predictions" = {
             "provider" = "none";
           };
@@ -111,11 +124,11 @@ in {
             "light" = "Rosé Pine Dawn";
             "dark" = "Rosé Pine";
           };
+        }
+        // lib.optionalAttrs isDarwin {
+          "ui_font_size" = 17.0;
+          "buffer_font_size" = 15.0;
         };
-      }
-      // lib.mkIf isDarwin {
-        "ui_font_size" = 17.0;
-        "buffer_font_size" = 15.0;
-      };
+    };
   };
 }

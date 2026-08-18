@@ -10,6 +10,10 @@ in {
     lib.mkEnableOption "nvf configuration" // {default = true;};
 
   config = lib.mkIf config.myModules.home-manager.programs.nvf.enable {
+    home.sessionVariables = {
+      EDITOR = "nvim";
+    };
+
     programs.nvf = {
       enable = true;
       settings = {
