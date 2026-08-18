@@ -46,7 +46,7 @@
           cff5 = "reset && fastfetch -c ~/.config/fastfetch/other-configs/frieren/config.jsonc";
           cff6 = "reset && fastfetch -c ~/.config/fastfetch/other-configs/bunnyfetch/config.jsonc";
           ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history";
-          ls = "eza -la --icons";
+          ls = "eza -la --icons --";
         };
       };
     };
