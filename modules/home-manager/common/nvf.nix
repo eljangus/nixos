@@ -22,24 +22,6 @@ in {
           vimAlias = true;
           binds.hardtime-nvim.enable = false;
           presence.neocord.enable = true;
-          filetree.nvimTree.enable = true;
-
-          luaConfigPost = ''
-            vim.api.nvim_create_autocmd("FileType", {
-              pattern = "alpha",
-              callback = function(args)
-                vim.api.nvim_create_autocmd("BufWinLeave", {
-                  buffer = args.buf,
-                  once = true,
-                  callback = function()
-                    vim.schedule(function()
-                      require("nvim-tree.api").tree.toggle({ focus = false })
-                    end)
-                  end,
-                })
-              end,
-            })
-          '';
 
           theme = {
             enable = true;

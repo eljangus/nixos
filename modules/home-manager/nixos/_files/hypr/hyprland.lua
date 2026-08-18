@@ -519,7 +519,7 @@ hl.window_rule({
 
 hl.window_rule({
     name = "windowrule-12",
-    opacity = "0.8",
+    opacity = "1.0",
     match = {
         class = "VSCodium",
     },
@@ -568,7 +568,7 @@ hl.window_rule({
 
 hl.window_rule({
     name = "windowrule-17",
-    opacity = "0.8",
+    opacity = "1.0",
     match = {
         class = "codium",
     },
@@ -665,5 +665,3 @@ hl.window_rule({
 
 -- For Noctalia Color templates
 require("noctalia").apply_theme()
-
-

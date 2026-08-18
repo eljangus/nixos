@@ -112,8 +112,8 @@ in {
           };
           "theme" = {
             "mode" = "system";
-            "light" = "Rosé Pine Dawn";
-            "dark" = "Rosé Pine";
+            "light" = "Noctalia Light Transparent";
+            "dark" = "Noctalia Dark Transparent";
             "agent_servers" = {
               "claude-acp" = {
                 "type" = "registry";
