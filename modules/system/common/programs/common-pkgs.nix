@@ -18,9 +18,6 @@
       opencode
       claude-code
       nixfmt
-
-      # texteditor
-      vscodium
     ];
   };
 }
