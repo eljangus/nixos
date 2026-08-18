@@ -20,7 +20,7 @@ in {
 
     programs.zed-editor = {
       enable = true;
-      package = pkgs.zed-corners;
+      package = pkgs.zed-editor;
       mutableUserSettings = false;
       mutableUserKeymaps = false;
       mutableUserTasks = false;
@@ -40,6 +40,7 @@ in {
         ];
       userSettings =
         {
+          "window_decorations" = "server";
           "edit_predictions" = {
             "provider" = "none";
           };
