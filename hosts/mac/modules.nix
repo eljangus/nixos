@@ -4,6 +4,7 @@
   myHome = {
     kitty.enable = true;
     omniwm.enable = true; # nix-managed config
+    zed.enable = true;
   };
 in {
   myModules.programs.omniwm.enable = true; # installed via homebrew
