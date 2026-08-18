@@ -113,7 +113,7 @@ in {
           "theme" =
             {
               "mode" = "system";
-              "light" = "One Light";
+              "light" = "Noctalia Light";
               "dark" = "Noctalia Dark";
               "agent_servers" = {
                 "claude-acp" = {
