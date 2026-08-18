@@ -305,10 +305,10 @@ screen_time_enabled = true
     variant = "destructive"
 
 [theme]
-builtin = "Rosé Pine"
+builtin = "Nord"
 community_palette = "Rosey AMOLED"
 custom_palette = "Paradise"
-mode = "light"
+mode = "dark"
 source = "wallpaper"
 wallpaper_scheme = "m3-content"
 
@@ -321,16 +321,16 @@ directory = "/home/elias/wallpapers/Walls"
 transition = [ "disc", "fade", "wipe" ]
 
     [wallpaper.default]
-    path = "/home/elias/wallpapers/Walls/Sternensystem.png"
+    path = "/home/elias/wallpapers/Walls/Anime-Rot.png"
 
     [wallpaper.last]
-    path = "/home/elias/wallpapers/Walls/Sternensystem.png"
+    path = "/home/elias/wallpapers/Walls/Anime-Rot.png"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/elias/wallpapers/Walls/Sternensystem.png"
+    path = "/home/elias/wallpapers/Walls/Anime-Rot.png"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/elias/wallpapers/Walls/Sternensystem.png"
+    path = "/home/elias/wallpapers/Walls/Anime-Rot.png"
 
 [widget.active_window]
 display = "text_only"
