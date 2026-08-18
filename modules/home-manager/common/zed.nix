@@ -107,22 +107,21 @@ in {
               };
             };
           };
-
           "agent" = {
             "dock" = "right";
-          };
-          "agent_servers" = {
-            "claude-acp" = {
-              "type" = "registry";
-            };
-            "mcp-nixos" = {
-              "type" = "registry";
-            };
           };
           "theme" = {
             "mode" = "system";
             "light" = "Rosé Pine Dawn";
             "dark" = "Rosé Pine";
+            "agent_servers" = {
+              "claude-acp" = {
+                "type" = "registry";
+              };
+              "mcp-nixos" = {
+                "type" = "registry";
+              };
+            };
           };
         }
         // lib.optionalAttrs isDarwin {
