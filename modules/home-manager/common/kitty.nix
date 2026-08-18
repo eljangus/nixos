@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  isDarwin = pkgs.stdenv.isDarwin;
+  isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
   themeName =
     if isDarwin
     then "rose-pine"

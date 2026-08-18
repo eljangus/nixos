@@ -20,7 +20,10 @@ in {
       obs.enable = true;
     };
     system = {
-      overlays.enable = true;
+      overlays = {
+        enable = true;
+        zed-corners.enable = true;
+      };
       polkit.enable = true;
     };
   };

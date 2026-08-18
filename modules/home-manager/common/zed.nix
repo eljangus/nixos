@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  isDarwin = pkgs.stdenv.isDarwin;
+  isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
 in {
   options.myModules.home-manager.programs.zed.enable =
     lib.mkEnableOption "zed configuration" // {default = true;};
@@ -20,7 +20,7 @@ in {
 
     programs.zed-editor = {
       enable = true;
-      package = pkgs.zed-editor;
+      package = pkgs.zed-corners;
       mutableUserSettings = false;
       mutableUserKeymaps = false;
       mutableUserTasks = false;

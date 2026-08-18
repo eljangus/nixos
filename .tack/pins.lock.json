@@ -3,39 +3,31 @@
     "type": "github",
     "owner": "nix-community",
     "repo": "home-manager",
-    "rev": "e13ba5e5abbd9b912fa8c6979bd119e87ca7fdd9",
-    "narHash": "sha256-PH8B1YKxedcWKNw2xsk6cKPVk/rJoLgdlWd5d+Icies=",
-    "lastModified": 1786538400
+    "rev": "353742587cbaf079b3caee743115d037bc51fea6",
+    "narHash": "sha256-MTGMFlLDTklsXhCp4r5GXB4VAVadPdalXLvUjd/K7h0=",
+    "lastModified": 1786999651
   },
   "nix-darwin": {
     "type": "github",
     "owner": "nix-darwin",
     "repo": "nix-darwin",
-    "rev": "15abb8c98f336cd8bd840d71059adebabe60bf04",
-    "narHash": "sha256-0tLW8Ff5yt8AH97jw4ZpFJ0OCJ122zIlgWGDmOfU/VU=",
-    "lastModified": 1785389976
+    "rev": "4cff07de74b50e64bdd68cd4e722ab5b6b35ee48",
+    "narHash": "sha256-oQFip+v0luP8NIxJzmiW4Wu8bILsbFWom5l0zonl8hQ=",
+    "lastModified": 1786845137
   },
   "nixpkgs": {
     "type": "tarball",
-    "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1051473.2fcb964de67f/nixexprs.tar.xz",
-    "rev": "2fcb964de67fcf60b43471c55d5d99e61a9ccb5a",
-    "narHash": "sha256-OETwiymkMwunF+pfL25DzLMF2/YpMcJUjVd9qZ0YdsM="
-  },
-  "nixpkgs-unstable": {
-    "type": "github",
-    "owner": "NixOS",
-    "repo": "nixpkgs",
-    "rev": "38a4887411571457d700c51c64a6e49ead2ed5ab",
-    "narHash": "sha256-kh35kIx7el4Jk8Ki3BH9/Pn1eZYSYLJ6LMALos0zOy0=",
-    "lastModified": 1785141334
+    "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1057119.ec2d622de077/nixexprs.tar.xz",
+    "rev": "ec2d622de0773551768cf98f3fc50cbcc003b9c5",
+    "narHash": "sha256-6Qso3az0lZx+zxDQOhEvNUfJMqqq9tcjrLhsCAswAvs="
   },
   "nvf": {
     "type": "github",
     "owner": "notashelf",
     "repo": "nvf",
-    "rev": "a213644cadd5f90bf18b0c409f08f282b30e55e3",
-    "narHash": "sha256-rbOp2g0UCYt+evTnCGCKBQGqSMfwX4RTXneNbeHqOAk=",
-    "lastModified": 1786433999
+    "rev": "59b0dc327b5ce7a6b510c50456a35891ddd144cc",
+    "narHash": "sha256-ok6BBZuGDKvJurSpxR93I7wwP7oIpSy5sox6WvDrbPw=",
+    "lastModified": 1786998546
   },
   "swash": {
     "type": "github",
@@ -49,8 +41,8 @@
     "type": "github",
     "owner": "youwen5",
     "repo": "zen-browser-flake",
-    "rev": "64791844717b786a93dde8f76c8a35222e53cf53",
-    "narHash": "sha256-cyMeyF4QCZF7YL5+ynYZMDIA2LChF3L51ZLP6BvJ1L4=",
-    "lastModified": 1786424696
+    "rev": "e1e4aa6433a352f07059aeb8483ae42deb61f9b2",
+    "narHash": "sha256-3ZuubfWk7CHPF/60w5BVrVkzdO7Oed1MgZ+ugLsgww8=",
+    "lastModified": 1786685380
   }
 }

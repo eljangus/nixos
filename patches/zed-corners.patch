@@ -1,0 +1,16 @@
+diff --git a/crates/theme/src/theme.rs b/crates/theme/src/theme.rs
+index a23bedd504..2bbbc51da7 100644
+--- a/crates/theme/src/theme.rs
++++ b/crates/theme/src/theme.rs
+@@ -50,9 +50,9 @@ pub use crate::ui_density::*;
+ pub const DEFAULT_DARK_THEME: &str = "One Dark";
+ 
+ /// Defines window border radius for platforms that use client side decorations.
+-pub const CLIENT_SIDE_DECORATION_ROUNDING: Pixels = px(10.0);
++pub const CLIENT_SIDE_DECORATION_ROUNDING: Pixels = px(0.0);
+ /// Defines window shadow size for platforms that use client side decorations.
+-pub const CLIENT_SIDE_DECORATION_SHADOW: Pixels = px(10.0);
++pub const CLIENT_SIDE_DECORATION_SHADOW: Pixels = px(0.0);
+ 
+ /// Styling helpers for elements that follow client-side window decorations.
+ pub trait ClientDecorationsExt: Styled {

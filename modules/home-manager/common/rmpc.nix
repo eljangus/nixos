@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  isDarwin = pkgs.stdenv.isDarwin;
+  isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
 in {
   options.myModules.home-manager.programs.rmpc.enable =
     lib.mkEnableOption "rmpc configuration";

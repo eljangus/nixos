@@ -18,6 +18,7 @@
       opencode
       claude-code
       nixfmt
+      sccache
     ];
   };
 }
