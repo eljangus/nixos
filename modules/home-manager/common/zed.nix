@@ -110,19 +110,25 @@ in {
           "agent" = {
             "dock" = "right";
           };
-          "theme" = {
-            "mode" = "system";
-            "light" = "Noctalia Light Transparent";
-            "dark" = "Noctalia Dark Transparent";
-            "agent_servers" = {
-              "claude-acp" = {
-                "type" = "registry";
+          "theme" =
+            {
+              "mode" = "system";
+              "light" = "Noctalia Light";
+              "dark" = "Noctalia Dark";
+              "agent_servers" = {
+                "claude-acp" = {
+                  "type" = "registry";
+                };
+                "mcp-nixos" = {
+                  "type" = "registry";
+                };
               };
-              "mcp-nixos" = {
-                "type" = "registry";
-              };
+            }
+            // lib.optionalAttrs isDarwin {
+              "mode" = "system";
+              "light" = "Rosé Pine Dawn";
+              "dark" = "Rosé Pine";
             };
-          };
         }
         // lib.optionalAttrs isDarwin {
           "ui_font_size" = 17.0;
