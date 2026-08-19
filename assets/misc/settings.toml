@@ -306,7 +306,7 @@ screen_time_enabled = true
 
 [theme]
 builtin = "Rosé Pine"
-community_palette = "Rosey AMOLED"
+community_palette = "Solarized"
 custom_palette = "Paradise"
 mode = "light"
 source = "wallpaper"
