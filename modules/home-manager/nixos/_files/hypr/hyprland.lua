@@ -23,7 +23,7 @@ hl.monitor({
 
 local terminal    = "kitty"
 local fileManager = "nautilus --new-window"
-local browser     = "firefox"
+local browser     = "zen-browser"
 local sysmonitor  = "kitty -e 'btop'"
 
 -------------------
