@@ -10,6 +10,7 @@
     specialArgs = {inherit inputs self importTree;};
     commonModules = [
       ./modules/system/common
+      ./overlays
       {
         home-manager.extraSpecialArgs = {inherit self inputs importTree;};
         home-manager.sharedModules = [inputs.nvf.homeManagerModules.default];
