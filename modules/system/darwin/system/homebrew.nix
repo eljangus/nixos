@@ -11,8 +11,8 @@
       enable = true;
       onActivation = {
         cleanup = "zap";
-        autoUpdate = false;
-        upgrade = false;
+        autoUpdate = true;
+        upgrade = true;
       };
     };
   };
