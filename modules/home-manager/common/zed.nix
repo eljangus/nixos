@@ -29,9 +29,6 @@ in {
           "nix"
           "toml"
           "pyrefly"
-          "catppuccin"
-          "catppuccin-blur"
-          "catppuccin-icons"
         ]
         ++ lib.optionals isDarwin [
           "rose-pine-theme"
