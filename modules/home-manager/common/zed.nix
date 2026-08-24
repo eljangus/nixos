@@ -30,6 +30,7 @@ in {
           "toml"
           "pyrefly"
           "discord-presence"
+          "lua"
         ]
         ++ lib.optionals isDarwin [
           "rose-pine-theme"
