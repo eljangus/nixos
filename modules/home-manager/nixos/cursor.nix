@@ -3,6 +3,7 @@
   pkgs,
   lib,
   config,
+  osConfig,
   ...
 }: let
   kitty-cursor = pkgs.runCommandLocal "kitty-cursor" {} ''
@@ -20,13 +21,17 @@ in {
     lib.mkEnableOption "kitty cursor";
 
   config = lib.mkIf config.myModules.home-manager.theming.cursor.enable {
-    home.pointerCursor = {
-      enable = true;
-      gtk.enable = true;
-      x11.enable = true;
-      name = "bunny-cursor";
-      size = 24;
-      package = bunny-cursor;
-    };
+    home.pointerCursor =
+      {
+        enable = true;
+        gtk.enable = true;
+        x11.enable = true;
+        name = "bunny-cursor";
+        size = 24;
+        package = bunny-cursor;
+      }
+      // lib.optionalAttrs (osConfig.myModules.desktop == "gnome") {
+        size = 36;
+      };
   };
 }
