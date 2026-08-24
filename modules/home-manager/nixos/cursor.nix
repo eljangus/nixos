@@ -33,5 +33,12 @@ in {
       // lib.optionalAttrs (osConfig.myModules.desktop == "gnome") {
         size = 36;
       };
+
+    dconf.settings = lib.mkIf (osConfig.myModules.desktop == "gnome") {
+      "org/gnome/desktop/interface" = {
+        cursor-theme = "bunny-cursor";
+        cursor-size = 24;
+      };
+    };
   };
 }
