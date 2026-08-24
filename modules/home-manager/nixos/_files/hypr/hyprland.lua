@@ -103,7 +103,7 @@ hl.config({
     },
 
     decoration = {
-        rounding         = 20,
+        rounding         = 0,
         rounding_power   = 2,
 
         -- Change transparency of focused and unfocused windows
@@ -150,12 +150,12 @@ hl.curve("easy", { type = "spring", mass = 1, stiffness = 71.2633, dampening = 1
 
 hl.animation({ leaf = "global", enabled = true, speed = 10, bezier = "smoothSlow" })
 hl.animation({ leaf = "border", enabled = true, speed = 5.39, bezier = "smoothFast" })
-hl.animation({ leaf = "windows", enabled = true, speed = 2.2, bezier = "softGlide", style = "slide" })
-hl.animation({ leaf = "windowsIn", enabled = true, speed = 2.2, bezier = "softGlide", style = "popin 87%" })
-hl.animation({ leaf = "windowsOut", enabled = true, speed = 2.2, bezier = "easeOutSleek", style = "popin 87%" })
+hl.animation({ leaf = "windows", enabled = true, speed = 1.8, bezier = "softGlide", style = "slide" })
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 1.8, bezier = "softGlide", style = "popin 87%" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 1.8, bezier = "easeOutSleek", style = "popin 87%" })
 hl.animation({ leaf = "fadeIn", enabled = true, speed = 1.73, bezier = "easeInSleek" })
 hl.animation({ leaf = "fadeOut", enabled = true, speed = 1.46, bezier = "easeOutSleek" })
-hl.animation({ leaf = "fade", enabled = true, speed = 3.03, bezier = "gentleCurve" })
+hl.animation({ leaf = "fade", enabled = true, speed = 2.5, bezier = "gentleCurve" })
 hl.animation({ leaf = "layers", enabled = true, speed = 2.1, bezier = "softGlide", style = "slide" })
 hl.animation({ leaf = "layersIn", enabled = true, speed = 2.5, bezier = "softGlide", style = "slide" })
 hl.animation({ leaf = "layersOut", enabled = true, speed = 2.5, bezier = "easeOutSleek", style = "slide" })
@@ -668,5 +668,8 @@ hl.window_rule({
     }
 })
 
--- For Noctalia Color templates
-require("noctalia").apply_theme()
+-- For Noctalia Color templates (optional: don't error if noctalia.lua isn't present)
+local noctaliaOk, noctalia = pcall(require, "noctalia")
+if noctaliaOk then
+    noctalia.apply_theme()
+end
