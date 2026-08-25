@@ -13,6 +13,10 @@ in {
     lib.mkEnableOption "nvf configuration" // {default = true;};
 
   config = lib.mkIf config.myModules.home-manager.programs.nvf.enable {
+    home.packages = with pkgs; [
+      ripgrep
+    ];
+
     home.sessionVariables = {
       EDITOR = "nvim";
     };
@@ -259,15 +263,8 @@ in {
             nvim-cursorline.enable = true;
           };
 
-          # Polished cmdline/messages/notifications (Zed-style command palette feel)
+          # Polished cmdline/messages (Zed-style command palette feel)
           ui.noice.enable = true;
-          notify.nvim-notify = {
-            enable = true;
-            # theme.transparent leaves the "NotifyBackground" highlight group
-            # without a bg to blend against, so notify falls back to black
-            # and warns. Give it rose-pine's "surface" color explicitly.
-            setupOpts.background_colour = "#1f1d2e";
-          };
 
           binds.whichKey = {
             enable = true;
