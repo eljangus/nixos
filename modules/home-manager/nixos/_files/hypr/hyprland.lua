@@ -1,17 +1,3 @@
------------------
----- PLUGINS ----
------------------
-
-hl.plugin.load("@SCROLLOVERVIEW_SO@")
-
-hl.plugin({
-    scrolloverview = {
-        workspace_gap = 16,
-        blur = true,
-        shadow = { enabled = true },
-    },
-})
-
 ------------------
 ---- MONITORS ----
 ------------------
@@ -332,8 +318,7 @@ hl.bind(mainMod .. " + A", hl.dsp.focus({ workspace = "-1" }))
 hl.bind(mainMod .. " + D", hl.dsp.focus({ workspace = "+1" }))
 hl.bind(mainMod .. " + I", hl.dsp.workspace.toggle_special("Discord"))
 hl.bind(mainMod .. " + SHIFT + I", hl.dsp.window.move({ workspace = "special:Discord" }))
-hl.bind(mainMod .. " + O", hl.plugin.scrolloverview.overview("toggle"))
-hl.bind(mainMod .. " + X", hl.dsp.workspace.toggle_special("OpenRGB"))
+hl.bind(mainMod .. " + O", hl.dsp.workspace.toggle_special("OpenRGB"))
 hl.bind(mainMod .. " + SHIFT + O", hl.dsp.window.move({ workspace = "special:OpenRGB" }))
 hl.bind(mainMod .. " + U", hl.dsp.focus({ workspace = "name:Steam" }))
 hl.bind(mainMod .. " + SHIFT + U", hl.dsp.window.move({ workspace = "name:Steam" }))
