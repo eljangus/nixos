@@ -1,0 +1,94 @@
+commit cf65f6f14e8266dd317396fe9a4ad32d768a75e5
+Author: iwuvkittens <iwuvkittens@cock.li>
+Date:   Tue Sep 9 00:18:08 2025 -0400
+
+    cursor: replace font cursors with xcursor lib
+
+diff --git a/config.mk b/config.mk
+index b469a2b..c57985c 100644
+--- a/config.mk
++++ b/config.mk
+@@ -23,7 +23,7 @@ FREETYPEINC = /usr/include/freetype2
+
+ # includes and libs
+ INCS = -I${X11INC} -I${FREETYPEINC}
+-LIBS = -L${X11LIB} -lX11 ${XINERAMALIBS} ${FREETYPELIBS}
++LIBS = -L${X11LIB} -lX11 ${XINERAMALIBS} ${FREETYPELIBS} -lXcursor
+
+ # flags
+ CPPFLAGS = -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=700L -DVERSION=\"${VERSION}\" ${XINERAMAFLAGS}
+diff --git a/drw.c b/drw.c
+index c41e6af..80d2c2d 100644
+--- a/drw.c
++++ b/drw.c
+@@ -4,6 +4,7 @@
+ #include <string.h>
+ #include <X11/Xlib.h>
+ #include <X11/Xft/Xft.h>
++#include <X11/Xcursor/Xcursor.h>
+
+ #include "drw.h"
+ #include "util.h"
+@@ -425,14 +426,14 @@ drw_font_getexts(Fnt *font, const char *text, unsigned int len, unsigned int *w,
+ }
+
+ Cur *
+-drw_cur_create(Drw *drw, int shape)
++drw_cur_create(Drw *drw, const char *shape)
+ {
+ 	Cur *cur;
+
+ 	if (!drw || !(cur = ecalloc(1, sizeof(Cur))))
+ 		return NULL;
+
+-	cur->cursor = XCreateFontCursor(drw->dpy, shape);
++	cur->cursor = XcursorLibraryLoadCursor(drw->dpy, shape);
+
+ 	return cur;
+ }
+diff --git a/drw.h b/drw.h
+index 6471431..22295a3 100644
+--- a/drw.h
++++ b/drw.h
+@@ -43,7 +43,7 @@ void drw_clr_create(Drw *drw, Clr *dest, const char *clrname);
+ Clr *drw_scm_create(Drw *drw, const char *clrnames[], size_t clrcount);
+
+ /* Cursor abstraction */
+-Cur *drw_cur_create(Drw *drw, int shape);
++Cur *drw_cur_create(Drw *drw, const char *shape);
+ void drw_cur_free(Drw *drw, Cur *cursor);
+
+ /* Drawing context manipulation */
+diff --git a/dwm.c b/dwm.c
+index 4cf07eb..15d53a7 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -30,7 +30,6 @@
+ #include <unistd.h>
+ #include <sys/types.h>
+ #include <sys/wait.h>
+-#include <X11/cursorfont.h>
+ #include <X11/keysym.h>
+ #include <X11/Xatom.h>
+ #include <X11/Xlib.h>
+@@ -40,6 +39,7 @@
+ #include <X11/extensions/Xinerama.h>
+ #endif /* XINERAMA */
+ #include <X11/Xft/Xft.h>
++#include <X11/Xcursor/Xcursor.h>
+
+ #include "drw.h"
+ #include "util.h"
+@@ -1579,9 +1579,9 @@ setup(void)
+ 	netatom[NetWMWindowTypeDialog] = XInternAtom(dpy, "_NET_WM_WINDOW_TYPE_DIALOG", False);
+ 	netatom[NetClientList] = XInternAtom(dpy, "_NET_CLIENT_LIST", False);
+ 	/* init cursors */
+-	cursor[CurNormal] = drw_cur_create(drw, XC_left_ptr);
+-	cursor[CurResize] = drw_cur_create(drw, XC_sizing);
+-	cursor[CurMove] = drw_cur_create(drw, XC_fleur);
++	cursor[CurNormal] = drw_cur_create(drw, "left_ptr");
++	cursor[CurResize] = drw_cur_create(drw, "se-resize");
++	cursor[CurMove]   = drw_cur_create(drw, "fleur");
+ 	/* init appearance */
+ 	scheme = ecalloc(LENGTH(colors), sizeof(Clr *));
+ 	for (i = 0; i < LENGTH(colors); i++)

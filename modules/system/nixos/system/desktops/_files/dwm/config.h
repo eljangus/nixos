@@ -6,8 +6,8 @@ static const unsigned int gappx     = 10;       /* gaps between windows, from th
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Maple Mono NF:size=10" };
-static const char dmenufont[]       = "Maple Mono NF:size=10";
+static const char *fonts[]          = { "Maple Mono NF:size=13" };
+static const char dmenufont[]       = "Maple Mono NF:size=13";
 
 /* Tokyo Night Moon (https://github.com/folke/tokyonight.nvim) */
 static const char col_bg[]          = "#222436";
@@ -83,6 +83,9 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	/* focus the other monitor, matching niri's Mod+Shift+H/L focus-monitor-left/right */
+	{ MODKEY|ShiftMask,             XK_h,      focusmon,       {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_l,      focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
 	{ MODKEY,                       XK_a,      cycleview,      {.ui = 1 } },
@@ -105,8 +108,11 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
-	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
+	/* XK_plus, not XK_equal: on the "de" layout equal shares keycode 19
+	 * with XK_0, so MODKEY+equal/MODKEY+Shift+equal silently lose their
+	 * XGrabKey to the MODKEY+0/MODKEY+Shift+0 (view/tag all) binds above */
+	{ MODKEY,                       XK_plus,   setgaps,        {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_plus,   setgaps,        {.i = 0  } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

@@ -1,0 +1,61 @@
+From 0a129d5ff1b94cf29d0896e9b47a3bc08d6a95fc Mon Sep 17 00:00:00 2001
+From: Wim Stockman <wim@thinkerwim.org>
+Date: Thu, 21 Nov 2024 15:37:49 +0100
+Subject: [PATCH] A patch that loops through all tags on a moniter in both
+ directions
+
+---
+ config.def.h |  2 ++
+ dwm.c        | 16 ++++++++++++++++
+ 2 files changed, 18 insertions(+)
+
+diff --git a/config.def.h b/config.def.h
+index 9efa774..04bb388 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -67,6 +67,8 @@ static const Key keys[] = {
+ 	{ MODKEY,                       XK_b,      togglebar,      {0} },
+ 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+ 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
++	{ MODKEY|ShiftMask,             XK_j,      cycleview,      {1} },
++	{ MODKEY|ShiftMask,             XK_k,      cycleview,      {0} },
+ 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+ 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+ 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
+diff --git a/dwm.c b/dwm.c
+index 1443802..2014518 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -226,6 +226,7 @@ static void updatetitle(Client *c);
+ static void updatewindowtype(Client *c);
+ static void updatewmhints(Client *c);
+ static void view(const Arg *arg);
++static void cycleview(const Arg *arg);
+ static Client *wintoclient(Window w);
+ static Monitor *wintomon(Window w);
+ static int xerror(Display *dpy, XErrorEvent *ee);
+@@ -2049,6 +2050,21 @@ updatewmhints(Client *c)
+ 	}
+ }
+ 
++void
++cycleview(const Arg *arg) {
++	 unsigned int newtag ;
++	if (arg->ui) { /* if ui is 1 goto the left if 0 goto the right */
++	    newtag = selmon->tagset[selmon->seltags] >> 1;
++	    if (newtag == 0) newtag = (1 << (LENGTH(tags) - 1));
++	}
++	else{
++	    newtag = selmon->tagset[selmon->seltags] << 1;
++	    if (newtag > ( 1 << (LENGTH(tags) - 1))) newtag = 1;
++	}
++    Arg a = { .ui = newtag};
++    view(&a);
++}
++
+ void
+ view(const Arg *arg)
+ {
+-- 
+2.47.0
+
