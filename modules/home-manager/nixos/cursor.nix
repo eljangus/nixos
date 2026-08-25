@@ -25,9 +25,9 @@ in {
       enable = true;
       gtk.enable = true;
       x11.enable = true;
-      name = "bunny-cursor";
+      name = "kitty-cursor";
       size = 24;
-      package = bunny-cursor;
+      package = kitty-cursor;
     };
     dconf.settings = lib.mkIf (osConfig.myModules.desktop == "gnome") {
       "org/gnome/desktop/interface" = {

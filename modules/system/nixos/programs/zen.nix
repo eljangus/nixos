@@ -7,25 +7,26 @@
 }: let
   zenPackages = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system};
 
-  prefs = {
-    "extensions.autoDisableScopes" = 0;
-    "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-    "devtools.chrome.enabled" = true;
-    "browser.aboutConfig.showWarning" = false;
-    "browser.shell.checkDefaultBrowser" = false;
-    "browser.newtabpage.activity-stream.showSponsored" = false;
-    "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
-    "browser.urlbar.suggest.quicksuggest.sponsored" = false;
-    "datareporting.healthreport.uploadEnabled" = false;
-    "toolkit.telemetry.enabled" = false;
-    "toolkit.telemetry.unified" = false;
-    "media.ffmpeg.vaapi.enabled" = true;
-    "zen.theme.content-element-separation" = 0;
-    "zen.window-sync.enabled" = false;
-  }
-  // lib.optionalAttrs (lib.elem config.myModules.desktop ["gnome" "plasma"]) {
-    "zen.view.hide-window-controls" = false;
-  };
+  prefs =
+    {
+      "extensions.autoDisableScopes" = 0;
+      "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+      "devtools.chrome.enabled" = true;
+      "browser.aboutConfig.showWarning" = false;
+      "browser.shell.checkDefaultBrowser" = false;
+      "browser.newtabpage.activity-stream.showSponsored" = false;
+      "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+      "browser.urlbar.suggest.quicksuggest.sponsored" = false;
+      "datareporting.healthreport.uploadEnabled" = false;
+      "toolkit.telemetry.enabled" = false;
+      "toolkit.telemetry.unified" = false;
+      "media.ffmpeg.vaapi.enabled" = true;
+      "zen.theme.content-element-separation" = 0;
+      "zen.window-sync.enabled" = false;
+    }
+    // lib.optionalAttrs (lib.elem config.myModules.desktop ["gnome" "plasma"]) {
+      "zen.view.hide-window-controls" = false;
+    };
 
   zen = pkgs.wrapFirefox zenPackages.zen-browser-unwrapped {
     pname = "zen-browser";
