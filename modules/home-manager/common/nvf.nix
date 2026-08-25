@@ -410,13 +410,13 @@ in {
             markdown.enable = true;
             bash.enable = true;
 
-            # Systems (unused for now — re-enable if you pick these back up)
+            # Systems (unused for now)
             # rust.enable = true;
             # go.enable = true;
             # clang.enable = true;
             # lua.enable = true;
 
-            # Web dev (unused for now — re-enable if you pick these back up)
+            # Web dev (unused for now)
             # typescript.enable = true;
             # tsx.enable = true;
             # html.enable = true;
