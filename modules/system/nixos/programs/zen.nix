@@ -22,6 +22,9 @@
     "media.ffmpeg.vaapi.enabled" = true;
     "zen.theme.content-element-separation" = 0;
     "zen.window-sync.enabled" = false;
+  }
+  // lib.optionalAttrs (lib.elem config.myModules.desktop ["gnome" "plasma"]) {
+    "zen.view.hide-window-controls" = false;
   };
 
   zen = pkgs.wrapFirefox zenPackages.zen-browser-unwrapped {
