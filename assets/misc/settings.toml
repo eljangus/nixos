@@ -310,11 +310,11 @@ screen_time_enabled = true
     variant = "destructive"
 
 [theme]
-builtin = "Rosé Pine"
-community_palette = "Solarized"
+builtin = "Tokyo-Night"
+community_palette = "Tokyo Night Moon"
 custom_palette = "Paradise"
-mode = "light"
-source = "wallpaper"
+mode = "dark"
+source = "community"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
@@ -329,16 +329,16 @@ transition = [ "disc", "fade", "wipe" ]
     recursive = false
 
     [wallpaper.default]
-    path = "/home/elias/wallpapers/Walls/Sternensystem.png"
+    path = "/home/elias/wallpapers/Walls/Tony.png"
 
     [wallpaper.last]
-    path = "/home/elias/wallpapers/Walls/Sternensystem.png"
+    path = "/home/elias/wallpapers/Walls/Tony.png"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/elias/wallpapers/Walls/Sternensystem.png"
+    path = "/home/elias/wallpapers/Walls/Tony.png"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/elias/wallpapers/Walls/Sternensystem.png"
+    path = "/home/elias/wallpapers/Walls/Tony.png"
 
 [widget.active_window]
 display = "text_only"

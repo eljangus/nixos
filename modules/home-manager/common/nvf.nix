@@ -36,7 +36,7 @@ in {
               enable = true;
               name = "tokyonight";
               style = "moon";
-              transparent = true;
+              transparent = false;
             }
             // lib.optionalAttrs isDarwin {
               name = "rose-pine";
