@@ -63,8 +63,8 @@ in {
           };
           "format_on_save" = "off";
           "buffer_font_family" = "Maple Mono NF";
-          "vim_mode" = true;
-          "relative_line_numbers" = "enabled";
+          # "vim_mode" = true;
+          # "relative_line_numbers" = "enabled";
           "session" = {
             "trust_all_worktrees" = true;
           };
@@ -166,20 +166,19 @@ in {
           "agent" = {
             "dock" = "right";
           };
-          "theme" =
-            {
-              "mode" = theme.mode;
-              "light" = theme.light;
-              "dark" = theme.dark;
-              "agent_servers" = {
-                "claude-acp" = {
-                  "type" = "registry";
-                };
-                "mcp-nixos" = {
-                  "type" = "registry";
-                };
+          "theme" = {
+            "mode" = theme.mode;
+            "light" = theme.light;
+            "dark" = theme.dark;
+            "agent_servers" = {
+              "claude-acp" = {
+                "type" = "registry";
+              };
+              "mcp-nixos" = {
+                "type" = "registry";
               };
             };
+          };
         }
         // lib.optionalAttrs isDarwin {
           "ui_font_size" = 17.0;

@@ -44,7 +44,7 @@ output "HDMI-A-1" {
 }
 
 layout {
-    gaps 20
+    gaps 10
     center-focused-column "never"
     preset-column-widths {
         proportion 0.33333
@@ -74,7 +74,7 @@ layout {
     }
 
     shadow {
-        on
+        off
         // draw-behind-window true
         softness 30
         spread 5

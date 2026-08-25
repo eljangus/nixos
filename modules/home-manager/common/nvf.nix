@@ -401,18 +401,18 @@ in {
             markdown.enable = true;
             bash.enable = true;
 
-            # Systems
-            rust.enable = true;
-            go.enable = true;
-            clang.enable = true;
-            lua.enable = true;
+            # Systems (unused for now — re-enable if you pick these back up)
+            # rust.enable = true;
+            # go.enable = true;
+            # clang.enable = true;
+            # lua.enable = true;
 
-            # Web dev
-            typescript.enable = true;
-            tsx.enable = true;
-            html.enable = true;
-            css.enable = true;
-            json.enable = true;
+            # Web dev (unused for now — re-enable if you pick these back up)
+            # typescript.enable = true;
+            # tsx.enable = true;
+            # html.enable = true;
+            # css.enable = true;
+            # json.enable = true;
           };
 
           keymaps = [
