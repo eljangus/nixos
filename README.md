@@ -81,6 +81,9 @@ nh darwin switch .#mac # macos
 │   ├── home-manager
 │   │   ├── common
 │   │   │   ├── _files
+│   │   │   │   ├── btop
+│   │   │   │   │   └── themes
+│   │   │   │   │       └── rose-pine.theme
 │   │   │   │   ├── fastfetch
 │   │   │   │   │   ├── other-configs
 │   │   │   │   │   │   ├── bunnyfetch
@@ -92,7 +95,7 @@ nh darwin switch .#mac # macos
 │   │   │   │   │   └── nitch.txt
 │   │   │   │   └── kitty
 │   │   │   │       └── themes
-│   │   │   │           ├── placeholder.conf
+│   │   │   │           ├── one-dark.conf
 │   │   │   │           └── rose-pine.conf
 │   │   │   ├── btop.nix
 │   │   │   ├── cava.nix
@@ -105,7 +108,6 @@ nh darwin switch .#mac # macos
 │   │   │   ├── nvf.nix
 │   │   │   ├── rmpc.nix
 │   │   │   ├── starship.nix
-│   │   │   ├── vim.nix
 │   │   │   └── zed.nix
 │   │   ├── darwin
 │   │   │   ├── default.nix
@@ -140,12 +142,13 @@ nh darwin switch .#mac # macos
 │       ├── darwin
 │       │   ├── programs
 │       │   │   ├── desktop-pkgs.nix
-│       │   │   └── omniwm.nix
+│       │   │   ├── omniwm.nix
+│       │   │   ├── steam.nix
+│       │   │   └── zen.nix
 │       │   ├── system
 │       │   │   ├── homebrew.nix
 │       │   │   └── touchid.nix
-│       │   ├── default.nix
-│       │   └── options.nix
+│       │   └── default.nix
 │       └── nixos
 │           ├── programs
 │           │   ├── dconf.nix
@@ -153,6 +156,7 @@ nh darwin switch .#mac # macos
 │           │   ├── gamescope.nix
 │           │   ├── gpu-screen-recorder.nix
 │           │   ├── nh.nix
+│           │   ├── nix-ld.nix
 │           │   ├── obs-studio.nix
 │           │   ├── steam.nix
 │           │   ├── tack.nix
@@ -164,9 +168,6 @@ nh darwin switch .#mac # macos
 │           │   │   ├── niri.nix
 │           │   │   ├── plasma6.nix
 │           │   │   └── sddm.nix
-│           │   ├── overlays
-│           │   │   ├── qt6ct-kde.nix
-│           │   │   └── swash.nix
 │           │   ├── amdgpu.nix
 │           │   ├── boot.nix
 │           │   ├── environment.nix
@@ -180,8 +181,14 @@ nh darwin switch .#mac # macos
 │           │   └── xkb.nix
 │           ├── default.nix
 │           └── options.nix
+├── overlays
+│   ├── default.nix
+│   ├── options.nix
+│   ├── qt6ct-kde.nix
+│   └── swash.nix
 ├── patches
-│   └── qt6ct-shenanigans.patch
+│   ├── qt6ct-shenanigans.patch
+│   └── zed-corners.patch
 ├── systems
 │   ├── Apollo
 │   │   ├── default.nix
