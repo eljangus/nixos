@@ -4,23 +4,17 @@
   myHome = {
     programs = {
       kitty.enable = true;
+      rofi.enable = true;
     };
     theming = {
-      gtk.enable = true;
-      qt.enable = true;
       cursor.enable = true;
     };
   };
 in {
   myModules = {
-    desktop = "niri";
+    desktop = "dwm";
     programs = {
-      gpu-screen-recorder.enable = true;
       obs.enable = true;
-    };
-    system = {
-      overlays.enable = true;
-      polkit.enable = true;
     };
   };
 

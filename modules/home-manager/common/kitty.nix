@@ -1,5 +1,6 @@
 {
   config,
+  osConfig,
   lib,
   pkgs,
   ...
@@ -8,7 +9,11 @@
   themeName =
     if isDarwin
     then "rose-pine"
-    else "noctalia";
+    else if lib.elem osConfig.myModules.desktop osConfig.myModules.noctaliaDesktops
+    then "noctalia"
+    else if osConfig.myModules.desktop == "dwm"
+    then "tokyo-night-moon"
+    else "one-dark";
 in {
   options.myModules.home-manager.programs.kitty.enable =
     lib.mkEnableOption "kitty configuration";
@@ -53,11 +58,14 @@ in {
     };
 
     xdg.configFile =
-      lib.optionalAttrs isDarwin {
-        "kitty/themes/rose-pine.conf".source = ./_files/kitty/themes/rose-pine.conf;
+      {
+        "kitty/themes/one-dark.conf".source = ./_files/kitty/themes/one-dark.conf;
       }
-      // lib.optionalAttrs (!isDarwin) {
-        "kitty/themes/placeholder.conf".source = ./_files/kitty/themes/placeholder.conf;
+      // lib.optionalAttrs (themeName == "tokyo-night-moon") {
+        "kitty/themes/tokyo-night-moon.conf".source = ./_files/kitty/themes/tokyo-night-moon.conf;
+      }
+      // lib.optionalAttrs (themeName == "rose-pine") {
+        "kitty/themes/rose-pine.conf".source = ./_files/kitty/themes/rose-pine.conf;
       };
   };
 }

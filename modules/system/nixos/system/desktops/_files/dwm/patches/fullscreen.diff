@@ -1,0 +1,26 @@
+Trimmed from https://dwm.suckless.org/patches/fullscreen/dwm-fullscreen-6.2.diff
+(config.def.h hunk and the dwm.c prototype hunk dropped: config.def.h is
+overwritten wholesale by our own config.h, and the prototype isn't needed
+since config.h is #included after fullscreen() is defined.)
+--- a/dwm.c
++++ b/dwm.c
+@@ -1497,6 +1497,19 @@ setfullscreen(Client *c, int fullscreen)
+ 	}
+ }
+
++Layout *last_layout;
++void
++fullscreen(const Arg *arg)
++{
++	if (selmon->showbar) {
++		for(last_layout = (Layout *)layouts; last_layout != selmon->lt[selmon->sellt]; last_layout++);
++		setlayout(&((Arg) { .v = &layouts[2] }));
++	} else {
++		setlayout(&((Arg) { .v = last_layout }));
++	}
++	togglebar(arg);
++}
++
+ void
+ setlayout(const Arg *arg)
+ {

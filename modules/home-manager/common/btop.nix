@@ -1,10 +1,19 @@
 {
   config,
+  osConfig,
   lib,
   pkgs,
   ...
 }: let
   isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
+  colorTheme =
+    if isDarwin
+    then "rose-pine"
+    else if lib.elem osConfig.myModules.desktop osConfig.myModules.noctaliaDesktops
+    then "noctalia"
+    else if osConfig.myModules.desktop == "dwm"
+    then "tokyo-night"
+    else "onedark";
 in {
   options.myModules.home-manager.programs.btop.enable =
     lib.mkEnableOption "btop configuration" // {default = true;};
@@ -15,7 +24,7 @@ in {
 
       settings =
         {
-          color_theme = "noctalia";
+          color_theme = colorTheme;
           theme_background = false;
           truecolor = true;
           force_tty = false;
@@ -103,10 +112,11 @@ in {
           custom_gpu_name3 = "";
           custom_gpu_name4 = "";
           custom_gpu_name5 = "";
-        }
-        // lib.optionalAttrs isDarwin {
-          color_theme = "TTY";
         };
+    };
+
+    xdg.configFile = lib.optionalAttrs (colorTheme == "rose-pine") {
+      "btop/themes/rose-pine.theme".source = ./_files/btop/themes/rose-pine.theme;
     };
   };
 }

@@ -1,10 +1,36 @@
 {
   config,
+  osConfig,
   lib,
   pkgs,
   ...
 }: let
   isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
+  isDwm = !isDarwin && osConfig.myModules.desktop == "dwm";
+  theme =
+    if isDarwin
+    then {
+      mode = "system";
+      light = "Rosé Pine Dawn";
+      dark = "Rosé Pine";
+    }
+    else if lib.elem osConfig.myModules.desktop osConfig.myModules.noctaliaDesktops
+    then {
+      mode = "system";
+      light = "Noctalia Light Transparent";
+      dark = "Noctalia Dark Transparent";
+    }
+    else if isDwm
+    then {
+      mode = "dark";
+      light = "Tokyo Night Light";
+      dark = "Tokyo Night Moon";
+    }
+    else {
+      mode = "system";
+      light = "One Light";
+      dark = "One Dark";
+    };
 in {
   options.myModules.home-manager.programs.zed.enable =
     lib.mkEnableOption "zed configuration" // {default = true;};
@@ -35,7 +61,8 @@ in {
           "rose-pine-theme"
           "rose-pine-icons"
           "rose-pine-theme-blur"
-        ];
+        ]
+        ++ lib.optionals isDwm ["tokyo-night"];
       userSettings =
         {
           "window_decorations" = "server";
@@ -45,6 +72,7 @@ in {
           "format_on_save" = "off";
           "buffer_font_family" = "Maple Mono NF";
           "vim_mode" = true;
+          "relative_line_numbers" = "enabled";
           "session" = {
             "trust_all_worktrees" = true;
           };
@@ -148,9 +176,9 @@ in {
           };
           "theme" =
             {
-              "mode" = "system";
-              "light" = "Noctalia Light Transparent";
-              "dark" = "Noctalia Dark Transparent";
+              "mode" = theme.mode;
+              "light" = theme.light;
+              "dark" = theme.dark;
               "agent_servers" = {
                 "claude-acp" = {
                   "type" = "registry";
@@ -159,11 +187,6 @@ in {
                   "type" = "registry";
                 };
               };
-            }
-            // lib.optionalAttrs isDarwin {
-              "mode" = "system";
-              "light" = "Rosé Pine Dawn";
-              "dark" = "Rosé Pine";
             };
         }
         // lib.optionalAttrs isDarwin {

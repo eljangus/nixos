@@ -7,10 +7,17 @@
           "plasma"
           "hyprland"
           "niri"
+          "dwm"
         ]
       );
       default = null;
       description = "Which desktop/window manager this host runs";
+    };
+
+    noctaliaDesktops = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = ["niri" "hyprland"];
+      description = "Desktops that run the noctalia shell and get noctalia theming";
     };
   };
 }

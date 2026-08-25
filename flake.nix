@@ -44,7 +44,7 @@
     formatter = lib.genAttrs ["x86_64-linux" "aarch64-darwin"] (
       system: inputs.nixpkgs.legacyPackages.${system}.alejandra
     );
-    nixosConfigurations = lib.genAttrs ["wc" "gnome" "kde"] (hostname: mkSystem hostname "x86_64-linux");
+    nixosConfigurations = lib.genAttrs ["wc" "gnome" "kde" "xwm"] (hostname: mkSystem hostname "x86_64-linux");
     darwinConfigurations = lib.genAttrs ["mac"] (hostname: mkDarwin hostname "aarch64-darwin");
   };
 }
