@@ -8,6 +8,7 @@
   # an ignore rule), so it must be excluded explicitly or it floods the
   # picker with .git/objects blobs.
   configFindFiles = "require('telescope.builtin').find_files({ cwd = '~/nixos', follow = true, find_command = { '${pkgs.fd}/bin/fd', '--type=file', '--hidden', '--no-ignore', '--exclude', '.git', '--exclude', '/assets' } })";
+  isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
 in {
   options.myModules.home-manager.programs.nvf.enable =
     lib.mkEnableOption "nvf configuration" // {default = true;};
@@ -30,12 +31,18 @@ in {
           binds.hardtime-nvim.enable = false;
           presence.neocord.enable = true;
 
-          theme = {
-            enable = true;
-            name = "rose-pine";
-            style = "main";
-            transparent = true;
-          };
+          theme =
+            {
+              enable = true;
+              name = "tokyonight";
+              style = "moon";
+              transparent = true;
+            }
+            // lib.optionalAttrs isDarwin {
+              name = "rose-pine";
+              style = "main";
+              transparent = true;
+            };
 
           options = {
             expandtab = true;
