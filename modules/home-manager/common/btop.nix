@@ -11,8 +11,6 @@
     then "rose-pine"
     else if lib.elem osConfig.myModules.desktop osConfig.myModules.noctaliaDesktops
     then "noctalia"
-    else if osConfig.myModules.desktop == "dwm"
-    then "tokyo-night-moon"
     else "onedark";
 in {
   options.myModules.home-manager.programs.btop.enable =
@@ -115,12 +113,8 @@ in {
         };
     };
 
-    xdg.configFile =
-      lib.optionalAttrs (colorTheme == "rose-pine") {
-        "btop/themes/rose-pine.theme".source = ./_files/btop/themes/rose-pine.theme;
-      }
-      // lib.optionalAttrs (colorTheme == "tokyo-night-moon") {
-        "btop/themes/tokyo-night-moon.theme".source = ./_files/btop/themes/tokyo-night-moon.theme;
-      };
+    xdg.configFile = lib.optionalAttrs (colorTheme == "rose-pine") {
+      "btop/themes/rose-pine.theme".source = ./_files/btop/themes/rose-pine.theme;
+    };
   };
 }

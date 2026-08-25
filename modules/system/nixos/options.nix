@@ -7,7 +7,6 @@
           "plasma"
           "hyprland"
           "niri"
-          "dwm"
         ]
       );
       default = null;

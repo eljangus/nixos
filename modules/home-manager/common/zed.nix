@@ -6,7 +6,6 @@
   ...
 }: let
   isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
-  isDwm = !isDarwin && osConfig.myModules.desktop == "dwm";
   theme =
     if isDarwin
     then {
@@ -19,12 +18,6 @@
       mode = "system";
       light = "Noctalia Light Transparent";
       dark = "Noctalia Dark Transparent";
-    }
-    else if isDwm
-    then {
-      mode = "dark";
-      light = "Tokyo Night Light";
-      dark = "Tokyo Night Moon";
     }
     else {
       mode = "system";
@@ -61,8 +54,7 @@ in {
           "rose-pine-theme"
           "rose-pine-icons"
           "rose-pine-theme-blur"
-        ]
-        ++ lib.optionals isDwm ["tokyo-night"];
+        ];
       userSettings =
         {
           "window_decorations" = "server";

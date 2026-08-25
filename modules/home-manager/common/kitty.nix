@@ -11,8 +11,6 @@
     then "rose-pine"
     else if lib.elem osConfig.myModules.desktop osConfig.myModules.noctaliaDesktops
     then "noctalia"
-    else if osConfig.myModules.desktop == "dwm"
-    then "tokyo-night-moon"
     else "one-dark";
 in {
   options.myModules.home-manager.programs.kitty.enable =
@@ -60,9 +58,6 @@ in {
     xdg.configFile =
       {
         "kitty/themes/one-dark.conf".source = ./_files/kitty/themes/one-dark.conf;
-      }
-      // lib.optionalAttrs (themeName == "tokyo-night-moon") {
-        "kitty/themes/tokyo-night-moon.conf".source = ./_files/kitty/themes/tokyo-night-moon.conf;
       }
       // lib.optionalAttrs (themeName == "rose-pine") {
         "kitty/themes/rose-pine.conf".source = ./_files/kitty/themes/rose-pine.conf;
