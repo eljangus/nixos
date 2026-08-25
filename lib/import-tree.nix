@@ -1,5 +1,5 @@
 {lib}: dir: let
-  inherit (builtins) filter map baseNameOf;
+  inherit (builtins) filter;
   inherit (lib.filesystem) listFilesRecursive;
   inherit (lib.strings) hasSuffix hasPrefix;
 
