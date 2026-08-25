@@ -18,3 +18,7 @@ url = "github:nix-darwin/nix-darwin"
 
 [inputs.zen-browser]
 url = "github:youwen5/zen-browser-flake"
+
+[inputs.scroll-overview]
+url = "github:yayuuu/hyprland-scroll-overview"
+flake = false

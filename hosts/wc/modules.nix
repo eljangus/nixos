@@ -13,7 +13,7 @@
   };
 in {
   myModules = {
-    desktop = "niri";
+    desktop = "hyprland";
     programs = {
       gpu-screen-recorder.enable = true;
       obs.enable = true;
