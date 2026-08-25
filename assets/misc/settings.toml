@@ -38,6 +38,7 @@ order = [ "default", "macos" ]
     radius_top_left = 0
     radius_top_right = 0
     scale = 1.2500000111758709
+    shadow = false
     start = [
         "text_left_custom",
         "launcher",
@@ -100,6 +101,7 @@ pinned = [
 ]
 radius = 40
 reserve_space = false
+shadow = false
 show_dots = true
 show_instance_count = false
 
@@ -208,6 +210,7 @@ monitors = [ "DP-1" ]
 
 [osd]
 background_opacity = 0.99999997764825821
+enabled = false
 monitors = [ "DP-1" ]
 
     [osd.kinds]
@@ -242,6 +245,7 @@ niri_overview_type_to_launch_enabled = true
 password_style = "random"
 polkit_agent = true
 popup_borders = false
+popup_shadows = false
 screen_time_enabled = true
 
     [shell.animation]
@@ -264,6 +268,7 @@ screen_time_enabled = true
     open_near_click_wallpaper = true
     polkit_placement = "attached"
     polkit_position = "auto"
+    shadow = false
 
     [shell.screenshot]
     directory = "~/Bilder/Bildschirmfotos"
@@ -319,6 +324,9 @@ wallpaper_scheme = "m3-content"
 [wallpaper]
 directory = "/home/elias/wallpapers/Walls"
 transition = [ "disc", "fade", "wipe" ]
+
+    [wallpaper.automation]
+    recursive = false
 
     [wallpaper.default]
     path = "/home/elias/wallpapers/Walls/Sternensystem.png"

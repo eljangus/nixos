@@ -29,7 +29,7 @@ in {
         {
           allow_remote_control = "yes";
           background_blur = 0;
-          background_opacity = "0.8";
+          background_opacity = "1.0";
           confirm_os_window_close = 0;
           cursor_trail = 5;
           hide_window_decorations = "yes";
