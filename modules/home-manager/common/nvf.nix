@@ -42,7 +42,7 @@ in {
             tabstop = 2;
             shiftwidth = 2;
             number = true;
-            relativenumber = false;
+            relativenumber = true;
             ignorecase = true;
             smartcase = true;
             mouse = "a";
