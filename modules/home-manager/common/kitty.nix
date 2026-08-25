@@ -45,9 +45,11 @@ in {
         };
 
       keybindings = {
-        "shift+cmd+backspace" = "change_font_size all 14";
-        "shift+cmd+minus" = "change_font_size all -2.0";
-        "shift+cmd+plus" = "change_font_size all +2.0";
+        "shift+ctrl+backspace" = "change_font_size all 14";
+        "shift+ctrl+minus" = "change_font_size all -2.0";
+        "shift+ctrl+plus" = "change_font_size all +2.0";
+        "shift+ctrl+i" = "previous_window";
+        "shift+ctrl+o" = "next_window";
       };
 
       extraConfig = ''

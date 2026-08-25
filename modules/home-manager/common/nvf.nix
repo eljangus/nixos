@@ -4,7 +4,10 @@
   pkgs,
   ...
 }: let
-  configFindFiles = "require('telescope.builtin').find_files({ cwd = '~/nixos', follow = true, find_command = { '${pkgs.fd}/bin/fd', '--type=file', '--hidden', '--no-ignore', '--exclude', '/assets' } })";
+  # --no-ignore also lifts fd's built-in .git exclusion (it's implemented as
+  # an ignore rule), so it must be excluded explicitly or it floods the
+  # picker with .git/objects blobs.
+  configFindFiles = "require('telescope.builtin').find_files({ cwd = '~/nixos', follow = true, find_command = { '${pkgs.fd}/bin/fd', '--type=file', '--hidden', '--no-ignore', '--exclude', '.git', '--exclude', '/assets' } })";
 in {
   options.myModules.home-manager.programs.nvf.enable =
     lib.mkEnableOption "nvf configuration" // {default = true;};
@@ -86,7 +89,7 @@ in {
                 val = [
                   {
                     type = "button";
-                    val = " Neue Datei";
+                    val = " New file";
                     on_press = lib.generators.mkLuaInline "function() vim.cmd('ene | startinsert') end";
                     opts = {
                       position = "center";
@@ -110,7 +113,7 @@ in {
                   }
                   {
                     type = "button";
-                    val = "󰱽 Datei suchen";
+                    val = "󰱽 Find file";
                     on_press = lib.generators.mkLuaInline "function() require('telescope.builtin').find_files() end";
                     opts = {
                       position = "center";
@@ -134,7 +137,7 @@ in {
                   }
                   {
                     type = "button";
-                    val = "󱝩 Wort suchen";
+                    val = "󱝩 Live grep";
                     on_press = lib.generators.mkLuaInline "function() require('telescope.builtin').live_grep() end";
                     opts = {
                       position = "center";
@@ -158,7 +161,7 @@ in {
                   }
                   {
                     type = "button";
-                    val = "󱑍 Zuletzt geöffnet";
+                    val = "󱑍 Recent files";
                     on_press = lib.generators.mkLuaInline "function() require('telescope.builtin').oldfiles() end";
                     opts = {
                       position = "center";
@@ -182,7 +185,7 @@ in {
                   }
                   {
                     type = "button";
-                    val = " Config bearbeiten";
+                    val = " Edit config";
                     on_press = lib.generators.mkLuaInline "function() ${configFindFiles} end";
                     opts = {
                       position = "center";
@@ -206,7 +209,7 @@ in {
                   }
                   {
                     type = "button";
-                    val = " Beenden";
+                    val = " Quit";
                     on_press = lib.generators.mkLuaInline "function() vim.cmd('qa') end";
                     opts = {
                       position = "center";
@@ -253,15 +256,61 @@ in {
             nvim-web-devicons.enable = true;
             indent-blankline.enable = true;
             fidget-nvim.enable = true;
+            nvim-cursorline.enable = true;
           };
 
-          binds.whichKey.enable = true;
+          # Polished cmdline/messages/notifications (Zed-style command palette feel)
+          ui.noice.enable = true;
+          notify.nvim-notify = {
+            enable = true;
+            # theme.transparent leaves the "NotifyBackground" highlight group
+            # without a bg to blend against, so notify falls back to black
+            # and warns. Give it rose-pine's "surface" color explicitly.
+            setupOpts.background_colour = "#1f1d2e";
+          };
+
+          binds.whichKey = {
+            enable = true;
+            # Group labels shown in the which-key popup
+            register = {
+              "<leader>f" = "+Find";
+              "<leader>g" = "+Git";
+              "<leader>h" = "+Git Hunk";
+              "<leader>t" = "+Toggle";
+              "<leader>x" = "+Trouble";
+              "<leader>l" = "+LSP";
+              "<leader>s" = "+Session";
+              "<leader>b" = "+Buffer";
+              "<leader>r" = "+Resize";
+              "<leader><leader>" = "+Swap Buffer";
+              "<leader>a" = "Harpoon: mark file";
+            };
+          };
           autopairs.nvim-autopairs.enable = true;
+          mini.bufremove.enable = true;
+          mini.move.enable = true;
+
+          # Pin ≤4 files and jump instantly (slots moved to <leader>1-4 to
+          # avoid colliding with smart-splits' <C-hjkl> window navigation)
+          navigation.harpoon = {
+            enable = true;
+            mappings = {
+              file1 = "<leader>1";
+              file2 = "<leader>2";
+              file3 = "<leader>3";
+              file4 = "<leader>4";
+            };
+          };
 
           comments.comment-nvim.enable = true;
           notes.todo-comments.enable = true;
 
-          # Navigation / Telescope setup (Global default includes hidden/ignored files)
+          # File tree, closest equivalent to Zed's project panel
+          filetree.neo-tree.enable = true;
+
+          # Navigation / Telescope setup. <leader>ff (nvf default) uses this
+          # picker default: respects .gitignore, no dotfiles - the least
+          # surprising behaviour. <leader>fa (below) opts into everything.
           telescope = {
             enable = true;
             setupOpts = {
@@ -270,20 +319,74 @@ in {
                   find_command = [
                     "${pkgs.fd}/bin/fd"
                     "--type=file"
-                    "--hidden"
-                    "--no-ignore"
                   ];
                 };
               };
             };
+            extensions = [
+              {
+                name = "fzf";
+                packages = [pkgs.vimPlugins.telescope-fzf-native-nvim];
+                setup = {
+                  fzf = {
+                    fuzzy = true;
+                    override_generic_sorter = true;
+                    override_file_sorter = true;
+                  };
+                };
+              }
+            ];
           };
 
-          git.gitsigns.enable = true;
-          autocomplete.nvim-cmp.enable = true;
+          git = {
+            gitsigns.enable = true;
+          };
+          utility.diffview-nvim.enable = true;
+
+          # Directional split navigate/resize/swap, tmux/wezterm/kitty-aware.
+          # Resize is rebound to <leader>r+hjkl (kept from the old manual
+          # bindings) since its Alt+hjkl default collides with mini.move.
+          utility.smart-splits = {
+            enable = true;
+            keymaps = {
+              resize_left = "<leader>rh";
+              resize_down = "<leader>rj";
+              resize_up = "<leader>rk";
+              resize_right = "<leader>rl";
+            };
+          };
+
+          # Jump anywhere on screen in two keystrokes. Note: shadows the
+          # native `s`/`S` (substitute char/line) - the standard, accepted
+          # trade-off for flash.nvim.
+          utility.motion.flash-nvim.enable = true;
+
+          terminal.toggleterm = {
+            enable = true;
+            lazygit.enable = true;
+          };
+
+          session.nvim-session-manager = {
+            enable = true;
+            setupOpts = {
+              autosave_last_session = true;
+              # Keep session restore manual (<leader>sl/<leader>slt) so startup
+              # always shows the alpha dashboard instead of the last file.
+              autoload_mode = "Disabled";
+            };
+          };
+
+          autocomplete.blink-cmp = {
+            enable = true;
+            setupOpts.signature.enabled = true;
+          };
 
           lsp = {
             enable = true;
             lightbulb.enable = true;
+            lspkind.enable = true;
+            inlayHints.enable = true;
+            trouble.enable = true;
             mappings.format = null;
           };
           languages = {
@@ -300,9 +403,29 @@ in {
             };
             markdown.enable = true;
             bash.enable = true;
+
+            # Systems
+            rust.enable = true;
+            go.enable = true;
+            clang.enable = true;
+            lua.enable = true;
+
+            # Web dev
+            typescript.enable = true;
+            tsx.enable = true;
+            html.enable = true;
+            css.enable = true;
+            json.enable = true;
           };
 
           keymaps = [
+            {
+              key = "<leader>e";
+              action = ":Neotree toggle<CR>";
+              mode = "n";
+              silent = true;
+              desc = "Toggle file tree";
+            }
             {
               key = "<leader>lf";
               mode = ["n" "v"];
@@ -311,57 +434,44 @@ in {
             }
             {
               key = "<leader>bd";
-              action = ":bdelete<CR>";
+              action = "<cmd>lua require('mini.bufremove').delete(0, false)<CR>";
               mode = "n";
               silent = true;
-              desc = "Buffer/Datei schliessen";
+              desc = "Close buffer";
             }
             {
               key = "<F4>";
-              action = ":bdelete<CR>";
+              action = "<cmd>lua require('mini.bufremove').delete(0, false)<CR>";
               mode = "n";
               silent = true;
-              desc = "Buffer mit F4 schliessen";
+              desc = "Close buffer (F4)";
             }
             {
-              key = "<leader>ff";
+              key = "<leader>fa";
               mode = "n";
-              action = "<cmd>lua require('telescope.builtin').find_files({ hidden = false, no_ignore = false, find_command = { '${pkgs.fd}/bin/fd', '--type=file' } })<CR>";
-              desc = "Datei suchen (ohne versteckte Dateien)";
+              action = "<cmd>lua require('telescope.builtin').find_files({ hidden = true, no_ignore = true, find_command = { '${pkgs.fd}/bin/fd', '--type=file', '--hidden', '--no-ignore', '--exclude', '.git' } })<CR>";
+              desc = "Find files (all, incl. hidden)";
             }
             {
-              key = "<leader>fh";
+              key = "<leader>gd";
               mode = "n";
-              action = "<cmd>lua require('telescope.builtin').find_files()<CR>";
-              desc = "Datei suchen (inkl. versteckte Dateien)";
-            }
-            {
-              key = "<leader>rk";
-              mode = "n";
-              action = "<cmd>lua vim.cmd('resize ' .. math.floor(vim.api.nvim_win_get_height(0) * 1.15))<CR>";
+              action = "<cmd>lua local v = require('diffview.lib').get_current_view(); vim.cmd(v and 'DiffviewClose' or 'DiffviewOpen')<CR>";
               silent = true;
-              desc = "Fenster hoeher (15%)";
+              desc = "Toggle diffview";
             }
             {
-              key = "<leader>rj";
+              key = "<Esc>";
               mode = "n";
-              action = "<cmd>lua vim.cmd('resize ' .. math.floor(vim.api.nvim_win_get_height(0) * 0.85))<CR>";
+              action = "<cmd>nohlsearch<CR>";
               silent = true;
-              desc = "Fenster niedriger (15%)";
+              desc = "Clear search highlight";
             }
             {
-              key = "<leader>rl";
-              mode = "n";
-              action = "<cmd>lua vim.cmd('vertical resize ' .. math.floor(vim.api.nvim_win_get_width(0) * 1.15))<CR>";
+              key = "<C-s>";
+              mode = ["n" "i"];
+              action = "<cmd>w<CR>";
               silent = true;
-              desc = "Fenster breiter (15%)";
-            }
-            {
-              key = "<leader>rh";
-              mode = "n";
-              action = "<cmd>lua vim.cmd('vertical resize ' .. math.floor(vim.api.nvim_win_get_width(0) * 0.85))<CR>";
-              silent = true;
-              desc = "Fenster schmaler (15%)";
+              desc = "Save file";
             }
           ];
         };

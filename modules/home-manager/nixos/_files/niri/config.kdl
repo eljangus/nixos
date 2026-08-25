@@ -308,6 +308,7 @@ binds {
     Mod+E repeat=false { spawn-sh "nautilus --new-window"; }
     Mod+R repeat=false { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+T repeat=false { spawn-sh "noctalia msg session lock"; }
+    Ctrl+Shift+P repeat=false { spawn-sh "hyprpicker -la"; }
     Ctrl+Shift+T repeat=false { spawn-sh "noctalia msg panel-toggle oldirtty/color_picker:panel"; }
     Ctrl+Shift+Y repeat=false { spawn-sh "noctalia msg panel-toggle clipboard"; }
     Mod+Ctrl+Space repeat=false { spawn-sh "noctalia msg panel-toggle wallpaper"; }
