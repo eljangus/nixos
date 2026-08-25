@@ -34,6 +34,8 @@ in {
           theme =
             {
               enable = true;
+              # name = "rose-pine";
+              # style = "main"; # main means it's universal and switches between light and dark mode, use this if no specific theme is in mind.
               name = "tokyonight";
               style = "moon";
               transparent = false;
