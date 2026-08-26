@@ -313,8 +313,8 @@ screen_time_enabled = true
 builtin = "Tokyo-Night"
 community_palette = "Tokyo Night Moon"
 custom_palette = "Paradise"
-mode = "dark"
-source = "community"
+mode = "light"
+source = "wallpaper"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
@@ -329,16 +329,16 @@ transition = [ "disc", "fade", "wipe" ]
     recursive = false
 
     [wallpaper.default]
-    path = "/home/elias/wallpapers/Walls/Tony.png"
+    path = "/home/elias/wallpapers/Walls/Sternensystem.png"
 
     [wallpaper.last]
-    path = "/home/elias/wallpapers/Walls/Tony.png"
+    path = "/home/elias/wallpapers/Walls/Sternensystem.png"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/elias/wallpapers/Walls/Tony.png"
+    path = "/home/elias/wallpapers/Walls/Sternensystem.png"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/elias/wallpapers/Walls/Tony.png"
+    path = "/home/elias/wallpapers/Walls/Sternensystem.png"
 
 [widget.active_window]
 display = "text_only"
