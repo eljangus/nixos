@@ -1,6 +1,9 @@
 {config, ...}: let
   inherit (config.myModules) user;
   myHome = {
+    programs = {
+      kitty.enable = true;
+    };
     theming = {
       cursor.enable = true;
     };

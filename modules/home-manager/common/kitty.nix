@@ -11,6 +11,8 @@
     then "rose-pine"
     else if lib.elem osConfig.myModules.desktop osConfig.myModules.noctaliaDesktops
     then "noctalia"
+    else if osConfig.myModules.desktop == "plasma"
+    then "rose-pine-dawn"
     else "one-dark";
 in {
   options.myModules.home-manager.programs.kitty.enable =
@@ -42,6 +44,10 @@ in {
           background_blur = 24;
           hide_window_decorations = "no";
           macos_titlebar_color = "background";
+        }
+        // lib.optionalAttrs (osConfig.myModules.desktop
+          == "plasma") {
+          hide_window_decorations = "no";
         };
 
       keybindings = {
@@ -60,6 +66,9 @@ in {
     xdg.configFile =
       {
         "kitty/themes/one-dark.conf".source = ./_files/kitty/themes/one-dark.conf;
+      }
+      // lib.optionalAttrs (themeName == "rose-pine-dawn") {
+        "kitty/themes/rose-pine-dawn.conf".source = ./_files/kitty/themes/rose-pine-dawn.conf;
       }
       // lib.optionalAttrs (themeName == "rose-pine") {
         "kitty/themes/rose-pine.conf".source = ./_files/kitty/themes/rose-pine.conf;
