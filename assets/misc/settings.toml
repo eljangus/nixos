@@ -91,11 +91,11 @@ margin_edge = 4
 pinned = [
     "zen",
     "org.gnome.Nautilus",
-    "Vesktop",
+    "vesktop",
     "steam",
     "dev.zed.Zed",
-    "prismlauncher",
-    "chromium",
+    "org.prismlauncher.PrismLauncher",
+    "chromium-browser",
     "r2modman",
     "com.heroicgameslauncher.hgl"
 ]
