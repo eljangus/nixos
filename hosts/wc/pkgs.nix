@@ -14,9 +14,6 @@
     kdePackages.kamera
     dconf-editor
 
-    # gaming
-    osu-lazer-bin
-
     # theming
     nwg-look
     adw-gtk3

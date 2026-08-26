@@ -17,12 +17,12 @@ in {
     programs = {
       gpu-screen-recorder.enable = true;
       obs.enable = true;
+      osu.enable = true;
     };
     system = {
       overlays.enable = true;
       polkit.enable = true;
     };
   };
-
   home-manager.users.${user}.myModules.home-manager = myHome;
 }
