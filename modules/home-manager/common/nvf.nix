@@ -349,6 +349,12 @@ in {
           };
           utility.diffview-nvim.enable = true;
 
+          # Sync nvim's environment with direnv so LSP servers started from a
+          # buffer inherit the project devshell (e.g. pyrefly picks up the
+          # right python3 / site-packages in ~/python-learning instead of
+          # macOS's system Python 3.9). Run :LspRestart after the env loads.
+          utility.direnv.enable = true;
+
           # Directional split navigate/resize/swap, tmux/wezterm/kitty-aware.
           # Resize is rebound to <leader>r+hjkl (kept from the old manual
           # bindings) since its Alt+hjkl default collides with mini.move.

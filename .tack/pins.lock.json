@@ -3,9 +3,9 @@
     "type": "github",
     "owner": "nix-community",
     "repo": "home-manager",
-    "rev": "353742587cbaf079b3caee743115d037bc51fea6",
-    "narHash": "sha256-MTGMFlLDTklsXhCp4r5GXB4VAVadPdalXLvUjd/K7h0=",
-    "lastModified": 1786999651
+    "rev": "7690127e7e1c90ab1dcaff525d0dafbeb7e14182",
+    "narHash": "sha256-jT6g5aWwA6TrIUJhqQ9ssm8W5e8vAl2Bv8gddEKKVNU=",
+    "lastModified": 1787715947
   },
   "nix-darwin": {
     "type": "github",
@@ -17,17 +17,17 @@
   },
   "nixpkgs": {
     "type": "tarball",
-    "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1057119.ec2d622de077/nixexprs.tar.xz",
-    "rev": "ec2d622de0773551768cf98f3fc50cbcc003b9c5",
-    "narHash": "sha256-6Qso3az0lZx+zxDQOhEvNUfJMqqq9tcjrLhsCAswAvs="
+    "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1060451.56c02bc00adc/nixexprs.tar.xz",
+    "rev": "56c02bc00adcf003215cc4bd996d6efaf4cff188",
+    "narHash": "sha256-FoOSoBG7tEvOlGRTpWnVdY506Ner4y7r7UYO3OGgmE8="
   },
   "nvf": {
     "type": "github",
     "owner": "notashelf",
     "repo": "nvf",
-    "rev": "59b0dc327b5ce7a6b510c50456a35891ddd144cc",
-    "narHash": "sha256-ok6BBZuGDKvJurSpxR93I7wwP7oIpSy5sox6WvDrbPw=",
-    "lastModified": 1786998546
+    "rev": "460dad9e777df4008309f1d731a47b299dc7b41e",
+    "narHash": "sha256-wS5a1tumQcmwamA4BpSvf2Idd/P/zOQNU1hY53EzfoM=",
+    "lastModified": 1787514376
   },
   "swash": {
     "type": "github",
@@ -41,8 +41,8 @@
     "type": "github",
     "owner": "youwen5",
     "repo": "zen-browser-flake",
-    "rev": "e1e4aa6433a352f07059aeb8483ae42deb61f9b2",
-    "narHash": "sha256-3ZuubfWk7CHPF/60w5BVrVkzdO7Oed1MgZ+ugLsgww8=",
-    "lastModified": 1786685380
+    "rev": "20195bc99e82b02abe82bb81ac366ae81c67dc5a",
+    "narHash": "sha256-4d24Wa/CO8WsSEjKwzFwJXn+oxbI4Bm8xuMR77xJgYI=",
+    "lastModified": 1787200418
   }
 }

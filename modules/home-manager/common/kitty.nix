@@ -41,7 +41,8 @@ in {
           window_padding_width = 20;
         }
         // lib.optionalAttrs isDarwin {
-          background_blur = 24;
+          background_blur = 32;
+          background_opacity = "0.8";
           hide_window_decorations = "no";
           macos_titlebar_color = "background";
         }
