@@ -9,6 +9,59 @@
   # picker with .git/objects blobs.
   configFindFiles = "require('telescope.builtin').find_files({ cwd = '~/nixos', follow = true, find_command = { '${pkgs.fd}/bin/fd', '--type=file', '--hidden', '--no-ignore', '--exclude', '.git', '--exclude', '/assets' } })";
   isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
+  projectDirs = [
+    "~/nixos"
+    "~/python-learning"
+  ];
+
+  # Dashboard "Open project" flow: pick one of the projects above, chdir into
+  # it, point neo-tree's filesystem root at it, then drop straight into a
+  # telescope file picker scoped to that repo. Swap `find_files` for
+  # `live_grep` below if you'd rather search contents than filenames.
+  openProject = let
+    luaProjectList = lib.concatMapStringsSep "\n    " (dir:
+      "{ label = ${builtins.toJSON dir}, "
+      + "path = vim.fn.expand(${builtins.toJSON dir}) },")
+    projectDirs;
+  in ''
+    _G.nvf_open_project = function()
+      local projects = {
+        ${luaProjectList}
+      }
+      vim.ui.select(projects, {
+        prompt = "Open project",
+        format_item = function(item)
+          return item.label
+        end,
+      }, function(choice)
+        if not choice then
+          return
+        end
+        vim.api.nvim_set_current_dir(choice.path)
+        require("neo-tree.command").execute({
+          action = "show",
+          source = "filesystem",
+          dir = choice.path,
+        })
+        require("telescope.builtin").find_files({
+          cwd = choice.path,
+          follow = true,
+          hidden = true,
+          no_ignore = true,
+          find_command = {
+            "${pkgs.fd}/bin/fd",
+            "--type=file",
+            "--hidden",
+            "--no-ignore",
+            "--exclude",
+            ".git",
+            "--exclude",
+            "/assets",
+          },
+        })
+      end)
+    end
+  '';
 in {
   options.myModules.home-manager.programs.nvf.enable =
     lib.mkEnableOption "nvf configuration" // {default = true;};
@@ -30,6 +83,8 @@ in {
           vimAlias = true;
           binds.hardtime-nvim.enable = false;
           presence.neocord.enable = true;
+
+          luaConfigRC.nvfOpenProject = openProject;
 
           theme =
             {
@@ -164,6 +219,30 @@ in {
                         "n"
                         "w"
                         ":lua require('telescope.builtin').live_grep()<CR>"
+                        {
+                          noremap = true;
+                          silent = true;
+                          nowait = true;
+                        }
+                      ];
+                    };
+                  }
+                  {
+                    type = "button";
+                    val = " Open project";
+                    on_press = lib.generators.mkLuaInline "function() _G.nvf_open_project() end";
+                    opts = {
+                      position = "center";
+                      shortcut = "p";
+                      cursor = 25;
+                      width = 50;
+                      align_shortcut = "right";
+                      hl = "Type";
+                      hl_shortcut = "Keyword";
+                      keymap = [
+                        "n"
+                        "p"
+                        ":lua _G.nvf_open_project()<CR>"
                         {
                           noremap = true;
                           silent = true;
