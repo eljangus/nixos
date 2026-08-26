@@ -45,7 +45,8 @@ in {
           hide_window_decorations = "no";
           macos_titlebar_color = "background";
         }
-        // lib.optionalAttrs (osConfig.myModules.desktop
+        // lib.optionalAttrs (!isDarwin
+          && osConfig.myModules.desktop
           == "plasma") {
           hide_window_decorations = "no";
         };
