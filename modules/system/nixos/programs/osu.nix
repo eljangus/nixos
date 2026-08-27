@@ -5,7 +5,7 @@
   ...
 }: {
   options.myModules.programs.osu.enable =
-    lib.mkEnableOption "nh";
+    lib.mkEnableOption "osu!lazer and OpenTabletDriver";
 
   config = lib.mkIf config.myModules.programs.osu.enable {
     hardware.opentabletdriver = {

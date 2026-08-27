@@ -166,18 +166,18 @@ in {
           "agent" = {
             "dock" = "right";
           };
+          "agent_servers" = {
+            "claude-acp" = {
+              "type" = "registry";
+            };
+            "mcp-nixos" = {
+              "type" = "registry";
+            };
+          };
           "theme" = {
             "mode" = theme.mode;
             "light" = theme.light;
             "dark" = theme.dark;
-            "agent_servers" = {
-              "claude-acp" = {
-                "type" = "registry";
-              };
-              "mcp-nixos" = {
-                "type" = "registry";
-              };
-            };
           };
         }
         // lib.optionalAttrs isDarwin {

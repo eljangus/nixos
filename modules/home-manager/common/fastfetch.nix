@@ -8,6 +8,13 @@
 
   schema = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
 
+  # birth time of / in epoch seconds: GNU coreutils uses `stat -c %W`, BSD/macOS
+  # `stat -f %B`. Without this the "OS Age" line errors out on the Mac host.
+  osAgeCommand =
+    if pkgs.stdenv.hostPlatform.isDarwin
+    then "echo $(( ($(date +%s) - $(stat -f %B /)) / 86400 )) days"
+    else "echo $(( ($(date +%s) - $(stat -c %W /)) / 86400 )) days";
+
   otherConfigs = {
     nitch-like = {
       schema = schema;
@@ -64,7 +71,7 @@
           key = "{#39}│ {#35}󰃭  {#39}OS Age {#39}│";
           keyColor = "35;1";
           outputColor = "35;1";
-          text = "echo $(( ($(date +%s) - $(stat -c %W /)) / 86400 )) days";
+          text = osAgeCommand;
         }
         {
           key = "{#39}│ {#36}  {#39}Kernel {#39}│";
@@ -179,7 +186,7 @@
           key = "󰃭 OS Age  ";
           keyColor = "34;1";
           outputColor = "1;1";
-          text = "echo $(( ($(date +%s) - $(stat -c %W /)) / 86400 )) days";
+          text = osAgeCommand;
         }
         {
           key = " Kernel  ";

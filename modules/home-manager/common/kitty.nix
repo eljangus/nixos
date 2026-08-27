@@ -60,9 +60,18 @@ in {
         "shift+ctrl+o" = "next_window";
       };
 
-      extraConfig = ''
-        include ${config.xdg.configHome}/kitty/themes/${themeName}.conf
-      '';
+      # noctalia writes themes/noctalia.conf imperatively at runtime, so use
+      # globinclude (silent when the file is not there yet) instead of include
+      # (which warns on every launch until noctalia has run once). The bundled
+      # themes are nix-managed, so keep a hard include to surface a real miss.
+      extraConfig =
+        if themeName == "noctalia"
+        then ''
+          globinclude ${config.xdg.configHome}/kitty/themes/noctalia.conf
+        ''
+        else ''
+          include ${config.xdg.configHome}/kitty/themes/${themeName}.conf
+        '';
     };
 
     xdg.configFile =

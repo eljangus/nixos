@@ -13,9 +13,10 @@
       priority = 100;
       memoryPercent = 100;
     };
+    # TACK_NIX_CONF_TOKENS is set by programs.tack.nixConfTokens (see
+    # modules/system/nixos/programs/tack.nix).
     environment.sessionVariables = {
       NIXOS_OZONE_WL = "1";
-      TACK_NIX_CONF_TOKENS = "1";
     };
     documentation.nixos.enable = false;
     services.flatpak.enable = true;
