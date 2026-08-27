@@ -25,6 +25,17 @@
   hk = id: binding: {inherit id binding;};
   hk' = id: hk id "Unassigned";
 
+  # niri modifier scheme translated to macOS chords. The Option key is the mod
+  # key (matches OmniWM's own defaults), so niri's Mod maps straight to Option:
+  #   niri  Mod            -> Option
+  #   niri  Mod+Ctrl       -> Control+Option
+  #   niri  Mod+Shift      -> Option+Shift
+  #   niri  Mod+Ctrl+Shift -> Control+Option+Shift
+  mod = k: "Option+${k}";
+  modCtrl = k: "Control+Option+${k}";
+  modShift = k: "Option+Shift+${k}";
+  modCtrlShift = k: "Control+Option+Shift+${k}";
+
   ws = name: id: {
     inherit name id;
     layoutType = "niri";
@@ -70,10 +81,12 @@
       lockModifier = "off";
       moveCrossesMonitorAtEdge = false;
       moveMouseToFocusedWindow = false;
+      raiseOnMouseFocus = false;
     };
 
     gaps = {
       size = 10.0;
+      fullscreenUsesOuterGaps = false;
       outer = {
         bottom = 0.0;
         left = 0.0;
@@ -86,6 +99,7 @@
       animationsEnabled = true;
       defaultLayoutType = "niri";
       hotkeysEnabled = true;
+      hyperKeyModifiers = "Control+Option+Shift+Command";
       ipcEnabled = false;
       preventSleepEnabled = false;
       systemHyperTrigger = "None";
@@ -95,10 +109,10 @@
     gestures = {
       fingerCount = 3;
       invertDirection = true;
-      mouseMoveModifierKey = "controlCommand";
-      mouseResizeModifierKey = "controlCommand";
+      mouseMoveModifierKey = "option";
+      mouseResizeModifierKey = "option";
       scrollEnabled = true;
-      scrollModifierKey = "controlShift";
+      scrollModifierKey = "option";
       scrollSensitivity = 5.0;
       trackpadScrollStyle = "snap";
       workspaceSwipeAxis = "vertical";
@@ -172,7 +186,7 @@
       position = "overlappingMenuBar";
       reserveLayoutSpace = false;
       revealHoldMilliseconds = 200.0;
-      revealModifier = "controlCommand";
+      revealModifier = "option";
       showFloatingWindows = false;
       showLabels = true;
       systemStatsButton = false;
@@ -262,33 +276,16 @@
       }
     ];
 
+    # Keybinds mirror ~/nixos/modules/home-manager/nixos/_files/niri/config.kdl.
+    # See the mod/modCtrl/modShift/modCtrlShift helpers above for the
+    # niri -> macOS modifier translation. OmniWM only allows one chord per
+    # action id, so where niri binds both hjkl and arrows we keep hjkl.
     hotkeys = [
-      (hk "switchWorkspace.0" "Control+Command+1")
-      (hk "moveToWorkspace.0" "Control+Option+Shift+1")
-      (hk "switchWorkspace.1" "Control+Command+2")
-      (hk "moveToWorkspace.1" "Control+Option+Shift+2")
-      (hk "switchWorkspace.2" "Control+Command+3")
-      (hk "moveToWorkspace.2" "Control+Option+Shift+3")
-      (hk "switchWorkspace.3" "Control+Command+4")
-      (hk "moveToWorkspace.3" "Control+Option+Shift+4")
-      (hk "switchWorkspace.4" "Control+Command+5")
-      (hk "moveToWorkspace.4" "Control+Option+Shift+5")
-      (hk "switchWorkspace.5" "Control+Command+6")
-      (hk "moveToWorkspace.5" "Control+Option+Shift+6")
-      (hk "switchWorkspace.6" "Control+Command+7")
-      (hk "moveToWorkspace.6" "Control+Option+Shift+7")
-      (hk "switchWorkspace.7" "Control+Command+8")
-      (hk "moveToWorkspace.7" "Control+Option+Shift+8")
-      (hk "switchWorkspace.8" "Control+Command+9")
-      (hk "moveToWorkspace.8" "Control+Option+Shift+9")
-      (hk "workspaceBackAndForth" "Control+Option+Tab")
-      (hk "switchWorkspace.next" "Control+Command+U")
-      (hk "switchWorkspace.previous" "Control+Command+I")
-      (hk "focus.left" "Control+Command+H")
-      (hk "focus.down" "Control+Command+J")
-      (hk "focus.up" "Control+Command+K")
-      (hk "focus.right" "Control+Command+L")
-      (hk "focusPrevious" "Control+Command+Tab")
+      # --- focus (niri: Mod + hjkl) ---
+      (hk "focus.left" (mod "H"))
+      (hk "focus.down" (mod "J"))
+      (hk "focus.up" (mod "K"))
+      (hk "focus.right" (mod "L"))
       (hk' "focusDownOrLeft")
       (hk' "focusUpOrRight")
       (hk' "focusWindowTop")
@@ -297,60 +294,6 @@
       (hk' "focusWindowUpOrBottom")
       (hk' "focusWindowOrWorkspaceDown")
       (hk' "focusWindowOrWorkspaceUp")
-      (hk "centerColumn" "Control+Command+Shift+P")
-      (hk "centerVisibleColumns" "Control+Option+P")
-      (hk "moveWindowToWorkspaceUp" "Control+Option+Shift+Up Arrow")
-      (hk "moveWindowToWorkspaceDown" "Control+Option+Shift+Down Arrow")
-      (hk "moveColumnToWorkspaceUp" "Control+Option+I")
-      (hk "moveColumnToWorkspaceDown" "Control+Option+U")
-      (hk "moveColumnToWorkspace.0" "Control+Option+1")
-      (hk "moveColumnToWorkspace.1" "Control+Option+2")
-      (hk "moveColumnToWorkspace.2" "Control+Option+3")
-      (hk "moveColumnToWorkspace.3" "Control+Option+4")
-      (hk "moveColumnToWorkspace.4" "Control+Option+5")
-      (hk "moveColumnToWorkspace.5" "Control+Option+6")
-      (hk "moveColumnToWorkspace.6" "Control+Option+7")
-      (hk "moveColumnToWorkspace.7" "Control+Option+8")
-      (hk "moveColumnToWorkspace.8" "Control+Option+9")
-      (hk' "move.left")
-      (hk "move.down" "Control+Option+J")
-      (hk "move.up" "Control+Option+K")
-      (hk' "move.right")
-      (hk' "moveWindowDown")
-      (hk' "moveWindowUp")
-      (hk' "moveWindowDownOrToWorkspaceDown")
-      (hk' "moveWindowUpOrToWorkspaceUp")
-      (hk "consumeOrExpelWindowLeft" "Control+Command+A")
-      (hk "consumeOrExpelWindowRight" "Control+Command+D")
-      (hk "consumeWindowIntoColumn" "Control+Command+Comma")
-      (hk "expelWindowFromColumn" "Control+Command+Period")
-      (hk "focusMonitorNext" "Control+Command+Shift+L")
-      (hk "focusMonitorPrevious" "Control+Command+Shift+H")
-      (hk "focusMonitorLast" "Control+Command+Grave")
-      (hk "moveWorkspaceToMonitor.left" "Control+Option+Shift+U")
-      (hk "moveWorkspaceToMonitor.right" "Control+Option+Shift+I")
-      (hk' "moveWorkspaceToMonitor.up")
-      (hk' "moveWorkspaceToMonitor.down")
-      (hk "toggleFullscreen" "Control+Command+Shift+F")
-      (hk' "toggleNativeFullscreen")
-      (hk "moveColumn.left" "Control+Option+H")
-      (hk "moveColumn.right" "Control+Option+L")
-      (hk' "moveColumn.up")
-      (hk' "moveColumn.down")
-      (hk "moveColumnToFirst" "Control+Option+Home")
-      (hk "moveColumnToLast" "Control+Option+End")
-      (hk "toggleColumnTabbed" "Control+Command+G")
-      (hk "focusColumnFirst" "Control+Command+Home")
-      (hk "focusColumnLast" "Control+Command+End")
-      (hk' "focusColumn.0")
-      (hk' "focusColumn.1")
-      (hk' "focusColumn.2")
-      (hk' "focusColumn.3")
-      (hk' "focusColumn.4")
-      (hk' "focusColumn.5")
-      (hk' "focusColumn.6")
-      (hk' "focusColumn.7")
-      (hk' "focusColumn.8")
       (hk' "focusWindowInColumn.1")
       (hk' "focusWindowInColumn.2")
       (hk' "focusWindowInColumn.3")
@@ -360,6 +303,20 @@
       (hk' "focusWindowInColumn.7")
       (hk' "focusWindowInColumn.8")
       (hk' "focusWindowInColumn.9")
+
+      # --- move window / column (niri: Mod+Ctrl + hjkl) ---
+      (hk "moveColumn.left" (modCtrl "H"))
+      (hk "moveColumn.right" (modCtrl "L"))
+      (hk "move.down" (modCtrl "J"))
+      (hk "move.up" (modCtrl "K"))
+      (hk' "move.left")
+      (hk' "move.right")
+      (hk' "moveColumn.up")
+      (hk' "moveColumn.down")
+      (hk' "moveWindowDown")
+      (hk' "moveWindowUp")
+      (hk' "moveWindowDownOrToWorkspaceDown")
+      (hk' "moveWindowUpOrToWorkspaceUp")
       (hk' "moveColumnToIndex.1")
       (hk' "moveColumnToIndex.2")
       (hk' "moveColumnToIndex.3")
@@ -369,33 +326,52 @@
       (hk' "moveColumnToIndex.7")
       (hk' "moveColumnToIndex.8")
       (hk' "moveColumnToIndex.9")
-      (hk "cycleSizeForward" "Control+Command+Y")
-      (hk "cycleSizeBackward" "Control+Command+Shift+Y")
+
+      # --- column ends / consume / expel / tabs / center ---
+      (hk "focusColumnFirst" (mod "Home")) # niri Mod+Home
+      (hk "focusColumnLast" (mod "End")) # niri Mod+End
+      (hk "moveColumnToFirst" (modCtrl "Home")) # niri Mod+Ctrl+Home
+      (hk "moveColumnToLast" (modCtrl "End")) # niri Mod+Ctrl+End
+      (hk "consumeWindowIntoColumn" (mod "Comma")) # niri Mod+Comma
+      (hk "expelWindowFromColumn" (mod "Period")) # niri Mod+Period
+      (hk "toggleColumnTabbed" (mod "G")) # niri Mod+G
+      (hk "centerColumn" (mod "P")) # niri Mod+P
+      (hk "centerVisibleColumns" (modCtrl "P")) # niri Mod+Ctrl+P
+      (hk' "focusColumn.0")
+      (hk' "focusColumn.1")
+      (hk' "focusColumn.2")
+      (hk' "focusColumn.3")
+      (hk' "focusColumn.4")
+      (hk' "focusColumn.5")
+      (hk' "focusColumn.6")
+      (hk' "focusColumn.7")
+      (hk' "focusColumn.8")
+
+      # --- sizing (niri: Mod+Z / Mod+Shift+Z / Mod+Ctrl+Z / Mod+Ctrl+Shift+Z, Mod+F, Mod+-/+) ---
+      (hk "cycleSizeForward" (mod "Z")) # niri Mod+Z            switch-preset-column-width
+      (hk "cycleSizeBackward" (modShift "Z")) # niri Mod+Shift+Z      switch-preset-column-width-back
+      (hk "cycleWindowSecondarySpanForward" (modCtrlShift "Z")) # niri Mod+Ctrl+Shift+Z switch-preset-window-height
+      (hk "resetWindowSecondarySpan" (modCtrl "Z")) # niri Mod+Ctrl+Z       reset-window-height
+      (hk "toggleContainerFullPrimarySpan" (mod "F")) # niri Mod+F            maximize-column
+      (hk "toggleFullscreen" (modShift "F")) # niri Mod+Shift+F      fullscreen-window
+      (hk "expandContainerToAvailablePrimarySpan" (modCtrl "F")) # niri Mod+Ctrl+F
+      (hk "setContainerPrimarySpan.decrease10Percent" (mod "Minus")) # niri Mod+Minus
+      (hk "setContainerPrimarySpan.increase10Percent" (mod "Equal")) # niri Mod+Plus
+      (hk "setWindowSecondarySpan.decrease10Percent" (modShift "Minus")) # niri Mod+Shift+Minus
+      (hk "setWindowSecondarySpan.increase10Percent" (modShift "Equal")) # niri Mod+Shift+Plus
       (hk' "cycleWindowPrimarySpanForward")
       (hk' "cycleWindowPrimarySpanBackward")
-      (hk "cycleWindowSecondarySpanForward" "Control+Option+Shift+Y")
       (hk' "cycleWindowSecondarySpanBackward")
-      (hk "toggleContainerFullPrimarySpan" "Control+Command+F")
-      (hk "expandContainerToAvailablePrimarySpan" "Control+Option+F")
-      (hk "resetWindowSecondarySpan" "Control+Option+Y")
-      (hk "setContainerPrimarySpan.decrease10Percent" "Control+Command+Minus")
-      (hk "setContainerPrimarySpan.increase10Percent" "Control+Command+Equal")
       (hk' "setWindowPrimarySpan.decrease10Percent")
       (hk' "setWindowPrimarySpan.increase10Percent")
-      (hk "setWindowSecondarySpan.decrease10Percent" "Control+Option+Shift+Minus")
-      (hk "setWindowSecondarySpan.increase10Percent" "Control+Option+Shift+Equal")
-      (hk "balanceSizes" "Control+Command+Shift+B")
+      (hk' "toggleNativeFullscreen")
       (hk' "moveToRoot")
       (hk' "toggleSplit")
       (hk' "swapSplit")
-      (hk' "resizeGrow.left")
-      (hk' "resizeGrow.right")
-      (hk' "resizeGrow.up")
-      (hk' "resizeGrow.down")
-      (hk' "resizeShrink.left")
-      (hk' "resizeShrink.right")
-      (hk' "resizeShrink.up")
-      (hk' "resizeShrink.down")
+      (hk' "resizeGrow.horizontal")
+      (hk' "resizeGrow.vertical")
+      (hk' "resizeShrink.horizontal")
+      (hk' "resizeShrink.vertical")
       (hk' "resizeFocusedWindow.grow")
       (hk' "resizeFocusedWindow.shrink")
       (hk' "preselect.left")
@@ -403,18 +379,72 @@
       (hk' "preselect.up")
       (hk' "preselect.down")
       (hk' "preselectClear")
-      (hk "openCommandPalette" "Control+Command+P")
-      (hk "raiseAllFloatingWindows" "Control+Command+Shift+R")
+
+      # --- workspaces (niri: Mod+<n> / Mod+Ctrl+<n> / Mod+U/I / Mod+Ctrl+U/I) ---
+      (hk "switchWorkspace.0" (mod "1"))
+      (hk "switchWorkspace.1" (mod "2"))
+      (hk "switchWorkspace.2" (mod "3"))
+      (hk "switchWorkspace.3" (mod "4"))
+      (hk "switchWorkspace.4" (mod "5"))
+      (hk "switchWorkspace.5" (mod "6"))
+      (hk "switchWorkspace.6" (mod "7"))
+      (hk "switchWorkspace.7" (mod "8"))
+      (hk "switchWorkspace.8" (mod "9"))
+      (hk "moveColumnToWorkspace.0" (modCtrl "1"))
+      (hk "moveColumnToWorkspace.1" (modCtrl "2"))
+      (hk "moveColumnToWorkspace.2" (modCtrl "3"))
+      (hk "moveColumnToWorkspace.3" (modCtrl "4"))
+      (hk "moveColumnToWorkspace.4" (modCtrl "5"))
+      (hk "moveColumnToWorkspace.5" (modCtrl "6"))
+      (hk "moveColumnToWorkspace.6" (modCtrl "7"))
+      (hk "moveColumnToWorkspace.7" (modCtrl "8"))
+      (hk "moveColumnToWorkspace.8" (modCtrl "9"))
+      (hk "switchWorkspace.next" (mod "U")) # niri Mod+U          focus-workspace-down
+      (hk "switchWorkspace.previous" (mod "I")) # niri Mod+I          focus-workspace-up
+      (hk "moveColumnToWorkspaceDown" (modCtrl "U")) # niri Mod+Ctrl+U     move-column-to-workspace-down
+      (hk "moveColumnToWorkspaceUp" (modCtrl "I")) # niri Mod+Ctrl+I     move-column-to-workspace-up
+      # extras (no niri equivalent, kept on free chords): move focused window to workspace <n>
+      (hk "moveToWorkspace.0" (modCtrlShift "1"))
+      (hk "moveToWorkspace.1" (modCtrlShift "2"))
+      (hk "moveToWorkspace.2" (modCtrlShift "3"))
+      (hk "moveToWorkspace.3" (modCtrlShift "4"))
+      (hk "moveToWorkspace.4" (modCtrlShift "5"))
+      (hk "moveToWorkspace.5" (modCtrlShift "6"))
+      (hk "moveToWorkspace.6" (modCtrlShift "7"))
+      (hk "moveToWorkspace.7" (modCtrlShift "8"))
+      (hk "moveToWorkspace.8" (modCtrlShift "9"))
+      (hk "moveWindowToWorkspaceUp" (modCtrlShift "Up Arrow"))
+      (hk "moveWindowToWorkspaceDown" (modCtrlShift "Down Arrow"))
+      (hk "workspaceBackAndForth" (modCtrl "Tab"))
+
+      # --- monitors (niri: Mod+Shift + hjkl / Mod+Ctrl+Shift + hjkl, Mod+Ctrl+Shift+U/I) ---
+      (hk "focusMonitorPrevious" (modShift "H")) # niri Mod+Shift+H    focus-monitor-left
+      (hk "focusMonitorNext" (modShift "L")) # niri Mod+Shift+L    focus-monitor-right
+      (hk "moveWindowToMonitor.left" (modCtrlShift "H")) # niri Mod+Ctrl+Shift+H
+      (hk "moveWindowToMonitor.down" (modCtrlShift "J")) # niri Mod+Ctrl+Shift+J
+      (hk "moveWindowToMonitor.up" (modCtrlShift "K")) # niri Mod+Ctrl+Shift+K
+      (hk "moveWindowToMonitor.right" (modCtrlShift "L")) # niri Mod+Ctrl+Shift+L
+      (hk "moveWorkspaceToMonitor.left" (modCtrlShift "U")) # niri Mod+Ctrl+Shift+U
+      (hk "moveWorkspaceToMonitor.right" (modCtrlShift "I")) # niri Mod+Ctrl+Shift+I
+      (hk "focusMonitorLast" (mod "Grave"))
+      (hk' "moveWorkspaceToMonitor.up")
+      (hk' "moveWorkspaceToMonitor.down")
+
+      # --- window / misc ---
+      (hk "toggleFocusedWindowFloating" (mod "V")) # niri Mod+V
+      (hk "toggleOverview" (mod "O")) # niri Mod+O
+      (hk "focusPrevious" (mod "Tab"))
+      (hk "openCommandPalette" (modShift "P"))
+      (hk "raiseAllFloatingWindows" (modShift "R"))
+      (hk "balanceSizes" (modShift "B"))
+      (hk "toggleWorkspaceLayout" (modShift "T"))
+      (hk "openMenuAnywhere" (modCtrl "M"))
       (hk' "rescueOffscreenWindows")
-      (hk "toggleFocusedWindowFloating" "Control+Command+V")
       (hk' "assignFocusedWindowToScratchpad")
       (hk' "toggleScratchpadWindow")
-      (hk "openMenuAnywhere" "Control+Option+M")
       (hk' "toggleWorkspaceBarVisibility")
       (hk' "toggleHiddenBarPanel")
       (hk' "toggleQuakeTerminal")
-      (hk "toggleWorkspaceLayout" "Control+Command+Shift+T")
-      (hk "toggleOverview" "Control+Command+O")
       (hk' "toggleSystemStats")
     ];
 
@@ -434,11 +464,25 @@
         })
     ];
   };
+
+  settingsFile = tomlFormat.generate "omniwm-settings.toml" settings;
 in {
   options.myModules.home-manager.programs.omniwm.enable =
     lib.mkEnableOption "enable omniwm configuration";
 
   config = lib.mkIf config.myModules.home-manager.programs.omniwm.enable {
-    xdg.configFile."omniwm/settings.toml".source = tomlFormat.generate "omniwm-settings.toml" settings;
+    # OmniWM owns settings.toml at runtime: it rewrites the file on schema
+    # migrations and GUI edits, and when it *can't* write (e.g. a read-only
+    # /nix/store symlink) a single unknown/missing key makes it move the whole
+    # file to settings.toml.corrupt and fall back to defaults. So instead of
+    # `xdg.configFile` (a store symlink) we drop a writable copy into place on
+    # every activation. This stays declarative (re-asserted each switch) while
+    # letting OmniWM self-heal a future schema bump instead of corrupting.
+    home.activation.omniwmSettings = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      _omniwm_dir="${config.xdg.configHome}/omniwm"
+      run mkdir -p "$_omniwm_dir"
+      run rm -f "$_omniwm_dir/settings.toml.corrupt" "$_omniwm_dir/settings.toml.corrupt.1"
+      run install $VERBOSE_ARG -m 0644 ${settingsFile} "$_omniwm_dir/settings.toml"
+    '';
   };
 }

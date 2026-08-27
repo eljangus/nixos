@@ -14,10 +14,8 @@
     "~/python-learning"
   ];
 
-  # Dashboard "Open project" flow: pick one of the projects above, chdir into
-  # it, point neo-tree's filesystem root at it, then drop straight into a
-  # telescope file picker scoped to that repo. Swap `find_files` for
-  # `live_grep` below if you'd rather search contents than filenames.
+  # Dashboard "Open project" flow: pick one of the projects above and chdir
+  # into it. Add more entries to `projectDirs` to grow the list.
   openProject = let
     luaProjectList = lib.concatMapStringsSep "\n    " (dir:
       "{ label = ${builtins.toJSON dir}, "
@@ -38,27 +36,6 @@
           return
         end
         vim.api.nvim_set_current_dir(choice.path)
-        require("neo-tree.command").execute({
-          action = "show",
-          source = "filesystem",
-          dir = choice.path,
-        })
-        require("telescope.builtin").find_files({
-          cwd = choice.path,
-          follow = true,
-          hidden = true,
-          no_ignore = true,
-          find_command = {
-            "${pkgs.fd}/bin/fd",
-            "--type=file",
-            "--hidden",
-            "--no-ignore",
-            "--exclude",
-            ".git",
-            "--exclude",
-            "/assets",
-          },
-        })
       end)
     end
   '';
