@@ -25,16 +25,17 @@
   hk = id: binding: {inherit id binding;};
   hk' = id: hk id "Unassigned";
 
-  # niri modifier scheme translated to macOS chords. The Option key is the mod
-  # key (matches OmniWM's own defaults), so niri's Mod maps straight to Option:
-  #   niri  Mod            -> Option
-  #   niri  Mod+Ctrl       -> Control+Option
-  #   niri  Mod+Shift      -> Option+Shift
-  #   niri  Mod+Ctrl+Shift -> Control+Option+Shift
-  mod = k: "Option+${k}";
-  modCtrl = k: "Control+Option+${k}";
-  modShift = k: "Option+Shift+${k}";
-  modCtrlShift = k: "Control+Option+Shift+${k}";
+  # niri modifier scheme translated to macOS chords. Control+Command is the mod
+  # key (acts as niri's Super), so niri's Mod maps to Control+Command. niri's
+  # Ctrl modifier then maps to Option (Control is already part of the mod chord):
+  #   niri  Mod            -> Control+Command
+  #   niri  Mod+Ctrl       -> Control+Command+Option
+  #   niri  Mod+Shift      -> Control+Command+Shift
+  #   niri  Mod+Ctrl+Shift -> Control+Command+Option+Shift
+  mod = k: "Control+Command+${k}";
+  modCtrl = k: "Control+Command+Option+${k}";
+  modShift = k: "Control+Command+Shift+${k}";
+  modCtrlShift = k: "Control+Command+Option+Shift+${k}";
 
   ws = name: id: {
     inherit name id;
@@ -109,10 +110,10 @@
     gestures = {
       fingerCount = 3;
       invertDirection = true;
-      mouseMoveModifierKey = "option";
-      mouseResizeModifierKey = "option";
+      mouseMoveModifierKey = "controlCommand";
+      mouseResizeModifierKey = "controlCommand";
       scrollEnabled = true;
-      scrollModifierKey = "option";
+      scrollModifierKey = "controlShift";
       scrollSensitivity = 5.0;
       trackpadScrollStyle = "snap";
       workspaceSwipeAxis = "vertical";
@@ -186,7 +187,7 @@
       position = "overlappingMenuBar";
       reserveLayoutSpace = false;
       revealHoldMilliseconds = 200.0;
-      revealModifier = "option";
+      revealModifier = "controlCommand";
       showFloatingWindows = false;
       showLabels = true;
       systemStatsButton = false;
