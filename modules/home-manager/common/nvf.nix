@@ -11,6 +11,7 @@
   isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
   projectDirs = [
     "~/nixos"
+    "~/todopy"
     "~/python-learning"
   ];
 
