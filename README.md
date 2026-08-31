@@ -1,3 +1,5 @@
+# > [!WARNING] This repo is deprecated! I rewrote my config and am now on codeberg [here](https://codeberg.org/eljangus/nixos).
+
 # ❄️ nixos
 
 **My personal NixOS/Nix-Darwin setup with support for multiple hosts.**
